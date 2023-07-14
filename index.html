@@ -1,144 +1,447 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Форма приема заявки</title>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Proxima Nova:wght@400;600&display=swap"
+    />
+  </head>
   <style>
-    :root {
-      --bg-color: #F4F4F7;
-      --text-color: #000000;
-      --hint-color: #808191;
-      --link-color: #0078FF;
-      --button-color: #0078FF;
-      --button-text-color: #FFFFFF;
-    }
-
     body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: Arial, sans-serif;
-    }
+  margin: 0;
+  line-height: normal;
+}
 
-    .form-container {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #FFFFFF;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+:root {
+  /* fonts */
+  --font-proxima-nova: "Proxima Nova";
 
-    .form-container h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
+  /* font sizes */
+  --font-size-sm: 14px;
 
-    .form-group {
-      margin-bottom: 20px;
-    }
+  /* Colors */
+  --grey-600: #768898;
+  --color-white: #fff;
+  --grey-300: #d8dde3;
+  --grey-700: #4c5c6b;
+  --color-chocolate: #d95117;
+  --grey-800: #262e36;
+  --grey-100: #f6f7f9;
+  --grey-200: #eef0f1;
 
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
+  /* Gaps */
+  --gap-base: 16px;
+  --gap-xs: 12px;
+  --gap-11xs: 2px;
 
-    .form-group select,
-    .form-group input[type="text"],
-    .form-group textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #CCCCCC;
-      border-radius: 4px;
-      background-color: #FFFFFF;
-      color: var(--text-color);
-    }
+  /* Paddings */
+  --padding-xs: 12px;
+  --padding-base: 16px;
+  --padding-5xs: 8px;
 
-    .form-group textarea {
-      height: 120px;
-      resize: vertical;
-    }
-
-    .form-group input[type="submit"] {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: var(--button-color);
-      color: var(--button-text-color);
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .form-container {
-        max-width: 100%;
-      }
-    }
+  /* border radiuses */
+  --br-5xs: 8px;
+}
+.div,
+.selected-field {
+  position: relative;
+  font-weight: 600;
+}
+.selected-field {
+  letter-spacing: -0.02em;
+  line-height: 100%;
+}
+.div {
+  color: var(--color-chocolate);
+}
+.selected-field-parent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-11xs);
+}
+.title {
+  position: relative;
+  font-weight: 600;
+}
+.vector-icon {
+  position: relative;
+  width: 6.86px;
+  height: 6.86px;
+}
+.title-parent {
+  border-radius: 4px;
+  background-color: var(--grey-100);
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-5xs) var(--padding-xs);
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.vuesaxlineararrow-down-icon {
+  position: relative;
+  width: 10px;
+  height: 10px;
+}
+.vuesaxlineararrow-down-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 0 var(--padding-5xs);
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frame-group {
+  border-radius: var(--br-5xs);
+  background-color: var(--color-white);
+  box-shadow: 0 0 4px rgba(23, 25, 28, 0.05);
+  border: 1px solid var(--grey-300);
+  box-sizing: border-box;
+  width: 511px;
+  display: flex;
+  flex-direction: row;
+  padding: 4px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--grey-700);
+}
+.frame-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+}
+.enter-field-description {
+  position: relative;
+  line-height: 100%;
+  color: var(--grey-600);
+}
+.property-1selected-field {
+  position: absolute;
+  top: 162px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+.div1 {
+  position: relative;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  color: var(--color-chocolate);
+}
+.vuesaxlinearcalendar-icon {
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+.dmyyyy-hmm-m-parent {
+  border-radius: var(--br-5xs);
+  background-color: var(--color-white);
+  box-shadow: 0 0 4px rgba(23, 25, 28, 0.05);
+  border: 1px solid var(--grey-300);
+  box-sizing: border-box;
+  width: 511px;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-xs) var(--padding-base);
+  align-items: center;
+  justify-content: space-between;
+  color: var(--grey-700);
+}
+.auto-generate,
+.enter-field-description1 {
+  position: relative;
+  line-height: 100%;
+}
+.auto-generate {
+  font-weight: 600;
+  color: var(--grey-700);
+}
+.enter-field-description-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: var(--grey-600);
+}
+.property-1date-field {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+.tablercurrency-naira-icon {
+  position: relative;
+  width: 14.4px;
+  height: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.div3 {
+  position: relative;
+  line-height: 120%;
+  font-weight: 600;
+}
+.frame-child {
+  background-color: var(--color-white);
+}
+.frame-child,
+.frame-item {
+  position: relative;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+}
+.ellipse-parent,
+.property-1price-field {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.ellipse-parent {
+  border-radius: 20px;
+  background-color: var(--grey-200);
+  box-shadow: 0 0 4px rgba(23, 25, 28, 0.05);
+  overflow: hidden;
+  flex-direction: row;
+  padding: 2px;
+  gap: var(--gap-11xs);
+}
+.property-1price-field {
+  position: absolute;
+  top: 862px;
+  left: 21px;
+  flex-direction: column;
+  gap: var(--gap-xs);
+}
+.vuesaxlineararrow-down-icon2 {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  margin-top: -2px;
+}
+.property-1quantity-field,
+.vuesaxlineararrow-down-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.property-1quantity-field {
+  position: absolute;
+  top: 704px;
+  left: 20px;
+  gap: var(--gap-base);
+}
+.div6,
+.div7 {
+  position: relative;
+}
+.div6 {
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  color: var(--color-chocolate);
+  display: none;
+}
+.div7 {
+  line-height: 100%;
+  color: var(--grey-700);
+}
+.frame-parent1 {
+  width: 509px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.a-very-long {
+  flex: 1;
+  position: relative;
+  line-height: 175%;
+  font-weight: 600;
+}
+.a-very-long-line-of-text-which-wrapper {
+  border-radius: var(--br-5xs);
+  background-color: var(--color-white);
+  box-shadow: 0 0 4px rgba(23, 25, 28, 0.05);
+  border: 1px solid var(--grey-300);
+  box-sizing: border-box;
+  width: 511px;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-xs) var(--padding-base);
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--grey-700);
+}
+.property-1char-field,
+.property-1textarea-field {
+  position: absolute;
+  top: 534px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+}
+.property-1char-field {
+  top: 348px;
+  gap: var(--gap-base);
+}
+.component-2 {
+  position: relative;
+  border-radius: 5px;
+  border: 1px dashed #9747ff;
+  box-sizing: border-box;
+  width: 100%;
+  height: 982px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--grey-800);
+  font-family: var(--font-proxima-nova);
+}
+    
   </style>
-</head>
-<body>
-  <div class="form-container">
-    <h2>Форма приема заявки</h2>
-    <form action="#" method="POST">
-      <div class="form-group">
-        <label for="employment-type">Тип работы:</label>
-        <select id="employment-type" name="employment-type">
-          <option value="permanent">Постоянная работа</option>
-          <option value="temporary">Временная работа</option>
-        </select>
+  <body>
+    <div class="component-2">
+      <div class="property-1selected-field">
+        <div class="frame-parent">
+          <div class="selected-field-parent">
+            <div class="selected-field">Selected Field</div>
+            <div class="div">*</div>
+          </div>
+          <div class="frame-group">
+            <div class="title-parent">
+              <div class="title">Title</div>
+              <img class="vector-icon" alt="" src="./public/vector.svg" />
+            </div>
+            <div class="vuesaxlineararrow-down-wrapper">
+              <img
+                class="vuesaxlineararrow-down-icon"
+                alt=""
+                src="./public/vuesaxlineararrowdown.svg"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="enter-field-description">Enter field description</div>
       </div>
-      <div class="form-group">
-        <label>Категории:</label>
-        <select id="categories" name="categories" multiple>
-          <option value="cleaning">Уборка</option>
-          <option value="assistant">Подсобник</option>
-          <option value="other">Другое</option>
-        </select>
+      <div class="property-1date-field">
+        <div class="frame-parent">
+          <div class="selected-field-parent">
+            <div class="selected-field">Date Field</div>
+            <div class="div1">*</div>
+          </div>
+          <div class="dmyyyy-hmm-m-parent">
+            <div class="title">D/M/YYYY H:MM M</div>
+            <img
+              class="vuesaxlinearcalendar-icon"
+              alt=""
+              src="./public/vuesaxlinearcalendar.svg"
+            />
+          </div>
+        </div>
+        <div class="enter-field-description-parent">
+          <div class="enter-field-description1">Enter field description</div>
+          <div class="auto-generate">Auto-generate</div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="first-name">Имя:</label>
-        <input type="text" id="first-name" name="first-name" required>
-      </div>
-      <div class="form-group">
-        <label for="last-name">Фамилия:</label>
-        <input type="text" id="last-name" name="last-name" required>
-      </div>
-      <div class="form-group">
-        <label for="resume">Резюме:</label>
-        <textarea id="resume" name="resume" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="salary">Желаемая зарплата:</label>
-        <input type="number" id="salary" name="salary" required>
-      </div>
-      <div class="form-group">
-        <label for="phone-number">Номер телефона:</label>
-        <input type="tel" id="phone-number" name="phone-number" required>
-      </div>
-      <div class="form-group">
-        <input type="submit" value="Отправить">
-      </div>
-    </form>
-  </div>
+      <div class="property-1price-field">
+        <div class="selected-field-parent">
+          <div class="selected-field">Price Field</div>
+          <div class="div1">*</div>
+        </div>
+        <div class="dmyyyy-hmm-m-parent">
+          <img
+            class="tablercurrency-naira-icon"
+            alt=""
+            src="./public/tablercurrencynaira.svg"
+          />
 
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script>
-    function setTheme(themeParams) {
-      document.documentElement.style.setProperty('--bg-color', themeParams.bg_color);
-      document.documentElement.style.setProperty('--text-color', themeParams.text_color);
-      document.documentElement.style.setProperty('--hint-color', themeParams.hint_color);
-      document.documentElement.style.setProperty('--link-color', themeParams.link_color);
-      document.documentElement.style.setProperty('--button-color', themeParams.button_color);
-      document.documentElement.style.setProperty('--button-text-color', themeParams.button_text_color);
-    }
+          <div class="div3">0.00</div>
+        </div>
+        <div class="enter-field-description-parent">
+          <div class="enter-field-description1">Enter field description</div>
+          <div class="ellipse-parent">
+            <div class="frame-child"></div>
+            <div class="frame-item"></div>
+          </div>
+        </div>
+      </div>
+      <div class="property-1quantity-field">
+        <div class="frame-parent">
+          <div class="selected-field-parent">
+            <div class="selected-field">Quantity Field</div>
+            <div class="div">*</div>
+          </div>
+          <div class="dmyyyy-hmm-m-parent">
+            <div class="title">0</div>
+            <div class="vuesaxlineararrow-down-parent">
+              <img
+                class="vuesaxlineararrow-down-icon"
+                alt=""
+                src="./public/vuesaxlineararrowdown1.svg"
+              />
 
-    if (typeof tg !== 'undefined' && tg.setColorScheme) {
-      tg.setColorScheme("auto");
-      tg.addListener('theme', function(event) {
-        setTheme(event.theme.theme_params);
-      });
-    }
-  </script>
-</body>
+              <img
+                class="vuesaxlineararrow-down-icon2"
+                alt=""
+                src="./public/vuesaxlineararrowdown2.svg"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="enter-field-description">Enter field description</div>
+      </div>
+      <div class="property-1textarea-field">
+        <div class="frame-parent1">
+          <div class="selected-field-parent">
+            <div class="selected-field">TextArea Field</div>
+            <div class="div6">*</div>
+          </div>
+          <div class="div7">75</div>
+        </div>
+        <div class="a-very-long-line-of-text-which-wrapper">
+          <div class="a-very-long">
+            A very long line of text which is expected to span more than two to
+            three lines so it breaks as the text increases.
+          </div>
+        </div>
+        <div class="enter-field-description">Enter field description</div>
+      </div>
+      <div class="property-1char-field">
+        <div class="frame-parent">
+          <div class="frame-parent1">
+            <div class="selected-field-parent">
+              <div class="selected-field">Char field</div>
+              <div class="div1">*</div>
+            </div>
+            <div class="div7">31</div>
+          </div>
+          <div class="a-very-long-line-of-text-which-wrapper">
+            <div class="title">Title</div>
+          </div>
+        </div>
+        <div class="enter-field-description">Enter field description</div>
+      </div>
+    </div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  </body>
 </html>
