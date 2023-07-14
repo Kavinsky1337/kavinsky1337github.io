@@ -66,7 +66,7 @@
     <form id="form">
         <input type="text" placeholder="Имя" id="user_firstname">
         <input type="text" placeholder="Фамилия" id="user_lastname">
-        <input type="tel" placeholder="Номер" id="user_phone">
+        <input type="text" placeholder="Номер" id="user_phone">
         <button id="add_ad">Добавить объявление</button>
     </form>
 
@@ -81,20 +81,20 @@
             // document.getElementById("user_lastname").value = tg.initDataUnsafe.user.lastname;
             // tg.close();
 
-            // let user_id = tg.initDataUnsafe.user.id;
-            // let tgname = tg.initDataUnsafe.user.firstname;
-            // let tglastname = tg.initDataUnsafe.user.lastname;
-            let name = document.getElementById("user_firstname").value;
-            let lastname = document.getElementById("user_lastname").value;
-            let phone = document.getElementById("user_phone").value;
+            let user_id = tg.initDataUnsafe.user.id;
+            let tgname = tg.initDataUnsafe.user.firstname;
+            let tglastname = tg.initDataUnsafe.user.lastname;
+            // let name = document.getElementById("user_firstname").value;
+            // let lastname = document.getElementById("user_lastname").value;
+            // let phone = document.getElementById("user_phone").value;
 
             let data = {
-                // user_id: user_id,
-                // tgname: tgname,
-                // tglastname: tglastname,
-                name: name,
-                lastname: lastname,
-                phone: phone
+                user_id: user_id,
+                tgname: tgname,
+                tglastname: tglastname,
+                // name: name,
+                // lastname: lastname,
+                // phone: phone
             };
             tg.sendData(JSON.stringify(data));
 
