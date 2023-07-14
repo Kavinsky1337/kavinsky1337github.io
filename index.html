@@ -63,44 +63,38 @@
   </style>
 </head>
 <body>
+    <div id="main">
+        <h1>Оставьте объявление</h1>
+        <img src="https://cdn-icons-png.flaticon.com/512/1839/1839365.png">
+        <p>Оставьте заявку</p>
+        <button id="buy">Перейти</button>
+    </div>
     <form id="form">
-        <input type="text" placeholder="Имя" id="user_firstname">
+        <input type="text" placeholder="Имя" id="user_name">
         <input type="text" placeholder="Фамилия" id="user_lastname">
         <input type="text" placeholder="Номер" id="user_phone">
         <button id="add_ad">Добавить объявление</button>
     </form>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
     <script>
         let tg = window.Telegram.WebApp;
-        let add_ad = document.getElementById("add_ad");
-        tg.expend();
+        let buy = document.getElementById("buy")
+        let add_ad = document.getElementById("add_ad")
 
-        add_ad.addEventListener("click", () => {
-            // document.getElementById("user_firstname").value = tg.initDataUnsafe.user.firstname;
-            // document.getElementById("user_lastname").value = tg.initDataUnsafe.user.lastname;
-            // tg.close();
-
-            let user_id = tg.initDataUnsafe.user.id;
-            let tgname = tg.initDataUnsafe.user.firstname;
-            let tglastname = tg.initDataUnsafe.user.lastname;
-            // let name = document.getElementById("user_firstname").value;
-            // let lastname = document.getElementById("user_lastname").value;
-            // let phone = document.getElementById("user_phone").value;
-
-            let data = {
-                user_id: user_id,
-                tgname: tgname,
-                tglastname: tglastname,
-                // name: name,
-                // lastname: lastname,
-                // phone: phone
-            };
-            tg.sendData(JSON.stringify(data));
-
-            tg.close();
+        buy.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("form").style.display = "block";
+            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
+            document.getElementById("user_lastname").value = tg.initDataUnsafe.user.last_name;
+            document.getElementById("user_phone").value = tg.initDataUnsafe.user.id;
         });
 
+        add_ad.addEventListener("click", () => {
+            tg.close();
+        });
     </script>
+
 </body>
 </html>
