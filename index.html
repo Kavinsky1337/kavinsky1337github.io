@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,21 +77,21 @@
         tg.expend();
 
         add_ad.addEventListener("click", () => {
-            document.getElementById("user_firstname").value = tg.initDataUnsafe.user.firstname;
-            document.getElementById("user_lastname").value = tg.initDataUnsafe.user.lastname;
+            // document.getElementById("user_firstname").value = tg.initDataUnsafe.user.firstname;
+            // document.getElementById("user_lastname").value = tg.initDataUnsafe.user.lastname;
             // tg.close();
 
-            let user_id = tg.initDataUnsafe.user.id;
-            let tgname = tg.initDataUnsafe.user.firstname;
-            let tglastname = tg.initDataUnsafe.user.lastname;
+            // let user_id = tg.initDataUnsafe.user.id;
+            // let tgname = tg.initDataUnsafe.user.firstname;
+            // let tglastname = tg.initDataUnsafe.user.lastname;
             let name = document.getElementById("user_firstname").value;
             let lastname = document.getElementById("user_lastname").value;
             let phone = document.getElementById("user_phone").value;
 
             let data = {
-                user_id: user_id,
-                tgname: tgname,
-                tglastname: tglastname,
+                // user_id: user_id,
+                // tgname: tgname,
+                // tglastname: tglastname,
                 name: name,
                 lastname: lastname,
                 phone: phone
