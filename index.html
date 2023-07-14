@@ -96,12 +96,16 @@
             let user_name = document.getElementById("user_name").value;
             let user_lastname = document.getElementById("user_lastname").value;
             let user_id = document.getElementById("user_phone").value;
+            
 
             let data = {
                 username: user_name,
                 user_lastname: user_lastname,
                 user_id: user_id
             }
+            console.log(user_name);
+            console.log(user_lastname);
+            console.log(user_lastname);
             tg.sendData(JSON.stringify(data));
 
             tg.close();
