@@ -73,7 +73,7 @@
         <input type="text" placeholder="Имя" id="user_name">
         <input type="text" placeholder="Фамилия" id="user_lastname">
         <input type="text" placeholder="Номер" id="user_phone">
-        <button id="add">Добавить объявление</button>
+        <button id="add_ad">Добавить объявление</button>
     </form>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -81,18 +81,18 @@
     <script>
         let tg = window.Telegram.WebApp;
         let buy = document.getElementById("buy")
-        let add = document.getElementById("add")
+        let add_ad = document.getElementById("add_ad")
         tg.expand();
 
         buy.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
-            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
-            document.getElementById("user_lastname").value = tg.initDataUnsafe.user.last_name;
-            document.getElementById("user_phone").value = tg.initDataUnsafe.user.id;
+            // document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
+            // document.getElementById("user_lastname").value = tg.initDataUnsafe.user.last_name;
+            // document.getElementById("user_phone").value = tg.initDataUnsafe.user.id;
         });
 
-        add.addEventListener("click", () => {
+        add_ad.addEventListener("click", () => {
             let user_name = document.getElementById("user_name").value;
             let user_lastname = document.getElementById("user_lastname").value;
             let user_phone = document.getElementById("user_phone").value;
@@ -111,33 +111,23 @@
             // console.log(user_lastname);
             // tg.sendData(JSON.stringify(data));
 
-            const url = 'http://80.78.253.113:8080/register';
-            const data = {
-            user_name: user_name,
-            user_lastname: user_lastname,
-            user_phone: user_phone,
-            us_id: us_id,
-            us_name: us_name,
-            us_last: us_last
-            };
+            const url = 'http://80.78.253.113:8080/register?user_name=user_name&user_lastname=user_lastname&user_phone=user_phone&us_id=us_id&us_name=us_name&us_last=us_last';
 
-            fetch(url, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(jsonResponse => {
-                // Обработка ответа сервера в формате JSON
-                console.log(jsonResponse);
-            })
-            .catch(error => {
-                // Обработка ошибки
-                console.error('Ошибка:', error);
-            });
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', url);
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                console.log(response);
+                } else {
+                console.error('Ошибка:', xhr.status);
+                }
+            }
+            };
+            xhr.send();
 
             tg.close();
         });
