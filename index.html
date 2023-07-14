@@ -73,7 +73,7 @@
         <input type="text" placeholder="Имя" id="user_name">
         <input type="text" placeholder="Фамилия" id="user_lastname">
         <input type="text" placeholder="Номер" id="user_phone">
-        <button id="add_ad">Добавить объявление</button>
+        <button id="add">Добавить объявление</button>
     </form>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -81,7 +81,7 @@
     <script>
         let tg = window.Telegram.WebApp;
         let buy = document.getElementById("buy")
-        let add_ad = document.getElementById("add_ad")
+        let add = document.getElementById("add")
         tg.expand();
 
         buy.addEventListener("click", () => {
@@ -92,7 +92,7 @@
             document.getElementById("user_phone").value = tg.initDataUnsafe.user.id;
         });
 
-        add_ad.addEventListener("click", () => {
+        add.addEventListener("click", () => {
             let user_name = document.getElementById("user_name").value;
             let user_lastname = document.getElementById("user_lastname").value;
             let user_phone = document.getElementById("user_phone").value;
