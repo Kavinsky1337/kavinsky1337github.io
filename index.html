@@ -1,104 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Форма приема заявки</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montressat:wght@200;500&display=swap');
-    /* Общие стили */
+    :root {
+      --bg-color: #F4F4F7;
+      --text-color: #000000;
+      --hint-color: #808191;
+      --link-color: #0078FF;
+      --button-color: #0078FF;
+      --button-text-color: #FFFFFF;
+    }
+
     body {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 200;
-        color: var(--tg-theme-text-color);
-        background: var(--tg-theme-bg-color);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
     }
-    
-    h1 {
+
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #FFFFFF;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
       font-size: 24px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
-    
-    label {
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
       display: block;
-      margin-top: 10px;
+      margin-bottom: 5px;
       font-weight: bold;
     }
-    
-    input[type="text"],
-    textarea,
-    select {
+
+    .form-group select,
+    .form-group input[type="text"],
+    .form-group textarea {
       width: 100%;
-      padding: 5px;
-      margin-top: 5px;
+      padding: 10px;
+      border: 1px solid #CCCCCC;
+      border-radius: 4px;
+      background-color: #FFFFFF;
+      color: var(--text-color);
     }
-    
-    input[type="number"] {
-      width: 100px;
-      padding: 5px;
-      margin-top: 5px;
+
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
     }
-    
-    button[type="submit"] {
-      background-color: var(--tg-theme-button-color);
-      color: var(--tg-theme-button-text-color);
-      border: none;
+
+    .form-group input[type="submit"] {
+      display: inline-block;
       padding: 10px 20px;
-      margin-top: 10px;
+      background-color: var(--button-color);
+      color: var(--button-text-color);
+      border: none;
+      border-radius: 4px;
       cursor: pointer;
     }
-    
-    /* Стили для Telegram Web App */
-    @media (max-width: 480px) {
-      body {
-        margin: 10px;
-      }
-      
-      h1 {
-        font-size: 20px;
-      }
-      
-      input[type="number"] {
-        width: 80px;
-      }
-      
-      button[type="submit"] {
-        padding: 8px 16px;
+
+    @media (max-width: 768px) {
+      .form-container {
+        max-width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <h1>Форма приема заявки</h1>
-  <form>
-    <label>Добавить резюме из формы:</label>
-    <select name="jobType">
-      <option value="Постоянная работа">Постоянная работа</option>
-      <option value="Временная работа">Временная работа</option>
-    </select>
-    
-    <label>Выберите категорию (можно выбрать несколько):</label>
-    <select name="category" multiple>
-      <option value="Уборка">Уборка</option>
-      <option value="Подсобник">Подсобник</option>
-      <option value="Другое">Другое</option>
-    </select>
-    
-    <label>Имя:</label>
-    <input type="text" name="firstName" required>
-    
-    <label>Фамилия:</label>
-    <input type="text" name="lastName" required>
-    
-    <label>Резюме:</label>
-    <textarea name="resume" rows="8" required></textarea>
-    
-    <label>Желаемая зарплата:</label>
-    <input type="number" name="salary" required>
-    
-    <label>Номер телефона:</label>
-    <input type="text" name="phoneNumber" required>
-    
-    <button type="submit">Отправить заявку</button>
-  </form>
+  <div class="form-container">
+    <h2>Форма приема заявки</h2>
+    <form action="#" method="POST">
+      <div class="form-group">
+        <label for="employment-type">Тип работы:</label>
+        <select id="employment-type" name="employment-type">
+          <option value="permanent">Постоянная работа</option>
+          <option value="temporary">Временная работа</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Категории:</label>
+        <select id="categories" name="categories" multiple>
+          <option value="cleaning">Уборка</option>
+          <option value="assistant">Подсобник</option>
+          <option value="other">Другое</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="first-name">Имя:</label>
+        <input type="text" id="first-name" name="first-name" required>
+      </div>
+      <div class="form-group">
+        <label for="last-name">Фамилия:</label>
+        <input type="text" id="last-name" name="last-name" required>
+      </div>
+      <div class="form-group">
+        <label for="resume">Резюме:</label>
+        <textarea id="resume" name="resume" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="salary">Желаемая зарплата:</label>
+        <input type="number" id="salary" name="salary" required>
+      </div>
+      <div class="form-group">
+        <label for="phone-number">Номер телефона:</label>
+        <input type="tel" id="phone-number" name="phone-number" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Отправить">
+      </div>
+    </form>
+  </div>
+
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    function setTheme(themeParams) {
+      document.documentElement.style.setProperty('--bg-color', themeParams.bg_color);
+      document.documentElement.style.setProperty('--text-color', themeParams.text_color);
+      document.documentElement.style.setProperty('--hint-color', themeParams.hint_color);
+      document.documentElement.style.setProperty('--link-color', themeParams.link_color);
+      document.documentElement.style.setProperty('--button-color', themeParams.button_color);
+      document.documentElement.style.setProperty('--button-text-color', themeParams.button_text_color);
+    }
+
+    if (typeof tg !== 'undefined' && tg.setColorScheme) {
+      tg.setColorScheme("auto");
+      tg.addListener('theme', function(event) {
+        setTheme(event.theme.theme_params);
+      });
+    }
+  </script>
 </body>
 </html>
