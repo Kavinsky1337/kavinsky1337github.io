@@ -77,16 +77,16 @@
         tg.expend();
 
         add_ad.addEventListener("click", () => {
-            // document.getElementById("user_firstname").value = tg.initDataUnsafe.user.firstname;
-            // document.getElementById("user_lastname").value = tg.initDataUnsafe.user.lastname;
+            document.getElementById("user_firstname").value = tg.initDataUnsafe.user.firstname;
+            document.getElementById("user_lastname").value = tg.initDataUnsafe.user.lastname;
             // tg.close();
 
             let user_id = tg.initDataUnsafe.user.id;
             let tgname = tg.initDataUnsafe.user.firstname;
             let tglastname = tg.initDataUnsafe.user.lastname;
-            let name = document.getElementById("user_firstname");
-            let lastname = document.getElementById("user_lastname");
-            let phone = document.getElementById("user_phone");
+            let name = document.getElementById("user_firstname").value;
+            let lastname = document.getElementById("user_lastname").value;
+            let phone = document.getElementById("user_phone").value;
 
             let data = {
                 user_id: user_id,
