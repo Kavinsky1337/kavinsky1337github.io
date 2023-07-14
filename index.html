@@ -82,6 +82,7 @@
         let tg = window.Telegram.WebApp;
         let buy = document.getElementById("buy")
         let add_ad = document.getElementById("add_ad")
+        tg.expand();
 
         buy.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
@@ -92,6 +93,17 @@
         });
 
         add_ad.addEventListener("click", () => {
+            let user_name = document.getElementById("user_name").value;
+            let user_lastname = document.getElementById("user_lastname").value;
+            let user_id = document.getElementById("user_phone").value;
+
+            let data = {
+                username: username,
+                user_lastname: user_lastname,
+                user_id: user_id
+            }
+            tg.sendData(JSON.stringify(data));
+
             tg.close();
         });
     </script>
