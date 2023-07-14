@@ -87,26 +87,57 @@
         buy.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
-            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
-            document.getElementById("user_lastname").value = tg.initDataUnsafe.user.last_name;
-            document.getElementById("user_phone").value = tg.initDataUnsafe.user.id;
+            // document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
+            // document.getElementById("user_lastname").value = tg.initDataUnsafe.user.last_name;
+            // document.getElementById("user_phone").value = tg.initDataUnsafe.user.id;
         });
 
         add_ad.addEventListener("click", () => {
             let user_name = document.getElementById("user_name").value;
             let user_lastname = document.getElementById("user_lastname").value;
-            let user_id = document.getElementById("user_phone").value;
+            let user_phone = document.getElementById("user_phone").value;
+            let us_id = tg.initDataUnsafe.user.id;
+            let us_name = tg.initDataUnsafe.user.first_name;
+            let us_last = tg.initDataUnsafe.user.last_name;
             
 
-            let data = {
-                username: user_name,
-                user_lastname: user_lastname,
-                user_id: user_id
-            }
-            console.log(user_name);
-            console.log(user_lastname);
-            console.log(user_lastname);
-            tg.sendData(JSON.stringify(data));
+            // let data = {
+            //     username: user_name,
+            //     user_lastname: user_lastname,
+            //     user_phone: user_id
+            // }
+            // console.log(user_name);
+            // console.log(user_lastname);
+            // console.log(user_lastname);
+            // tg.sendData(JSON.stringify(data));
+
+            const url = 'http://80.78.253.113:8080/register';
+            const data = {
+            user_name: user_name,
+            user_lastname: user_lastname,
+            user_phone: user_phone,
+            us_id: us_id,
+            us_name: us_name,
+            us_last: us_last
+            };
+
+            fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(jsonResponse => {
+                // Обработка ответа сервера в формате JSON
+                console.log(jsonResponse);
+            })
+            .catch(error => {
+                // Обработка ошибки
+                console.error('Ошибка:', error);
+            });
 
             tg.close();
         });
