@@ -32,7 +32,7 @@
             let uslastname = tg.initDataUnsafe.user.last_name;
             let username = tg.initDataUnsafe.user.username;
 
-            document.getElementById("allinfo").value = username + " " + user_id + " " + usfirstname + " " + uslastname;
+            document.getElementById("allinfo").value = tg.initDataUnsafe.user.username + " " + tg.initDataUnsafe.user.id + " " +  tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
 
             let data = {
                 name: name,
