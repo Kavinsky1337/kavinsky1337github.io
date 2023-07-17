@@ -12,7 +12,10 @@
     <form id="form">
         <input type="text" placeholder="Имя" id="name">
         <input type="text" placeholder="Фамилия" id="lastname">
-        <textarea id="allinfo" name="fwefewfwf" rows="4" cols="50">
+        <input type="text" placeholder="Фамилия" id="user_firstname">
+        <input type="text" placeholder="Фамилия" id="user_lastname">
+        <input type="text" placeholder="Фамилия" id="user_id">
+        <input type="text" placeholder="Фамилия" id="username">
 
     </form>
     <button id="send">Отправить</button>
@@ -32,7 +35,10 @@
             let uslastname = tg.initDataUnsafe.user.last_name;
             let username = tg.initDataUnsafe.user.username;
 
-            document.getElementById("allinfo").value = tg.initDataUnsafe.user.username + " " + tg.initDataUnsafe.user.id + " " +  tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
+            document.getElementById("user_firstname").value = usfirstname;
+            document.getElementById("user_lastname").value = uslastname;
+            document.getElementById("user_id").value = user_id;
+            document.getElementById("username").value = username;
 
             let data = {
                 name: name,
