@@ -4,133 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Useful Work</title>
-
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montressat:wght@200;500&display=swap');
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 200;
-        color: var(--tg-theme-text-color);
-        background: var(--tg-theme-bg-color);
-    }
-
-    #main {
-        width: 100%;
-        padding: 20px;
-        text-align: center;
-    }
-
-    h1 {
-        margin-top: 50px;
-        margin-bottom: 10px;
-    }
-
-    img {
-        width: 70px;
-        margin: 30px auto;
-    }
-
-    p {
-        width: 350px;
-        margin: 0 auto;
-    }
-
-    button {
-        border: 0;
-        border-radius: 5px;
-        margin-top: 50px;
-        height: 60px;
-        width: 200px;
-        font-size: 20px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 500ms ease;
-        color: var(--tg-theme-button-color);
-        background-color: var(--tg-theme-button-text-color);
-    }
-
-    button:hover {
-        background: var(--tg-theme-secondary-bg-color);
-    }
 
   </style>
 </head>
 <body>
-    <div id="main">
-        <h1>Оставьте объявление</h1>
-        <img src="https://cdn-icons-png.flaticon.com/512/1839/1839365.png">
-        <p>Оставьте заявку</p>
-        <button id="buy">Перейти</button>
-    </div>
     <form id="form">
-        <input type="text" placeholder="Имя" id="user_name">
-        <input type="text" placeholder="Фамилия" id="user_lastname">
-        <input type="text" placeholder="Номер" id="user_phone">
-        <button id="add_ad">Добавить объявление</button>
+        <input type="text" placeholder="Имя" id="name">
     </form>
+    <button id="send">Отправить</button>
+
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
     <script>
         let tg = window.Telegram.WebApp;
-        let buy = document.getElementById("buy")
-        let add_ad = document.getElementById("add_ad")
+        let send = document.getElementById("send");
         tg.expand();
 
-        buy.addEventListener("click", () => {
-            document.getElementById("main").style.display = "none";
-            document.getElementById("form").style.display = "block";
-            // document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
-            // document.getElementById("user_lastname").value = tg.initDataUnsafe.user.last_name;
-            // document.getElementById("user_phone").value = tg.initDataUnsafe.user.id;
-        });
+        send.addEventListener("click", () => {
+            let name = document.getElementById("name").value;
+            let user_id = tg.initDataUnsafe.user.id;
 
-        add_ad.addEventListener("click", () => {
-            let user_name = document.getElementById("user_name").value;
-            let user_lastname = document.getElementById("user_lastname").value;
-            let user_phone = document.getElementById("user_phone").value;
-            let us_id = tg.initDataUnsafe.user.id;
-            let us_name = tg.initDataUnsafe.user.first_name;
-            let us_last = tg.initDataUnsafe.user.last_name;
-            
-
-            // let data = {
-            //     username: user_name,
-            //     user_lastname: user_lastname,
-            //     user_phone: user_id
-            // }
-            // console.log(user_name);
-            // console.log(user_lastname);
-            // console.log(user_lastname);
-            // tg.sendData(JSON.stringify(data));
-
-            const url = 'http://80.78.253.113:8080/register?user_name=user_name&user_lastname=user_lastname&user_phone=user_phone&us_id=us_id&us_name=us_name&us_last=us_last';
-
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', url);
-            xhr.setRequestHeader('Accept', 'application/json');
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                console.log(response);
-                } else {
-                console.error('Ошибка:', xhr.status);
-                }
-            }
-            };
-            xhr.send();
+            tg.sendData("some string that we need to send"); 
 
             tg.close();
         });
+
     </script>
 
 </body>
