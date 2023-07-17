@@ -25,17 +25,18 @@
     <script>
         let tg = window.Telegram.WebApp;
         let send = document.getElementById("send");
+        document.getElementById("user_firstname").value = tg.initDataUnsafe.user.first_name;
+        document.getElementById("user_lastname").value = tg.initDataUnsafe.user.last_name;
+        document.getElementById("user_id").value = tg.initDataUnsafe.user.id;
+        document.getElementById("username").value = tg.initDataUnsafe.user.username;
         tg.expand();
 
         send.addEventListener("click", () => {
-            // let name = document.getElementById("name").value;
-            // let lastname = document.getElementById("lastname").value;
+            let name = document.getElementById("name").value;
+            let lastname = document.getElementById("lastname").value;
 
 
-            document.getElementById("user_firstname").value = tg.initDataUnsafe.user.first_name;
-            document.getElementById("user_lastname").value = tg.initDataUnsafe.user.last_name;
-            document.getElementById("user_id").value = tg.initDataUnsafe.user.id;
-            document.getElementById("username").value = tg.initDataUnsafe.user.username;
+
 
             // let data = {
             //     name: name,
