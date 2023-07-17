@@ -26,12 +26,12 @@
         send.addEventListener("click", () => {
             let name = document.getElementById("name").value;
             let lastname = document.getElementById("lastname").value;
-            let user_id = tg.initDataUnsafe.user.id;
+            // let user_id = tg.initDataUnsafe.user.id;
 
             let data = {
                 name: name,
                 lastname: lastname,
-                user_id: user_id
+                // user_id: user_id
             };
 
             tg.sendData(JSON.stringify(data)); 
