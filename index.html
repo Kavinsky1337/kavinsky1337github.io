@@ -12,10 +12,10 @@
     <form id="form">
         <input type="text" placeholder="Имя" id="name">
         <input type="text" placeholder="Фамилия" id="lastname">
-        <input type="text" placeholder="Фамилия" id="user_firstname">
-        <input type="text" placeholder="Фамилия" id="user_lastname">
-        <input type="text" placeholder="Фамилия" id="user_id">
-        <input type="text" placeholder="Фамилия" id="username">
+        <input type="text" placeholder="Имя тг пользователя" id="user_firstname">
+        <input type="text" placeholder="Фамилия тг пользователя" id="user_lastname">
+        <input type="text" placeholder="Айди тг пользователя" id="user_id">
+        <input type="text" placeholder="Юзернейм тг пользователя" id="username">
 
     </form>
     <button id="send">Отправить</button>
@@ -30,15 +30,12 @@
         send.addEventListener("click", () => {
             let name = document.getElementById("name").value;
             let lastname = document.getElementById("lastname").value;
-            let user_id = tg.initDataUnsafe.user.id;
-            let usfirstname = tg.initDataUnsafe.user.first_name;
-            let uslastname = tg.initDataUnsafe.user.last_name;
-            let username = tg.initDataUnsafe.user.username;
 
-            document.getElementById("user_firstname").value = usfirstname;
-            document.getElementById("user_lastname").value = uslastname;
-            document.getElementById("user_id").value = user_id;
-            document.getElementById("username").value = username;
+
+            document.getElementById("user_firstname").value = tg.initDataUnsafe.user.first_name;
+            document.getElementById("user_lastname").value = tg.initDataUnsafe.user.last_name;
+            document.getElementById("user_id").value = tg.initDataUnsafe.user.id;
+            document.getElementById("username").value = tg.initDataUnsafe.user.username;
 
             let data = {
                 name: name,
