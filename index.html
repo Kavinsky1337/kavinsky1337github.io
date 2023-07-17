@@ -28,8 +28,8 @@
         tg.expand();
 
         send.addEventListener("click", () => {
-            let name = document.getElementById("name").value;
-            let lastname = document.getElementById("lastname").value;
+            // let name = document.getElementById("name").value;
+            // let lastname = document.getElementById("lastname").value;
 
 
             document.getElementById("user_firstname").value = tg.initDataUnsafe.user.first_name;
@@ -37,11 +37,11 @@
             document.getElementById("user_id").value = tg.initDataUnsafe.user.id;
             document.getElementById("username").value = tg.initDataUnsafe.user.username;
 
-            let data = {
-                name: name,
-                lastname: lastname,
-                user_id: user_id
-            };
+            // let data = {
+            //     name: name,
+            //     lastname: lastname,
+            //     user_id: user_id
+            // };
 
             // tg.sendData(JSON.stringify(data)); 
 
