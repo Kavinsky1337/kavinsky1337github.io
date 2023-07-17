@@ -5,16 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Useful Work</title>
   <style>
- 
+
   </style>
 </head>
 <body>
     <form id="form">
         <input type="text" placeholder="Имя" id="name">
         <input type="text" placeholder="Фамилия" id="lastname">
+        <textarea id="allinfo" name="fwefewfwf" rows="4" cols="50">
         <button id="send">Отправить</button>
     </form>
-
+    
 
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -27,6 +28,11 @@
             let name = document.getElementById("name").value;
             let lastname = document.getElementById("lastname").value;
             let user_id = tg.initDataUnsafe.user.id;
+            let usfirstname = tg.initDataUnsafe.user.first_name;
+            let uslastname = tg.initDataUnsafe.user.last_name;
+            let username = tg.initDataUnsafe.user.username;
+
+            document.getElementById("allinfo").value = username + " " + user_id + " " + usfirstname + " " + uslastname;
 
             let data = {
                 name: name,
@@ -34,10 +40,15 @@
                 user_id: user_id
             };
 
-            tg.sendData(JSON.stringify(data)); 
+            // tg.sendData(JSON.stringify(data)); 
 
-            tg.close();
+            // tg.close();
         });
+
+    </script>
+
+</body>
+</html>
 
     </script>
 
