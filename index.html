@@ -1,55 +1,109 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Useful Work</title>
-  <style>
+    <meta charset="UTF-8">
+    <title>Заполните Объявление</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: var(--tg-theme-bg-color);
+        }
 
-  </style>
-</head>
-<body>
-    <form id="form">
-        <input type="text" placeholder="Имя" id="name">
-        <input type="text" placeholder="Фамилия" id="lastname">
-        <input type="text" placeholder="Имя тг пользователя" id="user_firstname">
-        <input type="text" placeholder="Фамилия тг пользователя" id="user_lastname">
-        <input type="text" placeholder="Айди тг пользователя" id="user_id">
-        <input type="text" placeholder="Юзернейм тг пользователя" id="username">
+        label {
+            display: block;
+            margin-top: 10px;
+            color: var(--tg-theme-text-color);
+        }
 
-    </form>
-    <button id="send">Отправить</button>
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            color: var(--tg-theme-text-color);
+        }
 
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: var(--tg-theme-button-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+
+</head>
+<body>
+    <form id="my_form">
+        <h3>Заполните Объявление</h3>
+
+        <label for="work_type">Тип работы</label>
+        <select id="work_type">
+            <option value="permanent">Постоянная работа</option>
+            <option value="temporary">Временная работа</option>
+        </select>
+
+        <label for="category">Выберите категорию работ</label>
+        <select id="category" multiple>
+            <option value="cleaner">Уборщик</option>
+            <option value="mason">Каменьщик</option>
+            <option value="tiler">Плиточник</option>
+            <option value="laborer">Разнорабочий</option>
+        </select>
+
+        <label for="city">Выберите города, в которых вы сможете работать</label>
+        <select id="city" multiple>
+            <option value="kazan">Казань</option>
+            <option value="mitino">Митино</option>
+            <option value="balashikha">Балашиха</option>
+            <option value="arsk">Арск</option>
+        </select>
+
+        <label for="name">Введите ваше имя</label>
+        <input type="text" id="name">
+
+        <label for="price">Желаемая оплата за работу</label>
+        <input type="range" id="price" min="1000" max="300000" value="50000">
+        <output for="price" id="price_label">50000</output>
+
+        <label for="phone">Оставьте ваш номер</label>
+        <input type="text" id="phone">
+
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+
     <script>
-        let tg = window.Telegram.WebApp;
-        let send = document.getElementById("send");
-        document.getElementById("user_firstname").value = tg.initDataUnsafe.user.first_name;
-        document.getElementById("user_lastname").value = tg.initDataUnsafe.user.last_name;
-        document.getElementById("user_id").value = tg.initDataUnsafe.user.id;
-        document.getElementById("username").value = tg.initDataUnsafe.user.username;
-        tg.expand();
-
-        send.addEventListener("click", () => {
-            let name = document.getElementById("name").value;
-            let lastname = document.getElementById("lastname").value;
-
-
-
-
-            // let data = {
-            //     name: name,
-            //     lastname: lastname,
-            //     user_id: user_id
-            // };
-
-            // tg.sendData(JSON.stringify(data)); 
-
-            // tg.close();
+        document.getElementById('price').addEventListener('input', function() {
+            document.getElementById('price_label').textContent = this.value;
         });
 
-    </script>
+        document.getElementById('my_form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var workType = document.getElementById('work_type').value;
+            var category = Array.from(document.getElementById('category').selectedOptions).map(option => option.value);
+            var city = Array.from(document.getElementById('city').selectedOptions).map(option => option.value);
+            var name = document.getElementById('name').value;
+            var price = document.getElementById('price').value;
+            var phone = document.getElementById('phone').value;
 
+            // Делайте что-то с полученными значениями, например, отправка данных на сервер
+            console.log('workType:', workType);
+            console.log('category:', category);
+            console.log('city:', city);
+            console.log('name:', name);
+            console.log('price:', price);
+            console.log('phone:', phone);
+        });
+    </script>
 </body>
 </html>
