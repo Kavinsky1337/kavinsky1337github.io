@@ -124,6 +124,8 @@
         const submittedMessage = document.getElementById('submitted_message');
         const priceSlider = document.getElementById('price');
         const priceLabel = document.getElementById('price_label');
+        const tg = window.Telegram.WebApp;
+        const user_id = tg.initDataUnsafe.user.id
 
         form.addEventListener('submit', function (event) {
             event.preventDefault();
@@ -135,7 +137,7 @@
             const price = document.getElementById('price').value;
             const phone = document.getElementById('phone').value;
 
-            const message = `work_type: ${workType}\ncategory: ${category}\ncity: ${city}\nname: ${name}\nprice: ${price}\nphone: ${phone}\n`;
+            const message = `work_type: ${workType}\ncategory: ${category}\ncity: ${city}\nname: ${name}\nprice: ${price}\nphone: ${phone}\nuser_id: ${user_id}`;
             submittedMessage.textContent = message;
         });
 
