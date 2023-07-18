@@ -1,120 +1,127 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Заполните Объявление</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
         }
 
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
         label {
             display: block;
             margin-top: 10px;
-            font-size: 16px;
+            font-weight: bold;
         }
 
-        input[type="text"],
-        select {
+        select, input[type="text"], input[type="number"] {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
             margin-top: 5px;
-            font-size: 16px;
+        }
+
+        select[multiple], select[multiple] option {
+            height: auto;
+        }
+
+        .slider {
+            margin-top: 15px;
         }
 
         .submit-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
             margin-top: 20px;
-            padding: 12px 24px;
             background-color: #4CAF50;
             color: white;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
         }
 
-        /* Responsive styles */
-        @media only screen and (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-        }
-
-        @media only screen and (max-width: 400px) {
-            label {
-                font-size: 14px;
-            }
-            input[type="text"],
-            select {
-                font-size: 14px;
-                padding: 6px;
-            }
-            .submit-button {
-                font-size: 14px;
-                padding: 10px 20px;
-            }
+        .submitted-message {
+            margin-top: 20px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <form id="my_form">
-        <h3>Заполните Объявление</h3>
+    <h1>Заполните Объявление</h1>
 
-        <label for="work_type">Тип работы</label>
-        <select id="work_type">
+    <form id="my_form">
+        <label for="work_type">Тип работы:</label>
+        <select id="work_type" name="work_type">
             <option value="permanent">Постоянная работа</option>
             <option value="temporary">Временная работа</option>
         </select>
 
-        <label for="category">Выберите категорию работ</label>
-        <select id="category" multiple>
+        <label for="category">Выберите категорию работ:</label>
+        <select id="category" name="category" multiple>
             <option value="cleaner">Уборщик</option>
-            <option value="mason">Каменьщик</option>
+            <option value="bricklayer">Каменьщик</option>
             <option value="tiler">Плиточник</option>
             <option value="laborer">Разнорабочий</option>
         </select>
 
-        <label for="city">Выберите города, в которых вы сможете работать</label>
-        <select id="city" multiple>
+        <label for="city">Выберите города в которых вы сможете работать:</label>
+        <select id="city" name="city" multiple>
             <option value="kazan">Казань</option>
             <option value="mitino">Митино</option>
             <option value="balashikha">Балашиха</option>
             <option value="arsk">Арск</option>
         </select>
 
-        <label for="name">Введите ваше имя</label>
-        <input type="text" id="name">
+        <label for="name">Введите ваше имя:</label>
+        <input type="text" id="name" name="name">
 
-        <label for="price">Желаемая оплата за работу</label>
-        <input type="range" id="price" min="1000" max="300000" value="50000">
-        <output for="price" id="price_label">50000</output>
+        <div class="slider">
+            <label for="price">Желаемая оплата за работу:</label>
+            <input type="range" id="price" name="price" min="1000" max="300000" value="50000">
+            <output for="price" id="price_label">$50,000</output>
+        </div>
 
-        <label for="phone">Оставьте ваш номер</label>
-        <input type="text" id="phone">
+        <label for="phone">Оставьте ваш номер:</label>
+        <input type="number" id="phone" name="phone">
 
         <button type="submit" class="submit-button">Submit</button>
     </form>
 
+    <div id="submitted_message"></div>
+
     <script>
-        document.getElementById('price').addEventListener('input', function() {
-            document.getElementById('price_label').textContent = this.value;
+        const form = document.getElementById('my_form');
+        const submittedMessage = document.getElementById('submitted_message');
+        const priceSlider = document.getElementById('price');
+        const priceLabel = document.getElementById('price_label');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const workType = document.getElementById('work_type').value;
+            const category = Array.from(document.getElementById('category').selectedOptions).map(option => option.value);
+            const city = Array.from(document.getElementById('city').selectedOptions).map(option => option.value);
+            const name = document.getElementById('name').value;
+            const price = document.getElementById('price').value;
+            const phone = document.getElementById('phone').value;
+
+            const message = `work_type: ${workType}\ncategory: ${category}\ncity: ${city}\nname: ${name}\nprice: ${price}\nphone: ${phone}\n`;
+            submittedMessage.textContent = message;
         });
 
-        document.getElementById('my_form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var workType = document.getElementById('work_type').value;
-            var category = Array.from(document.getElementById('category').selectedOptions).map(option => option.value);
-            var city = Array.from(document.getElementById('city').selectedOptions).map(option => option.value);
-            var name = document.getElementById('name').value;
-            var price = document.getElementById('price').value;
-            var phone = document.getElementById('phone').value;
-
-            // Делайте что-то с полученными значениями, например, отправка данных на сервер
-            console.log('workType:', workType);
-            console.log('category:', category);
-            console.log('city:', city);
-            console.log('name:', name);
-            console.log('price:', price);
-            console.log('phone:', phone);
+        priceSlider.addEventListener('input', function () {
+            const priceValue = priceSlider.value;
+            priceLabel.textContent = '$' + priceValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         });
     </script>
 </body>
