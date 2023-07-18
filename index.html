@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,6 +54,18 @@
         .submitted-message {
             margin-top: 20px;
             font-weight: bold;
+        }
+
+        /* Адаптация для мобильных устройств */
+        @media only screen and (max-width: 600px) {
+            form {
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+
+            select, input[type="text"], input[type="number"], .slider {
+                width: calc(100% - 20px);
+            }
         }
     </style>
 </head>
@@ -126,4 +139,3 @@
     </script>
 </body>
 </html>
-
