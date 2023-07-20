@@ -1,150 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: var(--tg-theme-bg-color);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форма заполнения данных</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
 
-        h1 {
-            text-align: center;
-            color: var(--tg-theme-text-color);
-        }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
 
-        form {
-            margin-bottom: 20px;
-            background-color: var(--tg-theme-bg-color);
-        }
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      resize: none;
+    }
 
-        label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-            color: var(--tg-theme-text-color);
-        }
+    input[type="checkbox"] {
+      display: none;
+    }
 
-        select, input[type="text"], input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--tg-theme-bg-color);
-            border-radius: 4px;
-            box-sizing: border-box;
-            margin-top: 5px;
-        }
+    .checkbox-label {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
 
-        select[multiple], select[multiple] option {
-            height: auto;
-        }
+    .checkbox-label:hover {
+      background-color: #e0e0e0;
+    }
 
-        .slider {
-            margin-top: 15px;
-            color: var(--tg-theme-bg-color);
-        }
+    .checkbox-label input[type="checkbox"]:checked + .checkbox-label {
+      background-color: #8ac4d0;
+      color: white;
+    }
 
-        .submit-button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-top: 20px;
-            background-color: var(--tg-theme-button-color);
-            color: var(--tg-theme-button-text-color);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+    .cross {
+      cursor: pointer;
+      margin-left: 5px;
+    }
 
-        }
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-        .submitted-message {
-            margin-top: 20px;
-            font-weight: bold;
-        }
+    .submit-button {
+      display: block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
 
-        /* Адаптация для мобильных устройств */
-        @media only screen and (max-width: 600px) {
-            form {
-                margin-left: -10px;
-                margin-right: -10px;
-            }
-
-            select, input[type="text"], input[type="number"], .slider {
-                width: calc(100% - 20px);
-            }
-        }
-    </style>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    .submit-button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
-    <h1>Заполните Объявление</h1>
+  <div class="form-container">
+    <form id="data-form">
+      <label for="employment">Выбор Постоянная работа\временная работа:</label>
+      <input type="radio" id="permanent" name="employment" value="permanent">
+      <label class="checkbox-label" for="permanent">Постоянная работа</label>
+      <input type="radio" id="temporary" name="employment" value="temporary">
+      <label class="checkbox-label" for="temporary">Временная работа</label>
 
-    <form id="my_form">
-        <label for="work_type">Тип работы:</label>
-        <select id="work_type" name="work_type">
-            <option value="permanent">Постоянная работа</option>
-            <option value="temporary">Временная работа</option>
-        </select>
+      <label>Выберите работу:</label>
+      <div>
+        <input type="checkbox" id="job1" name="job[]" value="job1">
+        <label class="checkbox-label" for="job1">Работа 1<span class="cross" onclick="removeOption('job1')">&#10006;</span></label>
+      </div>
+      <div>
+        <input type="checkbox" id="job2" name="job[]" value="job2">
+        <label class="checkbox-label" for="job2">Работа 2<span class="cross" onclick="removeOption('job2')">&#10006;</span></label>
+      </div>
+      <!-- Add more job options as needed -->
 
-        <label for="category">Выберите категорию работ:</label>
-        <select id="category" name="category" multiple>
-            <option value="cleaner">Уборщик</option>
-            <option value="bricklayer">Каменьщик</option>
-            <option value="tiler">Плиточник</option>
-            <option value="laborer">Разнорабочий</option>
-        </select>
+      <label>Выберите город:</label>
+      <div>
+        <input type="checkbox" id="city1" name="city[]" value="city1">
+        <label class="checkbox-label" for="city1">Город 1<span class="cross" onclick="removeOption('city1')">&#10006;</span></label>
+      </div>
+      <div>
+        <input type="checkbox" id="city2" name="city[]" value="city2">
+        <label class="checkbox-label" for="city2">Город 2<span class="cross" onclick="removeOption('city2')">&#10006;</span></label>
+      </div>
+      <!-- Add more city options as needed -->
 
-        <label for="city">Выберите города в которых вы сможете работать:</label>
-        <select id="city" name="city" multiple>
-            <option value="kazan">Казань</option>
-            <option value="mitino">Митино</option>
-            <option value="balashikha">Балашиха</option>
-            <option value="arsk">Арск</option>
-        </select>
+      <label for="name">Напишите Фио или название организации:</label>
+      <input type="text" id="name" name="name" required>
 
-        <label for="name">Введите ваше имя:</label>
-        <input type="text" id="name" name="name">
+      <label for="payment">Желаемая оплата за работу (ввод только числа):</label>
+      <input type="number" id="payment" name="payment" required>
 
-        <div class="slider">
-            <label for="price">Желаемая оплата за работу:</label>
-            <input type="range" id="price" name="price" min="1000" max="300000" value="50000">
-            <output for="price" id="price_label">$50,000</output>
-        </div>
+      <label for="job-description">Опишите работу, кратко о себе:</label>
+      <textarea id="job-description" name="job_description" rows="4"></textarea>
 
-        <label for="phone">Оставьте ваш номер:</label>
-        <input type="number" id="phone" name="phone">
+      <label for="phone">Номер телефона пользователя:</label>
+      <input type="tel" id="phone" name="phone" required>
 
-        <button type="submit" class="submit-button">Submit</button>
+      <button type="submit" class="submit-button">Отправить</button>
     </form>
+  </div>
 
-    <div id="submitted_message"></div>
+  <script>
+    // Function to remove an option when the cross is clicked
+    function removeOption(optionId) {
+      const optionElement = document.getElementById(optionId);
+      optionElement.checked = false;
+    }
 
-    <script>
-        const form = document.getElementById('my_form');
-        const submittedMessage = document.getElementById('submitted_message');
-        const priceSlider = document.getElementById('price');
-        const priceLabel = document.getElementById('price_label');
-        const tg = window.Telegram.WebApp;
-        const user_id = tg.initDataUnsafe.user.id
+    // Function to gather form data and log it to the console
+    document.getElementById('data-form').addEventListener('submit', function(event) {
+      event.preventDefault();
 
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
+      const formData = new FormData(event.target);
+      const data = {};
+      formData.forEach((value, key) => {
+        if (!data[key]) {
+          data[key] = value;
+        } else {
+          if (!Array.isArray(data[key])) {
+            data[key] = [data[key]];
+          }
+          data[key].push(value);
+        }
+      });
 
-            const workType = document.getElementById('work_type').value;
-            const category = Array.from(document.getElementById('category').selectedOptions).map(option => option.value);
-            const city = Array.from(document.getElementById('city').selectedOptions).map(option => option.value);
-            const name = document.getElementById('name').value;
-            const price = document.getElementById('price').value;
-            const phone = document.getElementById('phone').value;
-
-            const message = `work_type: ${workType}\ncategory: ${category}\ncity: ${city}\nname: ${name}\nprice: ${price}\nphone: ${phone}\nuser_id: ${user_id}`;
-            submittedMessage.textContent = message;
-        });
-
-        priceSlider.addEventListener('input', function () {
-            const priceValue = priceSlider.value;
-            priceLabel.textContent = '$' + priceValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        });
-    </script>
+      console.log(data);
+    });
+  </script>
 </body>
 </html>
