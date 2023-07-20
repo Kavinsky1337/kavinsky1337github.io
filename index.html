@@ -6,17 +6,8 @@
     <title>Form Example - Beautiful UI/UX</title>
     <style>
         body {
-            /* Telegram theme colors */
-            --tg-theme-bg-color: #1E2022;
-            --tg-theme-text-color: #FFFFFF;
-            --tg-theme-hint-color: #888888;
-            --tg-theme-link-color: #0088cc;
-            --tg-theme-button-color: #0088cc;
-            --tg-theme-button-text-color: #FFFFFF;
-
             font-family: Arial, sans-serif;
             background-color: var(--tg-theme-bg-color);
-            color: var(--tg-theme-text-color);
             margin: 0;
             padding: 0;
             display: flex;
@@ -25,8 +16,93 @@
             height: 100vh;
         }
 
-        /* ... (your CSS styles here) ... */
-    </style>
+        .container {
+            width: 90%;
+            max-width: 400px;
+            background-color: var(--tg-theme-bg-color);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px var(--tg-theme-button-color);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .form-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--tg-theme-button-color);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--tg-theme-text-color);
+        }
+
+        .form-control {
+            width: 100%;
+            border: 1px solid var(--tg-theme-button-color);
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .select-container {
+            position: relative;
+        }
+
+        .select-multiple {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .select-item {
+            background-color: var(--tg-theme-bg-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .select-item.selected {
+            background-color: var(--tg-theme-button-color);
+            color: var(--tg-theme-text-color);
+        }
+
+        .submit-btn {
+            background-color: var(--tg-theme-button-color);
+            color: var(--tg-theme-text-color);
+            border: none;
+            border-radius: 5px;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--tg-theme-button-color);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .form-header {
+                font-size: 20px;
+            }
+        }
+      </style>
 </head>
 <body>
     <div class="container">
@@ -83,7 +159,6 @@
         <button type="button" class="submit-btn" onclick="submitForm()">Отправить</button>
     </div>
 
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         function toggleSelection(element) {
             element.classList.toggle("selected");
