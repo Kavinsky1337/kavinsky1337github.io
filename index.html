@@ -164,6 +164,10 @@
             element.classList.toggle("selected");
         }
 
+        function closeKeyboard(inputElement) {
+            inputElement.blur();
+        }
+
         function submitForm() {
             const workType = document.getElementById("workType").value;
             const jobOptions = document.querySelectorAll("#jobOptions .select-item.selected");
@@ -189,6 +193,7 @@
 
         const jobOptions = document.querySelectorAll("#jobOptions .select-item");
         const cityOptions = document.querySelectorAll("#cityOptions .select-item");
+        const textInputs = document.querySelectorAll("input[type='text'], input[type='number'], textarea");
 
         jobOptions.forEach(option => {
             option.addEventListener("click", () => toggleSelection(option));
@@ -196,6 +201,10 @@
 
         cityOptions.forEach(option => {
             option.addEventListener("click", () => toggleSelection(option));
+        });
+
+        textInputs.forEach(input => {
+            input.addEventListener("focus", () => closeKeyboard(input));
         });
     </script>
 </body>
