@@ -5,7 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Example - Beautiful UI/UX</title>
     <style>
-        /* ... (unchanged styles) ... */
+        body {
+            /* Telegram theme colors */
+            --tg-theme-bg-color: #1E2022;
+            --tg-theme-text-color: #FFFFFF;
+            --tg-theme-hint-color: #888888;
+            --tg-theme-link-color: #0088cc;
+            --tg-theme-button-color: #0088cc;
+            --tg-theme-button-text-color: #FFFFFF;
+
+            font-family: Arial, sans-serif;
+            background-color: var(--tg-theme-bg-color);
+            color: var(--tg-theme-text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* ... (your CSS styles here) ... */
     </style>
 </head>
 <body>
@@ -63,13 +83,10 @@
         <button type="button" class="submit-btn" onclick="submitForm()">Отправить</button>
     </div>
 
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         function toggleSelection(element) {
             element.classList.toggle("selected");
-        }
-
-        function closeKeyboard(inputElement) {
-            inputElement.blur();
         }
 
         function submitForm() {
@@ -94,12 +111,6 @@
             console.log("jobDescription:", jobDescription);
             console.log("phoneNumber:", phoneNumber);
         }
-
-        const textInputs = document.querySelectorAll("input[type='text'], input[type='number'], textarea");
-
-        textInputs.forEach(input => {
-            input.addEventListener("focus", () => closeKeyboard(input));
-        });
     </script>
 </body>
 </html>
