@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Форма заполнения данных</title>
+  <title>Заполните Объявление</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -26,8 +26,10 @@
       resize: none;
     }
 
-    input[type="checkbox"] {
-      display: none;
+    .multiselect-container {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
     }
 
     .checkbox-label {
@@ -44,14 +46,9 @@
       background-color: #e0e0e0;
     }
 
-    .checkbox-label input[type="checkbox"]:checked + .checkbox-label {
+    .checkbox-label.active {
       background-color: #8ac4d0;
       color: white;
-    }
-
-    .cross {
-      cursor: pointer;
-      margin-left: 5px;
     }
 
     .form-container {
@@ -79,44 +76,54 @@
 <body>
   <div class="form-container">
     <form id="data-form">
-      <label for="employment">Выбор Постоянная работа\временная работа:</label>
-      <input type="radio" id="permanent" name="employment" value="permanent">
-      <label class="checkbox-label" for="permanent">Постоянная работа</label>
-      <input type="radio" id="temporary" name="employment" value="temporary">
-      <label class="checkbox-label" for="temporary">Временная работа</label>
+      <label for="work_type">Тип работы:</label>
+      <select id="work_type" name="work_type">
+        <option value="Постоянная работа">Постоянная работа</option>
+        <option value="Временная работа">Временная работа</option>
+      </select>
 
-      <label>Выберите работу:</label>
-      <div>
-        <input type="checkbox" id="job1" name="job[]" value="job1">
-        <label class="checkbox-label" for="job1">Работа 1<span class="cross" onclick="removeOption('job1')">&#10006;</span></label>
+      <label>Выберите категорию работ:</label>
+      <div class="multiselect-container">
+        <label class="checkbox-label" onclick="toggleCheckbox(this)">
+          <input type="checkbox" name="category" value="Уборщик">Уборщик
+        </label>
+        <label class="checkbox-label" onclick="toggleCheckbox(this)">
+          <input type="checkbox" name="category" value="Каменьщик">Каменьщик
+        </label>
+        <label class="checkbox-label" onclick="toggleCheckbox(this)">
+          <input type="checkbox" name="category" value="Плиточник">Плиточник
+        </label>
+        <label class="checkbox-label" onclick="toggleCheckbox(this)">
+          <input type="checkbox" name="category" value="Разнорабочий">Разнорабочий
+        </label>
       </div>
-      <div>
-        <input type="checkbox" id="job2" name="job[]" value="job2">
-        <label class="checkbox-label" for="job2">Работа 2<span class="cross" onclick="removeOption('job2')">&#10006;</span></label>
-      </div>
-      <!-- Add more job options as needed -->
 
-      <label>Выберите город:</label>
-      <div>
-        <input type="checkbox" id="city1" name="city[]" value="city1">
-        <label class="checkbox-label" for="city1">Город 1<span class="cross" onclick="removeOption('city1')">&#10006;</span></label>
+      <label>Выберите города в которых вы сможете работать:</label>
+      <div class="multiselect-container">
+        <label class="checkbox-label" onclick="toggleCheckbox(this)">
+          <input type="checkbox" name="city" value="Казань">Казань
+        </label>
+        <label class="checkbox-label" onclick="toggleCheckbox(this)">
+          <input type="checkbox" name="city" value="Митино">Митино
+        </label>
+        <label class="checkbox-label" onclick="toggleCheckbox(this)">
+          <input type="checkbox" name="city" value="Балашиха">Балашиха
+        </label>
+        <label class="checkbox-label" onclick="toggleCheckbox(this)">
+          <input type="checkbox" name="city" value="Арск">Арск
+        </label>
       </div>
-      <div>
-        <input type="checkbox" id="city2" name="city[]" value="city2">
-        <label class="checkbox-label" for="city2">Город 2<span class="cross" onclick="removeOption('city2')">&#10006;</span></label>
-      </div>
-      <!-- Add more city options as needed -->
 
-      <label for="name">Напишите Фио или название организации:</label>
+      <label for="name">Введите ваше имя:</label>
       <input type="text" id="name" name="name" required>
 
-      <label for="payment">Желаемая оплата за работу (ввод только числа):</label>
-      <input type="number" id="payment" name="payment" required>
+      <label for="txt">О работе / резюме:</label>
+      <textarea id="txt" name="txt" rows="4"></textarea>
 
-      <label for="job-description">Опишите работу, кратко о себе:</label>
-      <textarea id="job-description" name="job_description" rows="4"></textarea>
+      <label for="price">Желаемая оплата за работу:</label>
+      <input type="number" id="price" name="price" min="1000" max="300000" step="50000" required>
 
-      <label for="phone">Номер телефона пользователя:</label>
+      <label for="phone">Оставьте ваш номер:</label>
       <input type="tel" id="phone" name="phone" required>
 
       <button type="submit" class="submit-button">Отправить</button>
@@ -124,13 +131,12 @@
   </div>
 
   <script>
-    // Function to remove an option when the cross is clicked
-    function removeOption(optionId) {
-      const optionElement = document.getElementById(optionId);
-      optionElement.checked = false;
+    function toggleCheckbox(checkboxLabel) {
+      checkboxLabel.classList.toggle('active');
+      const checkbox = checkboxLabel.querySelector('input[type="checkbox"]');
+      checkbox.checked = !checkbox.checked;
     }
 
-    // Function to gather form data and log it to the console
     document.getElementById('data-form').addEventListener('submit', function(event) {
       event.preventDefault();
 
