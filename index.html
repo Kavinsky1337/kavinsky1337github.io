@@ -1,160 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Заполните Объявление</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example - Beautiful UI/UX</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
 
-    input[type="text"],
-    input[type="number"],
-    textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-bottom: 20px;
-      resize: none;
-    }
+        .form-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
 
-    .multiselect-container {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
 
-    .checkbox-label {
-      display: inline-block;
-      padding: 8px 16px;
-      background-color: #f0f0f0;
-      border-radius: 20px;
-      margin-right: 10px;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333333;
+        }
 
-    .checkbox-label:hover {
-      background-color: #e0e0e0;
-    }
+        .form-control {
+            width: 100%;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 14px;
+        }
 
-    .checkbox-label.active {
-      background-color: #8ac4d0;
-      color: white;
-    }
+        .select-container {
+            position: relative;
+        }
 
-    .form-container {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+        .select-multiple {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-    .submit-button {
-      display: block;
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
+        .select-item {
+            background-color: #f5f5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
 
-    .submit-button:hover {
-      background-color: #45a049;
-    }
-  </style>
+        .select-item.selected {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .submit-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .form-header {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="form-container">
-    <form id="data-form">
-      <label for="work_type">Тип работы:</label>
-      <select id="work_type" name="work_type">
-        <option value="Постоянная работа">Постоянная работа</option>
-        <option value="Временная работа">Временная работа</option>
-      </select>
+    <div class="container">
+        <div class="form-header">Заполните Объявление</div>
 
-      <label>Выберите категорию работ:</label>
-      <div class="multiselect-container">
-        <label class="checkbox-label" onclick="toggleCheckbox(this)">
-          <input type="checkbox" name="category" value="Уборщик">Уборщик
-        </label>
-        <label class="checkbox-label" onclick="toggleCheckbox(this)">
-          <input type="checkbox" name="category" value="Каменьщик">Каменьщик
-        </label>
-        <label class="checkbox-label" onclick="toggleCheckbox(this)">
-          <input type="checkbox" name="category" value="Плиточник">Плиточник
-        </label>
-        <label class="checkbox-label" onclick="toggleCheckbox(this)">
-          <input type="checkbox" name="category" value="Разнорабочий">Разнорабочий
-        </label>
-      </div>
+        <div class="form-group">
+            <label class="form-label" for="workType">Тип работы:</label>
+            <select id="workType" class="form-control">
+                <option value="permanent">Постоянная работа</option>
+                <option value="temporary">Временная работа</option>
+            </select>
+        </div>
 
-      <label>Выберите города в которых вы сможете работать:</label>
-      <div class="multiselect-container">
-        <label class="checkbox-label" onclick="toggleCheckbox(this)">
-          <input type="checkbox" name="city" value="Казань">Казань
-        </label>
-        <label class="checkbox-label" onclick="toggleCheckbox(this)">
-          <input type="checkbox" name="city" value="Митино">Митино
-        </label>
-        <label class="checkbox-label" onclick="toggleCheckbox(this)">
-          <input type="checkbox" name="city" value="Балашиха">Балашиха
-        </label>
-        <label class="checkbox-label" onclick="toggleCheckbox(this)">
-          <input type="checkbox" name="city" value="Арск">Арск
-        </label>
-      </div>
+        <div class="form-group select-container">
+            <label class="form-label">Выберите работу:</label>
+            <div class="select-multiple" id="jobOptions">
+                <span class="select-item">Уборщик</span>
+                <span class="select-item">Каменьщик</span>
+                <span class="select-item">Плиточник</span>
+                <span class="select-item">Разнорабочий</span>
+            </div>
+        </div>
 
-      <label for="name">Введите ваше имя:</label>
-      <input type="text" id="name" name="name" required>
+        <div class="form-group select-container">
+            <label class="form-label">Выберите город:</label>
+            <div class="select-multiple" id="cityOptions">
+                <span class="select-item">Казань</span>
+                <span class="select-item">Митино</span>
+                <span class="select-item">Балашиха</span>
+                <span class="select-item">Арск</span>
+            </div>
+        </div>
 
-      <label for="txt">О работе / резюме:</label>
-      <textarea id="txt" name="txt" rows="4"></textarea>
+        <div class="form-group">
+            <label class="form-label" for="name">Напишите ФИО или название организации:</label>
+            <input type="text" id="name" class="form-control">
+        </div>
 
-      <label for="price">Желаемая оплата за работу:</label>
-      <input type="number" id="price" name="price" min="1000" max="300000" step="50000" required>
+        <div class="form-group">
+            <label class="form-label" for="desiredPayment">Желаемая оплата за работу:</label>
+            <input type="number" id="desiredPayment" class="form-control">
+        </div>
 
-      <label for="phone">Оставьте ваш номер:</label>
-      <input type="tel" id="phone" name="phone" required>
+        <div class="form-group">
+            <label class="form-label" for="jobDescription">Опишите работу, кратко о себе:</label>
+            <textarea id="jobDescription" rows="5" class="form-control"></textarea>
+        </div>
 
-      <button type="submit" class="submit-button">Отправить</button>
-    </form>
-  </div>
+        <div class="form-group">
+            <label class="form-label" for="phoneNumber">Номер телефона пользователя:</label>
+            <input type="tel" id="phoneNumber" class="form-control">
+        </div>
 
-  <script>
-    function toggleCheckbox(checkboxLabel) {
-      checkboxLabel.classList.toggle('active');
-      const checkbox = checkboxLabel.querySelector('input[type="checkbox"]');
-      checkbox.checked = !checkbox.checked;
-    }
+        <button type="button" class="submit-btn" onclick="submitForm()">Отправить</button>
+    </div>
 
-    document.getElementById('data-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      const formData = new FormData(event.target);
-      const data = {};
-      formData.forEach((value, key) => {
-        if (!data[key]) {
-          data[key] = value;
-        } else {
-          if (!Array.isArray(data[key])) {
-            data[key] = [data[key]];
-          }
-          data[key].push(value);
+    <script>
+        function toggleSelection(element) {
+            element.classList.toggle("selected");
         }
-      });
 
-      console.log(data);
-    });
-  </script>
+        function submitForm() {
+            const workType = document.getElementById("workType").value;
+            const jobOptions = document.querySelectorAll("#jobOptions .select-item.selected");
+            const selectedJobs = Array.from(jobOptions).map(option => option.textContent);
+
+            const cityOptions = document.querySelectorAll("#cityOptions .select-item.selected");
+            const selectedCities = Array.from(cityOptions).map(option => option.textContent);
+
+            const name = document.getElementById("name").value;
+            const desiredPayment = document.getElementById("desiredPayment").value;
+            const jobDescription = document.getElementById("jobDescription").value;
+            const phoneNumber = document.getElementById("phoneNumber").value;
+
+            // Do something with the form data, e.g., display in the console
+            console.log("workType:", workType);
+            console.log("selectedJobs:", selectedJobs);
+            console.log("selectedCities:", selectedCities);
+            console.log("name:", name);
+            console.log("desiredPayment:", desiredPayment);
+            console.log("jobDescription:", jobDescription);
+            console.log("phoneNumber:", phoneNumber);
+        }
+
+        const jobOptions = document.querySelectorAll("#jobOptions .select-item");
+        const cityOptions = document.querySelectorAll("#cityOptions .select-item");
+
+        jobOptions.forEach(option => {
+            option.addEventListener("click", () => toggleSelection(option));
+        });
+
+        cityOptions.forEach(option => {
+            option.addEventListener("click", () => toggleSelection(option));
+        });
+    </script>
 </body>
 </html>
