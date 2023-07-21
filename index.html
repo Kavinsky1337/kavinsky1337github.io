@@ -355,6 +355,11 @@
 
         let currentStep = 1;
 
+        
+        function toggleSelection(element) {
+            element.classList.toggle("selected");
+        }
+
         startButton.addEventListener('click', () => {
             main.classList.add('hidden');
             steps.classList.remove('hidden');
