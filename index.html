@@ -52,6 +52,13 @@
             border-radius: 5px;
             padding: 10px;
             font-size: 14px;
+            height: 40px; /* Fixed height for input fields */
+        }
+
+        .form-control.textarea {
+            resize: vertical; /* Allow vertical resizing */
+            overflow-y: auto; /* Add a scrollbar when content overflows */
+            min-height: 80px; /* Minimum height for the textarea */
         }
 
         .select-container {
