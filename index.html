@@ -196,7 +196,6 @@
             font-family: 'Fira Code', monospace;
             font-size: 18px;
             margin-top: 10px;
-            align-items: ;
         }
 
         /* .back-class {
@@ -250,14 +249,14 @@
 </head>
 <body>
 
-    <div class="main">
-        <h1 class="comp-name">BEAUTIFUL WORK</h1>
-        <img src="hi.png">
-        <h3>Нажмите “НАЧАТЬ”, чтобы заполнить ваше резюме.</h3>
-        <button class="start" id="go">НАЧАТЬ</button>
-    </div>
+    <div class="main" id="main-id">
+    <h1 class="comp-name">BEAUTIFUL WORK</h1>
+    <img src="hi.png">
+    <h3>Нажмите “НАЧАТЬ”, чтобы заполнить ваше резюме.</h3>
+    <button class="start" id="go" type="button">НАЧАТЬ</button>
+</div>
 
-    <div class="selectwork">
+    <div class="selectwork"">
         <h1>Выберите тип занятости:</h1>
         <select class="worktypeclass" id="worktype">
             <option value="temporary">Постоянная работа</option>
@@ -266,7 +265,7 @@
         <button class="first-next-class" id="gonext">Далее</button>
     </div>
 
-    <div class="jobs">
+    <div class="jobs" id="jobs-id"">
         <h1>Выберите работу:</h1>
         <div class="select-multiple" id="jobOptions">
             <span class="select-item" onclick="toggleSelection(this)">Уборщик</span>
@@ -280,7 +279,7 @@
         </div>
     </div>
 
-    <div class="jobs">
+    <div class="jobs" id="city-id"">
         <h1>Выберите работу:</h1>
         <div class="select-multiple" id="cityOptions">
             <span class="select-item" onclick="toggleSelection(this)">Балашиха</span>
@@ -294,7 +293,7 @@
         </div>
     </div>
 
-    <div class="input-name">
+    <div class="input-name" id="name-id" ">
         <h1>Введите Имя </h1>
         <input type="text" name="name-n-f" id="user_firstname" class="input-class">
         <div class="step-button">
@@ -304,7 +303,7 @@
     </div>
 
 
-    <div class="input-name">
+    <div class="input-name" id="about-id" ">
         <h1>Расскажите о себе</h1>
         <textarea class="textarea-class" id="about"></textarea>
         <div class="step-button">
@@ -313,7 +312,7 @@
         </div>
     </div>
 
-    <div class="input-name">
+    <div class="input-name" id="price-id" ">
         <h1>Введите желаемую оплату за работу</h1>
         <input type="number" name="name-n-f" id="price" class="input-class">
         <div class="step-button">
@@ -322,8 +321,8 @@
         </div>
     </div>
 
-    <div class="input-name">
-        <h1>Введите желаемую оплату за работу </h1>
+    <div class="input-name" id="phone-id"">
+        <h1>Введите ваш номер</h1>
         <input type="tel" name="name-n-f" id="phoneNumber" class="input-class" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone">
         <div class="step-button">
             <button class="back-class" id="goback">Назад</button>
@@ -338,6 +337,20 @@
         function toggleSelection(element) {
             element.classList.toggle("selected");
         }
+
+        const inputField = document.getElementById('inputField');
+
+        // Добавляем обработчик событий для клика в любом месте страницы
+        document.addEventListener('click', function(event) {
+        // Проверяем, что клик не произошел внутри поля ввода
+        if (event.target !== inputField) {
+            // Закрываем клавиатуру, убрав фокус с поля ввода
+            inputField.blur();
+        }
+        });
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>
