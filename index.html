@@ -12,20 +12,26 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Позволим контейнеру вырастать по высоте */
+            align-items: flex-start;
             height: 100vh;
+            overflow: hidden; /* Запрещаем прокрутку страницы */
         }
 
         .container {
             width: 100%;
             max-width: 100%;
-            /* ... остальные стили ... */
-            min-height: 100vh; /* Минимальная высота контейнера равна высоте экрана */
+            padding: 20px;
+            background-color: #ffffff; /* Новый фон контейнера */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Новая тень */
+            min-height: 100vh;
         }
+
 
         .form-header {
             font-size: 24px;
-            /* ... остальные стили ... */
+            color: #007bff; /* Новый цвет заголовка */
+            margin-bottom: 20px; /* Увеличим отступ снизу */
         }
 
         .form-group {
@@ -99,11 +105,16 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%); /* Центрируем кнопки горизонтально */
+            transition: transform 0.3s ease; /* Добавляем анимацию при поднятии кнопок */
         }
 
         .step-buttons button {
             /* ... остальные стили ... */
             padding: 10px 18px; /* Уменьшаем отступы */
+        }
+
+        .step-buttons.raised {
+            transform: translateX(-50%) translateY(-70px); /* Поднимаем кнопки наверх */
         }
 
         @media (max-width: 600px) {
@@ -223,6 +234,29 @@
         function toggleSelection(element) {
             element.classList.toggle("selected");
         }
+
+        window.addEventListener('resize', function() {
+            const stepButtons = document.querySelector('.step-buttons');
+            if (window.innerHeight < window.screen.height) {
+                // Клавиатура появилась, поднимаем кнопки
+                stepButtons.classList.add('raised');
+            } else {
+                // Клавиатура скрылась, возвращаем кнопки на место
+                stepButtons.classList.remove('raised');
+            }
+        });
+
+        window.addEventListener('orientationchange', function() {
+            // При изменении ориентации устройства также проверяем положение клавиатуры
+            const stepButtons = document.querySelector('.step-buttons');
+            if (window.innerHeight < window.screen.height) {
+                // Клавиатура появилась, поднимаем кнопки
+                stepButtons.classList.add('raised');
+            } else {
+                // Клавиатура скрылась, возвращаем кнопки на место
+                stepButtons.classList.remove('raised');
+            }
+        });
 
         function submitForm() {
             // Gather form data here and do something with it
