@@ -102,69 +102,137 @@
                 font-size: 20px;
             }
         }
-      </style>
+        
+        .step-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .step-buttons button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .step-buttons button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="form-header">Заполните Объявление</div>
-
-        <div class="form-group">
-            <label class="form-label" for="workType">Тип работы:</label>
-            <select id="workType" class="form-control">
-                <option value="permanent">Постоянная работа</option>
-                <option value="temporary">Временная работа</option>
-            </select>
-        </div>
-
-        <div class="form-group select-container">
-            <label class="form-label">Выберите работу:</label>
-            <div class="select-multiple" id="jobOptions">
-                <span class="select-item" onclick="toggleSelection(this)">Уборщик</span>
-                <span class="select-item" onclick="toggleSelection(this)">Каменьщик</span>
-                <span class="select-item" onclick="toggleSelection(this)">Плиточник</span>
-                <span class="select-item" onclick="toggleSelection(this)">Разнорабочий</span>
+        
+        <!-- Step 1 -->
+        <div class="step" id="step1">
+            <div class="form-group">
+                <label class="form-label" for="workType">Тип работы:</label>
+                <select id="workType" class="form-control">
+                    <option value="permanent">Постоянная работа</option>
+                    <option value="temporary">Временная работа</option>
+                </select>
+            </div>
+            <div class="step-buttons">
+                <button onclick="showStep('step1')">Назад</button>
+                <button onclick="showStep('step2')">Далее</button>
             </div>
         </div>
-
-        <div class="form-group select-container">
-            <label class="form-label">Выберите город:</label>
-            <div class="select-multiple" id="cityOptions">
-                <span class="select-item" onclick="toggleSelection(this)">Казань</span>
-                <span class="select-item" onclick="toggleSelection(this)">Митино</span>
-                <span class="select-item" onclick="toggleSelection(this)">Балашиха</span>
-                <span class="select-item" onclick="toggleSelection(this)">Арск</span>
+        
+        <!-- Step 2 -->
+        <div class="step" id="step2" style="display: none;">
+            <div class="form-group select-container">
+                <label class="form-label">Выберите работу:</label>
+                <div class="select-multiple" id="jobOptions">
+                    <span class="select-item" onclick="toggleSelection(this)">Уборщик</span>
+                    <span class="select-item" onclick="toggleSelection(this)">Каменьщик</span>
+                    <span class="select-item" onclick="toggleSelection(this)">Плиточник</span>
+                    <span class="select-item" onclick="toggleSelection(this)">Разнорабочий</span>
+                </div>
+            </div>
+            <div class="step-buttons">
+                <button onclick="showStep('step1')">Назад</button>
+                <button onclick="showStep('step3')">Далее</button>
             </div>
         </div>
-
-        <div class="form-group">
-            <label class="form-label" for="name">Напишите ФИО или название организации:</label>
-            <input type="text" id="name" class="form-control">
+        
+        <!-- Step 3 -->
+        <div class="step" id="step3" style="display: none;">
+            <div class="form-group select-container">
+                <label class="form-label">Выберите город:</label>
+                <div class="select-multiple" id="cityOptions">
+                    <span class="select-item" onclick="toggleSelection(this)">Казань</span>
+                    <span class="select-item" onclick="toggleSelection(this)">Митино</span>
+                    <span class="select-item" onclick="toggleSelection(this)">Балашиха</span>
+                    <span class="select-item" onclick="toggleSelection(this)">Арск</span>
+                </div>
+            </div>
+            <div class="step-buttons">
+                <button onclick="showStep('step2')">Назад</button>
+                <button onclick="showStep('step4')">Далее</button>
+            </div>
         </div>
-
-        <div class="form-group">
-            <label class="form-label" for="desiredPayment">Желаемая оплата за работу:</label>
-            <input type="number" id="desiredPayment" class="form-control">
+        
+        <!-- Step 4 -->
+        <div class="step" id="step4" style="display: none;">
+            <div class="form-group">
+                <label class="form-label" for="desiredPayment">Желаемая оплата за работу:</label>
+                <input type="number" id="desiredPayment" class="form-control">
+            </div>
+            <div class="step-buttons">
+                <button onclick="showStep('step3')">Назад</button>
+                <button onclick="showStep('step5')">Далее</button>
+            </div>
         </div>
-
-        <div class="form-group">
-            <label class="form-label" for="jobDescription">Опишите работу, кратко о себе:</label>
-            <textarea id="jobDescription" rows="5" class="form-control"></textarea>
+        
+        <!-- Step 5 -->
+        <div class="step" id="step5" style="display: none;">
+            <div class="form-group">
+                <label class="form-label" for="jobDescription">Опишите работу, кратко о себе:</label>
+                <textarea id="jobDescription" rows="5" class="form-control"></textarea>
+            </div>
+            <div class="step-buttons">
+                <button onclick="showStep('step4')">Назад</button>
+                <button onclick="showStep('step6')">Далее</button>
+            </div>
         </div>
-
-        <div class="form-group">
-            <label class="form-label" for="phoneNumber">Номер телефона пользователя:</label>
-            <input type="tel" id="phoneNumber" class="form-control">
+        
+        <!-- Step 6 -->
+        <div class="step" id="step6" style="display: none;">
+            <div class="form-group">
+                <label class="form-label" for="phoneNumber">Номер телефона пользователя:</label>
+                <input type="tel" id="phoneNumber" class="form-control">
+            </div>
+            <div class="step-buttons">
+                <button onclick="showStep('step5')">Назад</button>
+                <button onclick="submitForm()">Отправить</button>
+            </div>
         </div>
-
-        <button type="button" class="submit-btn" onclick="submitForm()">Отправить</button>
     </div>
 
     <script>
+        let currentStep = 1;
+
+        function showStep(stepId) {
+            const steps = document.querySelectorAll(".step");
+            steps.forEach(step => {
+                step.style.display = step.id === stepId ? "block" : "none";
+            });
+
+            currentStep = stepId === "step1" ? 1 : stepId === "step2" ? 2 : stepId === "step3" ? 3 : stepId === "step4" ? 4 : stepId === "step5" ? 5 : 6;
+        }
+
         function toggleSelection(element) {
             element.classList.toggle("selected");
         }
 
         function submitForm() {
+            // Gather form data here and do something with it
             const workType = document.getElementById("workType").value;
             const jobOptions = document.querySelectorAll("#jobOptions .select-item.selected");
             const selectedJobs = Array.from(jobOptions).map(option => option.textContent);
@@ -172,20 +240,20 @@
             const cityOptions = document.querySelectorAll("#cityOptions .select-item.selected");
             const selectedCities = Array.from(cityOptions).map(option => option.textContent);
 
-            const name = document.getElementById("name").value;
             const desiredPayment = document.getElementById("desiredPayment").value;
             const jobDescription = document.getElementById("jobDescription").value;
             const phoneNumber = document.getElementById("phoneNumber").value;
 
-            // Do something with the form data, e.g., display in the console
             console.log("workType:", workType);
             console.log("selectedJobs:", selectedJobs);
             console.log("selectedCities:", selectedCities);
-            console.log("name:", name);
             console.log("desiredPayment:", desiredPayment);
             console.log("jobDescription:", jobDescription);
             console.log("phoneNumber:", phoneNumber);
         }
+
+        // Show the first step initially
+        showStep("step1");
     </script>
 </body>
 </html>
