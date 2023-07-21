@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Form Example - Beautiful UI/UX</title>
     <style>
         body {
@@ -12,25 +12,20 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Позволим контейнеру вырастать по высоте */
             height: 100vh;
         }
 
         .container {
-            width: 90%;
-            max-width: 400px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            text-align: center;
+            width: 100%;
+            max-width: 100%;
+            /* ... остальные стили ... */
+            min-height: 100vh; /* Минимальная высота контейнера равна высоте экрана */
         }
 
         .form-header {
             font-size: 24px;
-            font-weight: bold;
-            color: #007bff;
-            margin-bottom: 20px;
+            /* ... остальные стили ... */
         }
 
         .form-group {
@@ -92,6 +87,25 @@
             background-color: #0056b3;
         }
 
+        .step {
+            /* ... остальные стили ... */
+            overflow-y: auto;
+            max-height: calc(100vh - 200px); /* Учтем высоту кнопок и заголовка шага */
+        }
+
+        .step-buttons {
+            /* ... остальные стили ... */
+            position: fixed; /* Фиксируем позицию кнопок */
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%); /* Центрируем кнопки горизонтально */
+        }
+
+        .step-buttons button {
+            /* ... остальные стили ... */
+            padding: 10px 18px; /* Уменьшаем отступы */
+        }
+
         @media (max-width: 600px) {
             .container {
                 width: 95%;
@@ -101,27 +115,6 @@
             .form-header {
                 font-size: 20px;
             }
-        }
-        
-        .step-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        
-        .step-buttons button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 12px 24px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-        
-        .step-buttons button:hover {
-            background-color: #0056b3;
         }
     </style>
 </head>
