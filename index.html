@@ -14,20 +14,21 @@
             background-color: var(--tg-theme-bg-color);  /*Нужно поменять цвет на bg-color */
             margin: 0;
             padding: 0;
-            display: flex;
+            display: block;
             justify-content: center;
             align-items: flex-start;
             height: 100vh;
             overflow: hidden; /* Запрещаем прокрутку страницы */
             flex-direction: column;
             align-items: center;
+            overflow-y: scroll;
         }
 /* секция главного меню */
         /* блок главного меню */
         .main {
             text-align: center;
             display: block;
-            margin-top: -320px;
+            margin-top: 10px;
         }
 
         /* BEAUTIFUL WORK в главном меню */
@@ -77,6 +78,7 @@
             display: block;
             clear: both;
             margin-top: 20px;
+            text-align: center;
         }
         
         .selectwork h1 {
@@ -86,11 +88,9 @@
 
         /* selectbox 'выберите тип занятости'*/
         .worktypeclass {
-            display: flex;
             width: 270px;
             height: 40px;
             padding: 8px 8px 8px 16px;
-            justify-content: flex-end;
             align-items: center;
             gap: 99px;
             flex-shrink: 0;
@@ -98,6 +98,12 @@
             border: 1px solid var(--control-jnt-control-border-color, #D0D0D0);
             font-size: 15px;
             font-family: 'Fira Code', monospace,;
+            text-align: center;
+            display: block;
+            justify-content: center;
+            margin: 0 auto;
+            
+            
         }
 
         option {
@@ -132,6 +138,9 @@
             flex-wrap: wrap;
             gap: 10px;
             margin-left: 20px;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
             
             
         }
@@ -254,7 +263,7 @@
             <option value="temporary">Постоянная работа</option>
             <option value="permanent">Временная работа</option>
         </select>
-        <button class="first-next-class">Далее</button>
+        <button class="first-next-class" id="gonext">Далее</button>
     </div>
 
     <div class="jobs">
@@ -266,8 +275,8 @@
             <span class="select-item" onclick="toggleSelection(this)">Разнорабочий</span>
         </div>
         <div class="step-button">
-            <button class="back-class">Назад</button>
-            <button class="next-class">Далее</button>
+            <button class="back-class" id="goback">Назад</button>
+            <button class="next-class" id="gonext">Далее</button>
         </div>
     </div>
 
@@ -280,8 +289,8 @@
             <span class="select-item" onclick="toggleSelection(this)">Арск</span>
         </div>
         <div class="step-button">
-            <button class="back-class">Назад</button>
-            <button class="next-class">Далее</button>
+            <button class="back-class" id="goback">Назад</button>
+            <button class="next-class" id="gonext">Далее</button>
         </div>
     </div>
 
@@ -289,27 +298,36 @@
         <h1>Введите Имя </h1>
         <input type="text" name="name-n-f" id="user_firstname" class="input-class">
         <div class="step-button">
-            <button class="back-class">Назад</button>
-            <button class="next-class">Далее</button>
+            <button class="back-class" id="goback">Назад</button>
+            <button class="next-class" id="gonext">Далее</button>
         </div>
     </div>
 
 
     <div class="input-name">
         <h1>Расскажите о себе</h1>
-        <textarea class="textarea-class" id="about">greggegegerewe</textarea>
+        <textarea class="textarea-class" id="about"></textarea>
         <div class="step-button">
-            <button class="back-class">Назад</button>
-            <button class="next-class">Далее</button>
+            <button class="back-class" id="goback">Назад</button>
+            <button class="next-class" id="gonext">Далее</button>
+        </div>
+    </div>
+
+    <div class="input-name">
+        <h1>Введите желаемую оплату за работу</h1>
+        <input type="number" name="name-n-f" id="price" class="input-class">
+        <div class="step-button">
+            <button class="back-class" id="goback">Назад</button>
+            <button class="next-class" id="gonext">Далее</button>
         </div>
     </div>
 
     <div class="input-name">
         <h1>Введите желаемую оплату за работу </h1>
-        <input type="number" name="name-n-f" id="price" class="input-class">
+        <input type="tel" name="name-n-f" id="phoneNumber" class="input-class" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone">
         <div class="step-button">
-            <button class="back-class">Назад</button>
-            <button class="next-class">Далее</button>
+            <button class="back-class" id="goback">Назад</button>
+            <button class="next-class" id="send">Отправить</button>
         </div>
     </div>
 
