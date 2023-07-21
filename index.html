@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Form Example - Beautiful UI/UX</title>
+    <title>Useful Work</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Fira Code', monospace;
+            background-color: var(--tg-theme-bg-color);  /*Нужно поменять цвет на bg-color */
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,274 +21,59 @@
             overflow: hidden; /* Запрещаем прокрутку страницы */
         }
 
-        .container {
-            width: 100%;
-            max-width: 100%;
-            padding: 20px;
-            background-color: #ffffff; /* Новый фон контейнера */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Новая тень */
-            min-height: 100vh;
+        .main {
+            text-align: center;
         }
 
-        .form-header {
-            font-size: 24px;
-            color: #007bff; /* Новый цвет заголовка */
-            margin-bottom: 20px; /* Увеличим отступ снизу */
+        .main h1 {
+            color: var(--tg-theme-text-color); /*Нужно поменять цвет на text-color */
+            font-size: 70px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-top: 1px;
         }
 
-        .form-group {
-            text-align: left;
-            margin-bottom: 20px;
+        .main img {
+            width: 432px;
+            flex-shrink: 0;
+            align-items: center;
+            margin-top: -50px;
         }
 
-        .form-label {
-            display: block;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #333333;
+        .main h3 { 
+            color: var(--tg-theme-text-color); /*Нужно поменять цвет на text-color */
+            text-align: center;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 100;
+            line-height: normal;
+            margin-top: 0px;
+            
         }
 
-        .form-control {
-            width: 100%;
-            border: 1px solid #dddddd;
-            border-radius: 5px;
-            padding: 10px;
-            font-size: 14px;
-            height: 40px; /* Fixed height for input fields */
-        }
-
-        .form-control.textarea {
-            resize: vertical; /* Allow vertical resizing */
-            overflow-y: auto; /* Add a scrollbar when content overflows */
-            min-height: 80px; /* Minimum height for the textarea */
-        }
-
-        .select-container {
-            position: relative;
-        }
-
-        .select-multiple {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .select-item {
-            background-color: #f5f5f5;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .select-item.selected {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-        .submit-btn {
-            background-color: #007bff;
-            color: #fff;
+        .main button {
+            background: var(--tg-theme-button-color); /*Нужно поменять цвет на button-color */
+            flex-shrink: 0;
+            border-radius: 11px;
+            width: 150px;
+            height: 50px;
+            color: var(--tg-theme-button-text-color); /*Нужно поменять цвет на button-text-color */
             border: none;
-            border-radius: 5px;
-            padding: 12px 24px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
+            font-family: 'Fira Code', monospace;
+            font-size: 25px;
+            margin-top: 10px;
         }
 
-        .submit-btn:hover {
-            background-color: #0056b3;
-        }
-
-        .step {
-            /* ... остальные стили ... */
-            overflow-y: auto;
-            max-height: calc(100vh - 200px); /* Учтем высоту кнопок и заголовка шага */
-        }
-
-        .step-buttons {
-            /* ... остальные стили ... */
-            /* Remove the position: fixed and transform properties */
-            /* Remove the bottom and left properties */
-            /* Remove the translateY property from the 'raised' class */
-            display: flex;
-            justify-content: center; /* Center the buttons horizontally */
-            margin-top: 20px; /* Add a margin between the form and the buttons */
-        }
-
-        .step-buttons button {
-            /* ... остальные стили ... */
-            padding: 14px 32px; /* Increase the padding to make the buttons larger */
-            margin: 0 10px; /* Add some margin between the buttons */
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                width: 95%;
-                padding: 20px;
-            }
-
-            .form-header {
-                font-size: 20px;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="form-header">Заполните Объявление</div>
-        
-        <!-- Step 1 -->
-        <div class="step" id="step1">
-            <div class="form-group">
-                <label class="form-label" for="workType">Тип работы:</label>
-                <select id="workType" class="form-control">
-                    <option value="permanent">Постоянная работа</option>
-                    <option value="temporary">Временная работа</option>
-                </select>
-            </div>
-            <div class="step-buttons">
-                <button onclick="showStep('step1')">Назад</button>
-                <button onclick="showStep('step2')">Далее</button>
-            </div>
-        </div>
-        
-        <!-- Step 2 -->
-        <div class="step" id="step2" style="display: none;">
-            <div class="form-group select-container">
-                <label class="form-label">Выберите работу:</label>
-                <div class="select-multiple" id="jobOptions">
-                    <span class="select-item" onclick="toggleSelection(this)">Уборщик</span>
-                    <span class="select-item" onclick="toggleSelection(this)">Каменьщик</span>
-                    <span class="select-item" onclick="toggleSelection(this)">Плиточник</span>
-                    <span class="select-item" onclick="toggleSelection(this)">Разнорабочий</span>
-                </div>
-            </div>
-            <div class="step-buttons">
-                <button onclick="showStep('step1')">Назад</button>
-                <button onclick="showStep('step3')">Далее</button>
-            </div>
-        </div>
-        
-        <!-- Step 3 -->
-        <div class="step" id="step3" style="display: none;">
-            <div class="form-group select-container">
-                <label class="form-label">Выберите город:</label>
-                <div class="select-multiple" id="cityOptions">
-                    <span class="select-item" onclick="toggleSelection(this)">Казань</span>
-                    <span class="select-item" onclick="toggleSelection(this)">Митино</span>
-                    <span class="select-item" onclick="toggleSelection(this)">Балашиха</span>
-                    <span class="select-item" onclick="toggleSelection(this)">Арск</span>
-                </div>
-            </div>
-            <div class="step-buttons">
-                <button onclick="showStep('step2')">Назад</button>
-                <button onclick="showStep('step4')">Далее</button>
-            </div>
-        </div>
-        
-        <!-- Step 4 -->
-        <div class="step" id="step4" style="display: none;">
-            <div class="form-group">
-                <label class="form-label" for="desiredPayment">Желаемая оплата за работу:</label>
-                <input type="number" id="desiredPayment" class="form-control">
-            </div>
-            <div class="step-buttons">
-                <button onclick="showStep('step3')">Назад</button>
-                <button onclick="showStep('step5')">Далее</button>
-            </div>
-        </div>
-        
-        <!-- Step 5 -->
-        <div class="step" id="step5" style="display: none;">
-            <div class="form-group">
-                <label class="form-label" for="jobDescription">Опишите работу, кратко о себе:</label>
-                <textarea id="jobDescription" rows="5" class="form-control"></textarea>
-            </div>
-            <div class="step-buttons">
-                <button onclick="showStep('step4')">Назад</button>
-                <button onclick="showStep('step6')">Далее</button>
-            </div>
-        </div>
-        
-        <!-- Step 6 -->
-        <div class="step" id="step6" style="display: none;">
-            <div class="form-group">
-                <label class="form-label" for="phoneNumber">Номер телефона пользователя:</label>
-                <input type="tel" id="phoneNumber" class="form-control">
-            </div>
-            <div class="step-buttons">
-                <button onclick="showStep('step5')">Назад</button>
-                <button onclick="submitForm()">Отправить</button>
-            </div>
-        </div>
+    <div class="main">
+        <h1 class="compname">BEAUTIFUL WORK</h1>
+        <img src="hi.png">
+        <h3>Нажмите “НАЧАТЬ”, чтобы заполнить ваше резюме.</h3>
+        <button class="start" id="go">НАЧАТЬ</button>
     </div>
 
-    <script>
-        let currentStep = 1;
-
-        function showStep(stepId) {
-            const steps = document.querySelectorAll(".step");
-            steps.forEach(step => {
-                step.style.display = step.id === stepId ? "block" : "none";
-            });
-
-            currentStep = stepId === "step1" ? 1 : stepId === "step2" ? 2 : stepId === "step3" ? 3 : stepId === "step4" ? 4 : stepId === "step5" ? 5 : 6;
-        }
-
-        function toggleSelection(element) {
-            element.classList.toggle("selected");
-        }
-
-        window.addEventListener('resize', function() {
-            const stepButtons = document.querySelector('.step-buttons');
-            if (window.innerHeight < window.screen.height) {
-                // Клавиатура появилась, поднимаем кнопки
-                stepButtons.classList.add('raised');
-            } else {
-                // Клавиатура скрылась, возвращаем кнопки на место
-                stepButtons.classList.remove('raised');
-            }
-        });
-
-        window.addEventListener('orientationchange', function() {
-            // При изменении ориентации устройства также проверяем положение клавиатуры
-            const stepButtons = document.querySelector('.step-buttons');
-            if (window.innerHeight < window.screen.height) {
-                // Клавиатура появилась, поднимаем кнопки
-                stepButtons.classList.add('raised');
-            } else {
-                // Клавиатура скрылась, возвращаем кнопки на место
-                stepButtons.classList.remove('raised');
-            }
-        });
-
-        function submitForm() {
-            // Gather form data here and do something with it
-            const workType = document.getElementById("workType").value;
-            const jobOptions = document.querySelectorAll("#jobOptions .select-item.selected");
-            const selectedJobs = Array.from(jobOptions).map(option => option.textContent);
-
-            const cityOptions = document.querySelectorAll("#cityOptions .select-item.selected");
-            const selectedCities = Array.from(cityOptions).map(option => option.textContent);
-
-            const desiredPayment = document.getElementById("desiredPayment").value;
-            const jobDescription = document.getElementById("jobDescription").value;
-            const phoneNumber = document.getElementById("phoneNumber").value;
-
-            console.log("workType:", workType);
-            console.log("selectedJobs:", selectedJobs);
-            console.log("selectedCities:", selectedCities);
-            console.log("desiredPayment:", desiredPayment);
-            console.log("jobDescription:", jobDescription);
-            console.log("phoneNumber:", phoneNumber);
-        }
-
-        // Show the first step initially
-        showStep("step1");
-    </script>
 </body>
 </html>
