@@ -27,7 +27,6 @@
             min-height: 100vh;
         }
 
-
         .form-header {
             font-size: 24px;
             color: #007bff; /* Новый цвет заголовка */
@@ -101,20 +100,18 @@
 
         .step-buttons {
             /* ... остальные стили ... */
-            position: fixed; /* Фиксируем позицию кнопок */
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%); /* Центрируем кнопки горизонтально */
-            transition: transform 0.3s ease; /* Добавляем анимацию при поднятии кнопок */
+            /* Remove the position: fixed and transform properties */
+            /* Remove the bottom and left properties */
+            /* Remove the translateY property from the 'raised' class */
+            display: flex;
+            justify-content: center; /* Center the buttons horizontally */
+            margin-top: 20px; /* Add a margin between the form and the buttons */
         }
 
         .step-buttons button {
             /* ... остальные стили ... */
-            padding: 10px 18px; /* Уменьшаем отступы */
-        }
-
-        .step-buttons.raised {
-            transform: translateX(-50%) translateY(-70px); /* Поднимаем кнопки наверх */
+            padding: 14px 32px; /* Increase the padding to make the buttons larger */
+            margin: 0 10px; /* Add some margin between the buttons */
         }
 
         @media (max-width: 600px) {
