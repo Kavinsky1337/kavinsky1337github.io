@@ -242,6 +242,9 @@
             font-family: 'Fira Code', monospace,;
         }
 
+        .hidden {
+            display: none!important;
+        }
 
         
 
@@ -250,93 +253,83 @@
 <body>
 
     <div class="main" id="main-id">
-    <h1 class="comp-name">BEAUTIFUL WORK</h1>
-    <img src="hi.png">
-    <h3>Нажмите “НАЧАТЬ”, чтобы заполнить ваше резюме.</h3>
-    <button class="start" id="go" type="button">НАЧАТЬ</button>
-</div>
-
-    <div class="selectwork"">
-        <h1>Выберите тип занятости:</h1>
-        <select class="worktypeclass" id="worktype">
-            <option value="temporary">Постоянная работа</option>
-            <option value="permanent">Временная работа</option>
-        </select>
-        <button class="first-next-class" id="gonext">Далее</button>
+        <h1 class="comp-name">BEAUTIFUL WORK</h1>
+        <img src="hi.png">
+        <h3>Нажмите “НАЧАТЬ”, чтобы заполнить ваше резюме.</h3>
+        <button class="start" id="button-start" type="button">НАЧАТЬ</button>
     </div>
 
-    <div class="jobs" id="jobs-id"">
-        <h1>Выберите работу:</h1>
-        <div class="select-multiple" id="jobOptions">
-            <span class="select-item" onclick="toggleSelection(this)">Уборщик</span>
-            <span class="select-item" onclick="toggleSelection(this)">Каменьщик</span>
-            <span class="select-item" onclick="toggleSelection(this)">Плиточник</span>
-            <span class="select-item" onclick="toggleSelection(this)">Разнорабочий</span>
+    <div class="hidden" id="steps">
+        <div class="selectwork" id="step-1">
+            <h1>Выберите тип занятости:</h1>
+            <select class="worktypeclass" id="worktype">
+                <option value="temporary">Постоянная работа</option>
+                <option value="permanent">Временная работа</option>
+            </select>
+            <button class="first-next-button" id="button-first-next">Далее</button>
         </div>
-        <div class="step-button">
-            <button class="back-class" id="goback">Назад</button>
-            <button class="next-class" id="gonext">Далее</button>
+    
+        <div class="jobs hidden" id="step-2">
+            <h1>Выберите работу:</h1>
+            <div class="select-multiple" id="jobOptions">
+                <span class="select-item" onclick="toggleSelection(this)">Уборщик</span>
+                <span class="select-item" onclick="toggleSelection(this)">Каменьщик</span>
+                <span class="select-item" onclick="toggleSelection(this)">Плиточник</span>
+                <span class="select-item" onclick="toggleSelection(this)">Разнорабочий</span>
+            </div>
         </div>
-    </div>
+    
+        <div class="jobs hidden" id="step-3">
+            <h1>Выберите работу:</h1>
+            <div class="select-multiple" id="cityOptions">
+                <span class="select-item" onclick="toggleSelection(this)">Балашиха</span>
+                <span class="select-item" onclick="toggleSelection(this)">Митино</span>
+                <span class="select-item" onclick="toggleSelection(this)">Казань</span>
+                <span class="select-item" onclick="toggleSelection(this)">Арск</span>
+            </div>
+        </div>
+    
+        <div class="input-name hidden" id="step-4">
+            <h1>Введите Имя </h1>
+            <input type="text" name="name-n-f" id="user_firstname" class="input-class">
+        </div>
+    
+    
+        <div class="input-name hidden" id="step-5">
+            <h1>Расскажите о себе</h1>
+            <textarea class="textarea-class" id="about"></textarea>
 
-    <div class="jobs" id="city-id"">
-        <h1>Выберите работу:</h1>
-        <div class="select-multiple" id="cityOptions">
-            <span class="select-item" onclick="toggleSelection(this)">Балашиха</span>
-            <span class="select-item" onclick="toggleSelection(this)">Митино</span>
-            <span class="select-item" onclick="toggleSelection(this)">Казань</span>
-            <span class="select-item" onclick="toggleSelection(this)">Арск</span>
         </div>
-        <div class="step-button">
-            <button class="back-class" id="goback">Назад</button>
-            <button class="next-class" id="gonext">Далее</button>
+    
+        <div class="input-name hidden" id="step-6">
+            <h1>Введите желаемую оплату за работу</h1>
+            <input type="number" name="name-n-f" id="price" class="input-class">
         </div>
-    </div>
+    
+        <div class="input-name hidden" id="step-7">
+            <h1>Введите ваш номер</h1>
+            <input type="tel" name="name-n-f" id="phoneNumber" class="input-class" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone">
+        </div>
 
-    <div class="input-name" id="name-id" ">
-        <h1>Введите Имя </h1>
-        <input type="text" name="name-n-f" id="user_firstname" class="input-class">
-        <div class="step-button">
-            <button class="back-class" id="goback">Назад</button>
-            <button class="next-class" id="gonext">Далее</button>
+        <div class="result hidden" id="result">
+            Результат после клика
         </div>
-    </div>
 
-
-    <div class="input-name" id="about-id" ">
-        <h1>Расскажите о себе</h1>
-        <textarea class="textarea-class" id="about"></textarea>
-        <div class="step-button">
-            <button class="back-class" id="goback">Назад</button>
-            <button class="next-class" id="gonext">Далее</button>
+        <div class="step-button hidden" id="buttons">
+            <button class="back-class" id="button-back" >Назад</button>
+            <button class="next-class" id="button-next" >Далее</button>
         </div>
-    </div>
 
-    <div class="input-name" id="price-id" ">
-        <h1>Введите желаемую оплату за работу</h1>
-        <input type="number" name="name-n-f" id="price" class="input-class">
-        <div class="step-button">
-            <button class="back-class" id="goback">Назад</button>
-            <button class="next-class" id="gonext">Далее</button>
-        </div>
-    </div>
-
-    <div class="input-name" id="phone-id"">
-        <h1>Введите ваш номер</h1>
-        <input type="tel" name="name-n-f" id="phoneNumber" class="input-class" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone">
-        <div class="step-button">
-            <button class="back-class" id="goback">Назад</button>
-            <button class="next-class" id="send">Отправить</button>
-        </div>
+        
     </div>
 
     
 
 
-    <script>
+    <!-- <script>
         function toggleSelection(element) {
             element.classList.toggle("selected");
-        }
+        }buttonFirstNext
 
         const inputField = document.getElementById('inputField');
 
@@ -348,9 +341,70 @@
             inputField.blur();
         }
         });
+    </script> -->
+
+    <script>
+        const main = document.querySelector('#main-id');
+        const steps = document.querySelector('#steps');
+        const startButton = document.querySelector('#button-start');
+        const buttonFirstNext = document.querySelector('#button-first-next');
+        const buttons = document.querySelector('#buttons');
+        const buttonBack = document.querySelector('#button-back');
+        const buttonNext = document.querySelector('#button-next');
+        const resultBlock = document.querySelector('#result');
+
+        let currentStep = 1;
+
+        startButton.addEventListener('click', () => {
+            main.classList.add('hidden');
+            steps.classList.remove('hidden');
+        })
+
+        buttonFirstNext.addEventListener('click', () => {
+            buttons.classList.remove('hidden');
+            nextStep();
+        })
+
+        buttonBack.addEventListener('click', () => {
+            prevStep();
+            if (currentStep === 1) {
+                buttons.classList.add('hidden');
+            }
+        })
+
+        buttonNext.addEventListener('click', () => {
+            nextStep();
+            if (currentStep === 8) {
+                // действие после клика Далее после телефона
+                resultBlock.classList.remove('hidden');
+                buttons.classList.add('hidden');
+            }
+        })
+
+        function prevStep () {
+            const current = document.querySelector(`#step-${currentStep}`);
+            const prev = document.querySelector(`#step-${currentStep - 1}`)
+            current.classList.add('hidden');
+            prev.classList.remove('hidden');
+            currentStep -= 1;
+        }
+
+        function nextStep () {
+            const current = document.querySelector(`#step-${currentStep}`);
+            const next = document.querySelector(`#step-${currentStep + 1}`)
+            current.classList.add('hidden');
+            if (next) next.classList.remove('hidden');
+            currentStep += 1;
+        }
+
+
     </script>
+
 </body>
 </html>
-    </script>
+    
 </body>
 </html>
+
+
+
