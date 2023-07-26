@@ -259,6 +259,60 @@
             margin-top: 10px;
         }
 
+
+        .result-hidden {
+            color: var(--tg-theme-text-color); /*Нужно поменять цвет на text-color */
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-top: 1px;
+        }
+
+        .result-hidden h1 {
+            font-size: 60px;
+            font-family: 'Fira Code', monospace;
+            display: block;
+            text-align: center;
+            color: #27AE60;
+            margin-top: 20px;
+        }
+
+        .result-hidden p {
+            font-size: 20px;
+            font-family: 'Fira Code', monospace;
+            display: block;
+            text-align: center;
+            color: #27AE60;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Убедитесь, что контейнер имеет достаточную высоту и ширину для изображения 
+            width: 300px; /* Замените на желаемую ширину */
+        }
+
+        .image-container img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .image-containertwo {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            /* Убедитесь, что контейнер имеет достаточную высоту и ширину для изображения */
+            height: 0px; /* Замените на желаемую высоту */
+            width: 0px; /* Замените на желаемую ширину */
+        }
+
+        .image-containertwo img {
+            width: 700px;
+            height: 700px;
+            margin-top: -300px;
+        }
+
         
 
     </style>
@@ -325,7 +379,16 @@
         </div>
 
         <div class="result hidden" id="result">
-            Результат после клика
+            <div class="result-hidden">
+                <h1>Отлично!</h1>
+                <p>Ваше объявление успешно добавлено!</p>
+            </div>
+            <div class="image-container">
+                <img src="cool.png" class="cool-icon">
+              </div> 
+            <div class="image-containertwo">
+                <img src="AASS.png" class="cool-img">
+              </div>
         </div>
 
         <div class="step-button hidden" id="buttons">
@@ -422,6 +485,7 @@
     
 </body>
 </html>
+
 
 
 
