@@ -21,7 +21,7 @@
             overflow: hidden; /* Запрещаем прокрутку страницы */
             flex-direction: column;
             align-items: center;
-/*             overflow-y: scroll; */
+            /* overflow-y: scroll; */
         }
 /* секция главного меню */
         /* блок главного меню */
@@ -305,6 +305,7 @@
             /* Убедитесь, что контейнер имеет достаточную высоту и ширину для изображения */
             height: 0px; /* Замените на желаемую высоту */
             width: 0px; /* Замените на желаемую ширину */
+            margin-top: 50px;
         }
 
         .image-containertwo img {
@@ -330,8 +331,8 @@
         <div class="selectwork" id="step-1">
             <h1>Выберите тип занятости:</h1>
             <select class="worktypeclass" id="worktype">
-                <option value="temporary">Постоянная работа</option>
-                <option value="permanent">Временная работа</option>
+                <option value="Постоянная работа">Постоянная работа</option>
+                <option value="Временная работа">Временная работа</option>
             </select>
             <button class="first-next-button" id="button-first-next">Далее</button>
         </div>
@@ -458,6 +459,64 @@
                 // действие после клика Далее после телефона
                 resultBlock.classList.remove('hidden');
                 buttons.classList.add('hidden');
+                
+                let tg = window.Telegram.WebApp;
+                let user_id = tg.initDataUnsafe.user.id;
+                const jobOptionsSelected = document.querySelectorAll('#jobOptions .selected');
+                const jobOptionsValues = [];
+                if (jobOptionsSelected.length >= 1) {
+                    jobOptionsSelected.forEach((item) => jobOptionsValues.push(item.innerText))
+                }
+                const cityOptionsSelected = document.querySelectorAll('#cityOptions .selected');
+                const cityOptionsValues = [];
+                if (cityOptionsSelected.length >= 1) {
+                    cityOptionsSelected.forEach((item) => cityOptionsValues.push(item.innerText))
+                }
+                let selectedWorkType = worktype.value;
+                let selectedJobs = jobOptionsValues;
+                let selectedCities = cityOptionsValues;
+                let userName = document.getElementById("user_firstname").value;
+                let aboutMe = document.getElementById("about").value;
+                let desiredPrice = document.getElementById("price").value;
+                let phoneNumber = document.getElementById("phoneNumber").value;
+
+                console.log("Selected work type:", selectedWorkType);
+                console.log("Selected jobs:", selectedJobs);
+                console.log("Selected cities:", selectedCities);
+                console.log("User name:", userName);
+                console.log("About me:", aboutMe);
+                console.log("Desired price:", desiredPrice);
+                console.log("Phone number:", phoneNumber);
+
+                const axios = require('axios');
+                const apiUrl = 'http://80.78.253.113:2342/add_worker_ad';
+                const requestBody = {
+                    category: selectedJobs,
+                    city: selectedCities,
+                };
+
+                    axios.post(apiUrl, {
+                    user_id: user_id,
+                    work_type: selectedWorkType,
+                    name: userName,
+                    about: aboutMe,
+                    price: desiredPrice,
+                    phone: phoneNumber,
+                }, {
+                    headers: {
+                        'accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    data: JSON.stringify(requestBody),
+                })
+                    .then(response => {
+                        console.log('Успешный ответ:', response.data);
+                })
+                    .catch(error => {
+                        console.error('Ошибка:', error);
+                });
+                
+
             }
         })
 
@@ -483,9 +542,6 @@
 </body>
 </html>
     
-</body>
-</html>
-
 
 
 
