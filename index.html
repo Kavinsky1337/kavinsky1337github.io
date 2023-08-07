@@ -14,8 +14,9 @@
   </head>
 
   <body>
-    <!-- Site body -->
-    <h1>hi BITCH</h1>
+    <div id="test">
+      <h1>hi BITCH</h1>
+    </div>
     <!-- Javascript code -->
     <script>
         tg = window.Telegram.WebApp;
@@ -26,6 +27,11 @@
     <!-- Python code -->
     <py-script>
         from js import tg, user_info
+        def write_to_div(user_info):
+          manual_div = Element("test")
+          manual_div.element.innerHTML = f"<h2>{user_info}</h2>"
+        
+        write_to_div(user_info)
 
     </py-script>
   </body>
