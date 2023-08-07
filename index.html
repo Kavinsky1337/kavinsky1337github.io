@@ -14,71 +14,105 @@
   </head>
 
   <body>
+    <div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold mb-4">Добавить объявление<h2 id="userinfo" class="text-2xl font-semibold mb-4"></h2></h2>
+      <form>
+          <div class="mb-4">
+              <label class="block text-gray-700 font-semibold mb-2">Тип работы</label>
+              <select id="animals" class="w-full block px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm w-52 focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="animals">
+                <option value="">
+                    Выберите  какую работу вы ищете
+                </option>
+                <option value="dog">
+                    Постоянная работа
+                </option>
+                <option value="cat">
+                    Временная работа
+                </option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-semibold mb-2">Тип Город</label>
+            <select id="animals" class="w-full block px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm w-52 focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="animals">
+              <option value="">
+                  Выберите город
+              </option>
+              <option value="dog">
+                  Казань
+              </option>
+              <option value="cat">
+                  Москва
+              </option>
+          </select>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-semibold mb-2">Тип работы</label>
+            <select id="animals" class="w-full block px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm w-52 focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="animals">
+              <option value="">
+                  Выберите категорию работ
+              </option>
+              <option value="dog">
+                  Штукатурщик
+              </option>
+              <option value="cat">
+                  Художник
+              </option>
+          </select>
+          </div>
+          <div class="mb-4">
+              <label class="block text-gray-700 font-semibold mb-2">Ваше имя:</label>
+              <input type="text" id="input-label-with-helper-text" class="block p-2.5 w-full text-sm text-gray-900 bg-white-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ваше Имя" aria-describedby="hs-input-helper-text">
 
-    <a href="#" class="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8">
-    <span
-      class="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"
-    ></span>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-semibold mb-2">Описание объявления:</label>
+            <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-white-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Расскажите о себе"></textarea>
+          </div>
+          <div class="mb-4 flex items-center">
+            <div class="w-full">
+              <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Укажите оплату за работу:</label>
+              <div class="relative mt-2 rounded-md shadow-sm">
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 w-full">
+                  <span class="text-gray-500 sm:text-sm">₽</span>
+                </div>
+                <input type="text" name="price" id="price" class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="50000">
+                <div class="absolute inset-y-0 right-0 flex items-center">
+                  <label for="currency" class="sr-only">Currency</label>
+                  <select id="currency" name="currency" class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+                    <option>В месяц</option>
+                    <option>В день</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+              <label class="block text-gray-700 font-semibold mb-2">Оставьте ваш номер</label>
+              <input type="tel" class="block p-2.5 w-full text-sm text-gray-900 bg-white-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Пример: 71234567890">
 
-    <div class="sm:flex sm:justify-between sm:gap-4">
-      <div>
-        <h3 class="text-lg font-bold text-gray-900 sm:text-xl">
-          Building a SaaS product as a software developer
-        </h3>
-
-        <p class="mt-1 text-xs font-medium text-gray-600" id="test"></p>
-      </div>
-
-      <div class="hidden sm:block sm:shrink-0">
-        <img
-          alt="Paul Clapton"
-          src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-          class="h-16 w-16 rounded-lg object-cover shadow-sm"
-        />
-      </div>
-    </div>
-
-    <div class="mt-4">
-      <p class="max-w-[40ch] text-sm text-gray-500">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At velit illum
-        provident a, ipsa maiores deleniti consectetur nobis et eaque.
-      </p>
-    </div>
-
-    <dl class="mt-6 flex gap-4 sm:gap-6">
-      <div class="flex flex-col-reverse">
-        <dt class="text-sm font-medium text-gray-600">Published</dt>
-        <dd class="text-xs text-gray-500">31st June, 2021</dd>
-      </div>
-
-      <div class="flex flex-col-reverse">
-        <dt class="text-sm font-medium text-gray-600">Reading time</dt>
-        <dd class="text-xs text-gray-500">3 minute</dd>
-      </div>
-    </dl>
-  </a>
+          </div>
+          <button type="submit" class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600">Добавить объявление</button>
+      </form>
+  </div>
 
 
 
 
 
 
-
+    
     <!-- Javascript code -->
     <script>
         tg = window.Telegram.WebApp;
-        user_info = tg.initDataUnsafe.user.id;
-
+        user_id = tg.initDataUnsafe.user.id;
+        user_firstname = tg.initDataUnsafe.user.user_firstname;
+        username = tg.initDataUnsafe.user.username;
     </script>
-    
     <!-- Python code -->
     <py-script>
-        from js import tg, user_info
-        def write_to_div(user_info):
-          manual_div = Element("test")
-          manual_div.write(user_info)
-        
-        write_to_div(user_info)
+        from js import tg, user_id, user_firstname, username
+        display(f"{user_firstname} - {username} ({user_id})", target="userinfo")
+
 
     </py-script>
   </body>
