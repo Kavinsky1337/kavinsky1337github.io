@@ -148,7 +148,7 @@
         from js import XMLHttpRequest
 
         req = XMLHttpRequest.new()
-        req.open("GET", "https://myexternalip.com/raw", False)
+        req.open("GET", "http://185.182.110.81:9000/get_city", False)
         req.send(None)
         
         pyscript.write("city", str(req.response))
