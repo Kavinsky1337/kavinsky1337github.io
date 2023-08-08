@@ -10,7 +10,7 @@ import pyscript
 # print(response.text)
 
 import requests
-from pyodide.http import pyfetch
+import pyodide_http
 
 pyodide_http.patch_all()
 headers = {
