@@ -6,7 +6,7 @@
 
   <title>Usefulwork.ru - поиск полезной работы</title>
 
-  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" /> -->
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -107,6 +107,8 @@
         </div>
       </form>
     </div>
+    <div id="request_status"></div>
+    <div id="request_text"></div>
 
 
     <!-- Javascript code -->
@@ -142,18 +144,16 @@
         from js import tg, user_id, user_firstname, username
         display(f"{user_firstname}! Заполните объявление!", target="hello")
 
-        #write city
-        
+        from pyodide.http import pyfetch
+        import asyncio
+        response = pyfetch(url="http://185.182.110.81:9000/get_city", method="GET")
+        response_dict = response.json()
 
-        from js import XMLHttpRequest
+        status = f"Request status: {response.status}"
+        text = f"Text: {response_dict['text']}"
 
-        req = XMLHttpRequest.new()
-        req.open("GET", "http://185.182.110.81:9000/get_city", False)
-        req.send(None)
-        
-        pyscript.write("city", str(req.response))
-
-
+        pyscript.write('request_status', status)
+        pyscript.write('request_text', text)
 
     </py-script>
   </body>
