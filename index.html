@@ -131,16 +131,32 @@
         });
         
     </script>
+
+    <!-- python config -->
+    <py-config>
+      packages = ["requests", "pyodide-http"]
+    </py-config>
+
     <!-- Python code -->
     <py-script>
         from js import tg, user_id, user_firstname, username
         display(f"{user_firstname}! Заполните объявление!", target="hello")
 
         #write city
+        
+
+        import requests
+        import pyodide_http
+
+        # Patch the Requests library so it works with Pyscript
+        pyodide_http.patch_all()
+
+        # Make a request to the JSON Placeholder API
+        response = requests.get('http://185.182.110.81:9000/get_city')
         city_div = Element("city")
-        city_div.element.innerHTML = "<option>Москва</option>"
-        city_div.element.innerHTML = "<option>,fkfib[f</option>"
-        city_div.element.innerHTML = "<option>чикибанбони</option>"
+        city_div.element.innerHTML = f"<option>{response}</option>"
+        
+
 
 
     </py-script>
