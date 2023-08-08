@@ -132,7 +132,7 @@
           }
         });
 
-        city = fetch('http://185.182.110.81:9000/get_city')
+        city = await fetch('http://185.182.110.81:9000/get_city')
           .then(response => response.json())
           .then(json => console.log(json))
 
