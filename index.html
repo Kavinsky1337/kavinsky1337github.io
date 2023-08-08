@@ -142,7 +142,6 @@
 
     <!-- python config -->
     <py-config>
-      [[fetch]]
       packages = ["pyodide.http", "requests", "typing", "asyncio"]
     </py-config>
 
@@ -154,10 +153,7 @@
 
         display(f"{user_firstname}! Заполните объявление!!!", target="hello")
 
-        response = = await pyfetch(url="https://usefulwork.ru/get_category", method="GET")
-        output = f"GET request=> status:{response.status}, json:{await response.json()}"
-        
-        display(f"{output}", target="request_status")
+        <!-- display(f"{output}", target="request_status") -->
         
 
         
