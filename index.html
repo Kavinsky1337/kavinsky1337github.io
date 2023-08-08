@@ -153,7 +153,13 @@
 
         display(f"{user_firstname}! Заполните объявление!!!", target="hello")
 
-        <!-- display(f"{output}", target="request_status") -->
+        from js import XMLHttpRequest
+
+        req = XMLHttpRequest.new()
+        req.open("GET", "https://usefulwork.ru/get_category", False)
+        req.send(None)
+
+        display(str(req.response), target="request_status")
         
 
         
