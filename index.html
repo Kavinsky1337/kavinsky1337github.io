@@ -108,7 +108,6 @@
       </form>
     </div>
     <div id="request_status"></div>
-    <div id="request_status"></div>
     <div id="request_text"></div>
 
 
@@ -143,6 +142,7 @@
 
     <!-- python config -->
     <py-config>
+      packages = ""
     </py-config>
 
     <!-- Python code -->
@@ -150,15 +150,19 @@
         from js import tg, user_id, user_firstname, username, city
         display(f"{user_firstname}! Заполните объявление!!!", target="hello")
         
-        
+
+        import requests
         from pyodide.http import pyfetch
 
-        response = pyfetch(url="https://cat-fact.herokuapp.com/facts/random", method="GET")
-        response_dict = response
-
-        status = f"Request status: {response}"
-
-        pyscript.write('request_status', status)
+        pyodide_http.patch_all()
+        headers = {
+            'accept': 'application/json',
+        }
+        
+        response = requests.get('https://usefulwork.ru/get_category', headers=headers)
+        
+        print(response.text)
+        display(f"{response.text}", target="request_status")
 
 
 
