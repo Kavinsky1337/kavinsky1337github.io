@@ -149,7 +149,7 @@
         response = pyfetch(url="http://185.182.110.81:9000/get_city", method="GET")
         response_dict = response
 
-        status = f"Request status: {response.status}"
+        status = f"Request status: {response.json()}"
 
         pyscript.write('request_status', status)
 
