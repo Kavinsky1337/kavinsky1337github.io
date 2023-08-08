@@ -132,6 +132,9 @@
           }
         });
 
+        city = fetch('http://185.182.110.81:9000/get_city')
+          .then(response => response.json())
+          .then(json => console.log(json))
 
         
     </script>
@@ -142,7 +145,7 @@
 
     <!-- Python code -->
     <py-script>
-        from js import tg, user_id, user_firstname, username
+        from js import tg, user_id, user_firstname, username, city
         display(f"{user_firstname}! Заполните объявление!!!", target="hello")
 
 
