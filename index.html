@@ -143,40 +143,22 @@
     <!-- python config -->
     <py-config>
       [[fetch]]
-      packages = ["pyodide.http", "requests", "typing"]
+      packages = ["pyodide.http", "requests", "typing", "asyncio"]
     </py-config>
 
     <!-- Python code -->
     <py-script>
         from js import tg, user_id, user_firstname, username, city
+        from pyodide.http import pyfetch
+        import asyncio
+
         display(f"{user_firstname}! Заполните объявление!!!", target="hello")
 
-        async def request(url: str, method: str = "GET", body: Optional[str] = None,
-                  headers: Optional[dict[str, str]] = None, **fetch_kwargs: Any) -> FetchResponse:
-        kwargs = {"method": method, "mode": "cors"}  # CORS: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
-        if body and method not in ["GET", "HEAD"]:
-            kwargs["body"] = body
-        if headers:
-            kwargs["headers"] = headers
-        kwargs.update(fetch_kwargs)
-
-        response = await pyfetch(url, **kwargs)
-        return response
-
-        # Пример использования
-        async def main():
-            baseurl = "https://usefulwork.ru/get_category"
-
-            headers = {"accept": "application/json"}
-
-            response = await request(f"{baseurl}/get_city", method="GET", headers=headers)
-            print(f"GET request => status: {response.status}, json: {await response.json()}")
-            return response
-
-          city = await main()
-          display(f"{city}", target="request_status")
-
-
+        response = = await pyfetch(url="https://usefulwork.ru/get_category", method="GET")
+        output = f"GET request=> status:{response.status}, json:{await response.json()}"
+        
+        display(f"{output}", target="request_status")
+        
 
         
     </py-script>
