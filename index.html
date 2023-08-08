@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Usefulwork.ru - поиск полезной работы</title>
+    <title>Usefulwork.ru - поиск полезной работы</title>
 
-  <!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" /> -->
-  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" /> -->
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <py-env>
+      - './requests-2.27.1-py2.py3-none-any.whl'
+    </py-env>
 
   </head>
 
@@ -133,33 +137,6 @@
           }
         });
 
-        async function getCity() {
-          try {
-            const response = await fetch('https://usefulwork.ru/get_city', {
-              method: 'GET',
-              headers: {
-                'accept': 'application/json'
-              }
-            });
-
-            if (!response.ok) {
-              throw new Error('Request failed');
-            }
-
-            const data = await response.json();
-            const city = data.result; // Предположим, что результат находится в свойстве 'result'
-
-            // Здесь можно выполнить действия с переменной city
-            console.log('City:', city);
-            
-            return city; // Если нужно вернуть значение из функции
-          } catch (error) {
-            console.error('Error:', error);
-            return null; // В случае ошибки можно вернуть какое-либо значение
-          }
-        }
-
-        let city = await getCity();
         
     </script>
 
@@ -170,10 +147,14 @@
 
     <!-- Python code -->
     <py-script>
-        from js import tg, user_id, user_firstname, username, city
+        from js import tg, user_id, user_firstname, username
+        import requests
 
         display(f"{user_firstname}! Заполните объявление!!!", target="hello")
-        display(f"{city}", target="request_status")
+        
+
+        response = requests.get("https://usefulwork.ru/get_city")
+        display(f"{response}", target="request_status")
 
 
         
