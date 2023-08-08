@@ -155,14 +155,13 @@
         try {
           const city = await fetchCityList();
           data_city = city;
-          return data_city;
           // Далее вы можете использовать список городов в вашем коде
         } catch (error) {
           console.error(error);
         }
       }
 
-city = main();
+main();
 
 
 
@@ -175,10 +174,10 @@ city = main();
 
     <!-- Python code -->
     <py-script>
-        from js import tg, user_id, user_firstname, username, city
+        from js import tg, user_id, user_firstname, username, data_city
         display(f"{user_firstname}! Заполните объявление!!!", target="hello")
 
-        pyscript.write('request_status', city)
+        pyscript.write('request_status', data_city)
 
 
 
