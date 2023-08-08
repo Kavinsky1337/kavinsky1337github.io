@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Writing to the page</title>
+  <title>Usefulwork.ru - поиск полезной работы</title>
 
   <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
@@ -134,7 +134,7 @@
 
     <!-- python config -->
     <py-config>
-      packages = ["requests", "pyodide-http"]
+      packages = ["requests", "pyodide-http", "sqlite3"]
     </py-config>
 
     <!-- Python code -->
@@ -145,17 +145,13 @@
         #write city
         
 
-        import requests
-        import pyodide_http
+        from js import XMLHttpRequest
 
-        # Patch the Requests library so it works with Pyscript
-        pyodide_http.patch_all()
-
-        # Make a request to the JSON Placeholder API
-        response = requests.get('http://185.182.110.81:9000/get_city')
-        city_div = Element("city")
-        city_div.element.innerHTML = f"<option>{response}</option>"
+        req = XMLHttpRequest.new()
+        req.open("GET", "https://myexternalip.com/raw", False)
+        req.send(None)
         
+        pyscript.write("outputDiv", str(req.response))
 
 
 
