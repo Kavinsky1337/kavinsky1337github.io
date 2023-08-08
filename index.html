@@ -108,7 +108,7 @@
       </form>
     </div>
     <div id="request_status"></div>
-    <div id="request_text"></div>
+
 
 
     <!-- Javascript code -->
@@ -146,18 +146,25 @@
             }
 
             const data = await response.json();
-            // const city = data.city; // Предполагается, что объект данных содержит свойство "city"
-
-            // Далее вы можете использовать переменную "city" в своем коде
             return data;
-            // Или выполнить другие операции с переменной "city"
           } catch (error) {
             console.error('Error fetching data:', error);
           }
         }
 
-        // Вызываем функцию для выполнения запроса
-        city = fetchData();
+        // Асинхронная функция для обработки данных
+        async function processData() {
+          try {
+            const cityData = await fetchData();
+            // Здесь cityData содержит ответ с сервера в формате JSON, который вы можете использовать в своем коде
+            return cityData;
+          } catch (error) {
+            console.error('Error processing data:', error);
+          }
+        }
+
+        // Вызываем функцию для выполнения запроса и обработки данных
+        city = processData();
         
     </script>
 
