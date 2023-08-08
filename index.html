@@ -132,6 +132,23 @@
             inputField.blur();
           }
         });
+
+
+        // custom blocks
+        document.querySelectorAll(".custom-select-trigger").forEach(function (trigger) {
+          trigger.addEventListener("click", function () {
+            this.parentNode.classList.toggle("open");
+          });
+        });
+        document.querySelectorAll(".custom-option").forEach(function (option) {
+          option.addEventListener("click", function () {
+            let value = this.innerText;
+            let input = this.parentNode.parentNode.previousElementSibling;
+            input.value = value;
+            this.parentNode.previousElementSibling.innerText = value;
+            this.parentNode.classList.remove("open");
+          });
+        });
     </script>
     <!-- Python code -->
     <py-script>
