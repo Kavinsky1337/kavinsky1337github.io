@@ -154,14 +154,15 @@
       async function main() {
         try {
           const city = await fetchCityList();
-          console.log('Список городов:', city);
+          data_city = city;
+          return data_city;
           // Далее вы можете использовать список городов в вашем коде
         } catch (error) {
           console.error(error);
         }
       }
 
-main();
+city = main();
 
 
 
