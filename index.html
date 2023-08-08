@@ -108,6 +108,8 @@
       </form>
     </div>
     <div id="request_status"></div>
+    <div id="request_status"></div>
+    <div id="request_text"></div>
 
 
 
@@ -147,7 +149,19 @@
     <py-script>
         from js import tg, user_id, user_firstname, username, city
         display(f"{user_firstname}! Заполните объявление!!!", target="hello")
-        display(f"{city}", target="request_status")
+        
+        
+        from pyodide.http import pyfetch
+        import asyncio
+
+        response = await pyfetch(url="https://cat-fact.herokuapp.com/facts/random", method="GET")
+        response_dict = await response.json()
+
+        status = f"Request status: {response.status}"
+        text = f"Text: {response_dict['text']}"
+
+        pyscript.write('request_status', status)
+        pyscript.write('request_text', text)
 
 
 
