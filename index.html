@@ -1,60 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Writing to the page</title>
+  <title>Writing to the page</title>
 
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-      /* Custom select styles */
-      .custom-select {
-        position: relative;
-      }
-
-      .custom-select-wrapper {
-        position: relative;
-        user-select: none;
-        cursor: pointer;
-      }
-
-      .custom-select-trigger {
-        padding: 0.5rem;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background-color: #fff;
-      }
-
-      .custom-options {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        border: 1px solid #ccc;
-        border-top: none;
-        border-radius: 4px;
-        background-color: #fff;
-        z-index: 999;
-      }
-
-      .custom-option {
-        padding: 0.5rem;
-      }
-
-      .custom-option:hover {
-        background-color: #f0f0f0;
-      }
-
-      .custom-select.open .custom-options {
-        display: block;
-      }
-    </style>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
   </head>
 
@@ -74,7 +29,7 @@
           <div class="sm:col-span-2">
             <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Выберите тип работы:</label>
             <div class="mt-2">
-              <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <select id="type-work" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 <option>Постоянная</option>
                 <option>Временная</option>
               </select>
@@ -85,10 +40,7 @@
           <div class="sm:col-span-2">
             <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Выберите город:</label>
             <div class="mt-2">
-              <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                <option>Москва</option>
-                <option>Балашиха</option>
-                <option>Люберцы</option>
+              <select id="city" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
               </select>
             </div>
           </div>
@@ -97,7 +49,7 @@
           <div class="sm:col-span-2">
             <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Выберите категорию работы:</label>
             <div class="mt-2">
-              <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <select id="category-work" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 <option>Моляр</option>
                 <option>Сварщик</option>
                 <option>Водитель</option>
@@ -177,28 +129,17 @@
             inputField.blur();
           }
         });
-
-
-        // custom blocks
-        document.querySelectorAll(".custom-select-trigger").forEach(function (trigger) {
-          trigger.addEventListener("click", function () {
-            this.parentNode.classList.toggle("open");
-          });
-        });
-        document.querySelectorAll(".custom-option").forEach(function (option) {
-          option.addEventListener("click", function () {
-            let value = this.innerText;
-            let input = this.parentNode.parentNode.previousElementSibling;
-            input.value = value;
-            this.parentNode.previousElementSibling.innerText = value;
-            this.parentNode.classList.remove("open");
-          });
-        });
+        
     </script>
     <!-- Python code -->
     <py-script>
         from js import tg, user_id, user_firstname, username
         display(f"{user_firstname}! Заполните объявление!", target="hello")
+
+        #write city
+        city_div = Element("city")
+        city_div.element.innerHTML = "<option>Москва</option>"
+        city_div.element.innerHTML = "<option>,fkfib[f</option>"
 
 
     </py-script>
