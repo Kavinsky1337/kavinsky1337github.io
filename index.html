@@ -154,8 +154,8 @@
         from pyodide.http import pyfetch
         import asyncio
 
-        response = await pyfetch(url="https://cat-fact.herokuapp.com/facts/random", method="GET")
-        response_dict = await response.json()
+        response = pyfetch(url="https://cat-fact.herokuapp.com/facts/random", method="GET")
+        response_dict = response.json()
 
         status = f"Request status: {response.status}"
         text = f"Text: {response_dict['text']}"
