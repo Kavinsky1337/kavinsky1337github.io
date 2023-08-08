@@ -107,7 +107,7 @@
         </div>
       </form>
     </div>
-    <div id="request_status">d</div>
+    <div id="request_status"></div>
     <div id="request_text"></div>
 
 
@@ -135,8 +135,24 @@
     </script>
 
     <!-- python config -->
-    <py-config src="./pyscript.toml"></py-config>
+    <py-config>
+      packages = ["requests", "pyodide-http", "sqlite3"]
+    </py-config>
+
     <!-- Python code -->
-    <py-script src="./main.py"></py-script>
+    <py-script>
+        from js import tg, user_id, user_firstname, username
+        display(f"{user_firstname}! Заполните объявление!!!", target="hello")
+
+        from pyodide.http import pyfetch
+
+        response = pyfetch(url="http://185.182.110.81:9000/get_city", method="GET")
+        response_dict = response
+
+        status = f"Request status: {response}"
+
+        pyscript.write('request_status', status)
+
+    </py-script>
   </body>
 </html>
