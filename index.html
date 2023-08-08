@@ -151,7 +151,7 @@
         req.open("GET", "https://myexternalip.com/raw", False)
         req.send(None)
         
-        pyscript.write("outputDiv", str(req.response))
+        pyscript.write("city", str(req.response))
 
 
 
