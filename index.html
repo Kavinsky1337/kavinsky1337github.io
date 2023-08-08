@@ -152,12 +152,11 @@
         
         
         from pyodide.http import pyfetch
-        import asyncio
 
         response = pyfetch(url="https://cat-fact.herokuapp.com/facts/random", method="GET")
-        response_dict = response.json()
+        response_dict = response
 
-        status = f"Request status: {response.status}"
+        status = f"Request status: {response}"
         text = f"Text: {response_dict['text']}"
 
         pyscript.write('request_status', status)
