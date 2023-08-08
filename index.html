@@ -25,23 +25,41 @@
       <form action="#" method="POST" class="mx-auto mt-16 max-w-xl sm:mt-20">
         <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
 
+          <!-- Блок Тип работы -->
           <div class="sm:col-span-2">
-            <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Оплата за работу:</label>
-            <div class="relative mt-2 rounded-md shadow-sm">
-              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <span class="text-gray-500 sm:text-sm">₽</span>
-              </div>
-              <input type="text" name="price" id="price" class="w-full block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="0.00">
-              <div class="absolute inset-y-0 right-0 flex items-center">
-                <label for="currency" class="sr-only">Currency</label>
-                <select id="currency" name="currency" class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
-                  <option>В месяц</option>
-                  <option>В день</option>
-                  <option>В час</option>
-                </select>
-              </div>
+            <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Выберите тип работы:</label>
+            <div class="mt-2">
+              <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <option>Постоянная</option>
+                <option>Временная</option>
+              </select>
             </div>
           </div>
+
+          <!-- Блок город -->
+          <div class="sm:col-span-2">
+            <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Выберите город:</label>
+            <div class="mt-2">
+              <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <option>Москва</option>
+                <option>Балашиха</option>
+                <option>Люберцы</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Блок Категория -->
+          <div class="sm:col-span-2">
+            <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Выберите категорию работы:</label>
+            <div class="mt-2">
+              <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <option>Моляр</option>
+                <option>Сварщик</option>
+                <option>Водитель</option>
+              </select>
+            </div>
+          </div>
+
 
           <!-- Блок ФИО -->
           <div class="sm:col-span-2">
@@ -59,6 +77,34 @@
             </div>
           </div>
         </div>
+
+        <!-- Блок оплаты -->
+        <div class="sm:col-span-2 mt-2.5">
+          <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Оплата за работу:</label>
+          <div class="relative mt-2 rounded-md shadow-sm">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <span class="text-gray-500 sm:text-sm">₽</span>
+            </div>
+            <input type="number" name="price" id="price" class="w-full block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="0.00">
+            <div class="absolute inset-y-0 right-0 flex items-center">
+              <label for="currency" class="sr-only">Currency</label>
+              <select id="currency" name="currency" class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+                <option>В месяц</option>
+                <option>В день</option>
+                <option>В час</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Блок телефон -->
+        <div class="sm:col-span-2 mt-2.5">
+          <label for="company" class="block text-sm font-semibold leading-6 text-gray-900">Введите ваш номер телефона:</label>
+          <div class="mt-2.5">
+            <input type="number" name="company" id="company" autocomplete="organization" placeholder="89111111114" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+
         <div class="mt-10">
           <button type="submit" class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Добавить объявление</button>
         </div>
@@ -72,6 +118,7 @@
         user_id = tg.initDataUnsafe.user.id;
         user_firstname = tg.initDataUnsafe.user.first_name;
         username = tg.initDataUnsafe.user.username;
+        tg.expand() // // метод позволяет растянуть окно на всю высоту.
 
 
         // Получаем ссылку на поле ввода по его ID
