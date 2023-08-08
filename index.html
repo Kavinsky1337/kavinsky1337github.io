@@ -133,36 +133,11 @@
         });
 
 
-        async function fetchCityList() {
-        const url = 'http://185.182.110.81:9000/get_city';
-        const response = await fetch(url, {
-          method: 'GET',
+        city = await fetch('http://185.182.110.81:9000/get_city', {
           headers: {
             'accept': 'application/json'
           }
         });
-
-        if (!response.ok) {
-          throw new Error('Ошибка при получении списка городов');
-        }
-
-        const data = await response.json();
-        return data;
-      }
-
-      // Использование функции для получения списка городов
-      async function main() {
-        try {
-          const city = await fetchCityList();
-          data_city = city;
-          // Далее вы можете использовать список городов в вашем коде
-        } catch (error) {
-          console.error(error);
-        }
-      }
-
-main();
-
 
 
         
@@ -174,10 +149,10 @@ main();
 
     <!-- Python code -->
     <py-script>
-        from js import tg, user_id, user_firstname, username, data_city
+        from js import tg, user_id, user_firstname, username, city
         display(f"{user_firstname}! Заполните объявление!!!", target="hello")
 
-        pyscript.write('request_status', data_city)
+        pyscript.write('request_status', city)
 
 
 
