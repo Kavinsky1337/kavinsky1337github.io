@@ -135,26 +135,8 @@
     </script>
 
     <!-- python config -->
-    <py-config>
-      packages = ["requests", "pyodide-http", "sqlite3"]
-    </py-config>
-
+    <py-config src="./pyscript.toml"></py-config>
     <!-- Python code -->
-    <py-script>
-        from js import tg, user_id, user_firstname, username
-        display(f"{user_firstname}! Заполните объявление!", target="hello")
-
-        from pyodide.http import pyfetch
-        import asyncio
-        response = pyfetch(url="http://185.182.110.81:9000/get_city", method="GET")
-        response_dict = response.json()
-
-        status = f"Request status: {response.status}"
-        text = f"Text: {response_dict['text']}"
-
-        pyscript.write('request_status', status)
-        pyscript.write('request_text', text)
-
-    </py-script>
+    <py-script src="./main.py"></py-script>
   </body>
 </html>
