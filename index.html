@@ -151,22 +151,12 @@
         display(f"{user_firstname}! Заполните объявление!!!", target="hello")
         
 
-        import requests
-        from pyodide.http import pyfetch
-
-        pyodide_http.patch_all()
-        headers = {
-            'accept': 'application/json',
-        }
         
-        response = requests.get('https://usefulwork.ru/get_category', headers=headers)
-        
-        print(response.text)
-        display(f"{response.text}", target="request_status")
 
 
 
 
     </py-script>
+    <py-script src="main.py"></py-script>
   </body>
 </html>
