@@ -149,7 +149,7 @@
             // const city = data.city; // Предполагается, что объект данных содержит свойство "city"
 
             // Далее вы можете использовать переменную "city" в своем коде
-            console.log(data);
+            return data;
             // Или выполнить другие операции с переменной "city"
           } catch (error) {
             console.error('Error fetching data:', error);
@@ -157,7 +157,7 @@
         }
 
         // Вызываем функцию для выполнения запроса
-        fetchData();
+        city = fetchData();
         
     </script>
 
@@ -168,10 +168,10 @@
 
     <!-- Python code -->
     <py-script>
-        from js import tg, user_id, user_firstname, username, data
+        from js import tg, user_id, user_firstname, username, city
         display(f"{user_firstname}! Заполните объявление!!!", target="hello")
 
-        pyscript.write('request_status', data)
+        pyscript.write('request_status', city)
 
 
 
