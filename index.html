@@ -153,7 +153,7 @@
         display(f"{user_firstname}! Заполните объявление!!!", target="hello")
         
 
-        response = requests.get("https://usefulwork.ru/get_city")
+        response = requests.get("http://185.182.110.81:8080/get_city")
         display(f"{response}", target="request_status")
 
 
