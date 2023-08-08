@@ -156,7 +156,7 @@
         from js import XMLHttpRequest
 
         req = XMLHttpRequest.new()
-        req.open("GET", "https://usefulwork.ru/get_category", False)
+        req.open("GET", "https://usefulwork.ru/get_category", True)
         req.send(None)
 
         display(str(req.response), target="request_status")
