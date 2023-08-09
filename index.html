@@ -141,7 +141,7 @@
     <py-script>
       from js import tg, user_id, user_firstname, username
       display(f"{user_firstname}! Заполните объявление!", target="hello")
-      import pyodide
+      import pyodide.http
 
       response = pyodide.http.pyfetch(url="http://185.182.110.81:9000/get_city")
 
