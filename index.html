@@ -131,12 +131,24 @@
           }
         });
 
-        
+        fetch('http://185.182.110.81:9000/get_city', {
+          headers: {
+            'accept': 'application/json'
+          }
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data); // Выводим полученные данные в консоль
+            return data;
+          })
+          .catch(error => {
+            console.error('Ошибка при выполнении запроса:', error);
+          });
     </script>
 
     <!-- Python code -->
     <py-script>
-      from js import tg, user_id, user_firstname, username
+      from js import tg, user_id, user_firstname, username, data
       display(f"{user_firstname}! Заполните объявление!", target="hello")
       
 
