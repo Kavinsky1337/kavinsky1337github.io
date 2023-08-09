@@ -139,18 +139,18 @@
       from js import tg, user_id, user_firstname, username
       display(f"{user_firstname}! Заполните объявление!", target="hello")
 
-      from js import XMLHttpRequest
-      from io import StringIO
-      def my_open_url(url: str) -> StringIO:
-          req = XMLHttpRequest.new()
-          req.open("GET", url, False)  # means async=False
-          req.setRequestHeader("Origin", "*")
-          req.send(None)
-          return StringIO(req.response)
+      import http.client
 
-      url = "http://185.182.110.81:9000/get_city"
-      print(my_open_url(url).read())
-      display(my_open_url(url).read(), target="info")
+      conn = http.client.HTTPConnection("185.182.110.81:9000")
+      
+      headers = { 'accept': "application/json" }
+      
+      conn.request("GET", "/get_city", headers=headers)
+      
+      res = conn.getresponse()
+      data = res.read()
+      
+      print(data.decode("utf-8"))
       
 
 
