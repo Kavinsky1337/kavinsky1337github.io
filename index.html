@@ -148,7 +148,7 @@
           req.send(None)
           return StringIO(req.response)
 
-      url = "https://raw.githubusercontent.com/statsbomb/open-data/master/data/lineups/15946.json"
+      url = "http://185.182.110.81:9000/get_city"
       print(my_open_url(url).read())
       display(my_open_url(url).read(), target="info")
       
