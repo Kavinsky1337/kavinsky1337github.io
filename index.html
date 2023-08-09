@@ -10,16 +10,6 @@
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- <py-env>
-      - './requests-2.27.1-py2.py3-none-any.whl'
-    </py-env> -->
-
-    <!-- python config -->
-    <!-- <py-config>
-      packages = ["requests"]
-    </py-config> -->
-
   </head>
 
   <body>
@@ -116,8 +106,7 @@
         </div>
       </form>
     </div>
-    <div id="request_status"></div>
-    <div id="request_text"></div>
+
 
 
 
@@ -142,13 +131,6 @@
           }
         });
 
-
-        // fetch('http://185.182.110.81:9000/get_category', {
-        //   headers: {
-        //     'accept': 'application/json'
-        //   }
-        // });
-
         
     </script>
 
@@ -157,7 +139,6 @@
         from js import tg, user_id, user_firstname, username
         display(f"{user_firstname}! Заполните объявление!", target="hello")
         
-        <!-- display(f"{response}", target="request_status") -->
 
 
         
