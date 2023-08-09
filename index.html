@@ -142,6 +142,13 @@
           }
         });
 
+
+        fetch('https://usefulwork.ru/get_category', {
+          headers: {
+            'accept': 'application/json'
+          }
+        });
+
         
     </script>
 
@@ -152,9 +159,7 @@
 
         display(f"{user_firstname}! Заполните объявление!!!", target="hello")
         
-
-        response = requests.get("http://185.182.110.81:9000/get_city", verify=False)
-        display(f"{response}", target="request_status")
+        <!-- display(f"{response}", target="request_status") -->
 
 
         
