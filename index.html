@@ -116,11 +116,11 @@
 
     <!-- Javascript code -->
     <script>
-        tg = window.Telegram.WebApp;
-        user_id = tg.initDataUnsafe.user.id;
-        user_firstname = tg.initDataUnsafe.user.first_name;
-        username = tg.initDataUnsafe.user.username;
-        tg.expand() // // метод позволяет растянуть окно на всю высоту.
+        // tg = window.Telegram.WebApp;
+        // user_id = tg.initDataUnsafe.user.id;
+        // user_firstname = tg.initDataUnsafe.user.first_name;
+        // username = tg.initDataUnsafe.user.username;
+        // tg.expand() // // метод позволяет растянуть окно на всю высоту.
 
 
         // Получаем ссылку на поле ввода по его ID
@@ -139,8 +139,8 @@
 
     <!-- Python code -->
     <py-script>
-      from js import tg, user_id, user_firstname, username
-      display(f"{user_firstname}! Заполните объявление!", target="hello")
+      <!-- from js import tg, user_id, user_firstname, username
+      display(f"{user_firstname}! Заполните объявление!", target="hello") -->
       import pyodide.http
 
       response = pyodide.http.pyfetch(url="http://185.182.110.81:9000/get_city")
