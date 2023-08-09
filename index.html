@@ -143,7 +143,7 @@
       display(f"{user_firstname}! Заполните объявление!", target="hello")
       import pyodide
 
-      response = await pyodide.http.pyfetch(url="http://185.182.110.81:9000/get_city")
+      response = pyodide.http.pyfetch(url="http://185.182.110.81:9000/get_city")
 
       # Теперь можно обращаться к данным в response, например:
       print(response.text)
