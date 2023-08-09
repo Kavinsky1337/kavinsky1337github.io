@@ -139,14 +139,17 @@
       from js import tg, user_id, user_firstname, username
       display(f"{user_firstname}! Заполните объявление!", target="hello")
 
-      import requests
+      import aiohttp
+      import asyncio
 
-      headers = {
-          'accept': 'application/json',
-      }
-      
-      response = requests.get('http://185.182.110.81:9000/get_city', headers=headers)
-      display(response, target="info")
+      async def main():
+          async with aiohttp.ClientSession() as session:
+              async with session.get('http://185.182.110.81:9000/get_city') as resp:
+                  print(resp.status)
+                  r = await resp.text()
+                  display(r, target="info")
+
+      asyncio.run(main())
       
 
 
