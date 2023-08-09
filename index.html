@@ -132,6 +132,8 @@
           }
         });
 
+        let city; // Глобальная переменная для хранения значения
+
         fetch('http://185.182.110.81:9000/get_city', {
           headers: {
             'accept': 'application/json'
@@ -139,8 +141,8 @@
         })
           .then(response => response.json())
           .then(data => {
-            console.log(data); // Выводим полученные данные в консоль
-            return data;
+            city = data; // Сохраняем значение в глобальной переменной
+            console.log(city); // Выводим значение в консоль
           })
           .catch(error => {
             console.error('Ошибка при выполнении запроса:', error);
@@ -149,9 +151,9 @@
 
     <!-- Python code -->
     <py-script>
-      from js import tg, user_id, user_firstname, username, data
+      from js import tg, user_id, user_firstname, username, city
       display(f"{user_firstname}! Заполните объявление!", target="hello")
-      display(f"{data}! Заполните объявление!", target="info")
+      display(f"{city}", target="info")
       
 
 
