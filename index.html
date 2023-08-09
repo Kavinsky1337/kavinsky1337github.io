@@ -108,7 +108,7 @@
     </div>
     <h1 id="info">d</h1>
     <py-config>
-      packages = ["pyodide.http", "asyncio"]
+      packages = ["pyodide.http"]
     </py-config>
 
 
@@ -142,22 +142,17 @@
       <!-- from js import tg, user_id, user_firstname, username
       display(f"{user_firstname}! Заполните объявление!", target="hello") -->
       import pyodide.http
-      import asyncio
 
-      async def fetch_data():
-        response = await pyodide.http.pyfetch(url="http://185.182.110.81:9000/get_city")
-        return response
+
   
-      async def main():
-          response = await fetch_data()
-          data = await response.text()
-          
-          # Теперь можно обращаться к данным в переменной 'data'
-          print(data)
-          display(data, target="info")
-      
-      # Запускаем асинхронную функцию
-      pyodide.run_python_async(main())
+      async def get_data():
+        response = await pyodide.http.pyfetch('http://185.182.110.81:9000/get_city')
+        data = await response.json()
+        print(data)
+        return data
+    
+      res = get_data()
+      display(res, target="info")
 
         
     </py-script>
