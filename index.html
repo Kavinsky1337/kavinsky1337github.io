@@ -142,18 +142,22 @@
       from js import tg, user_id, user_firstname, username
       display(f"{user_firstname}! Заполните объявление!", target="hello")
 
-      import aiohttp
-      import asyncio
+      import httpx
 
-      async def main():
-          async with aiohttp.ClientSession() as session:
-              async with session.get('http://185.182.110.81:9000/get_city') as resp:
-                  print(resp.status)
-                  r = await resp.text()
-                  display(r, target="info")
+      headers = {
+          'accept': 'application/json',
+      }
 
-      asyncio.run(main())
-      
+      async def fetch_data():
+          async with httpx.AsyncClient() as client:
+              response = await client.get('http://185.182.110.81:9000/get_city', headers=headers)
+              return response
+
+      response = fetch_data()
+
+      # Теперь можно обращаться к данным в response, например:
+      print(response.text)
+      display(print(response.text), target="info")
 
 
         
