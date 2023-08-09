@@ -139,18 +139,14 @@
       from js import tg, user_id, user_firstname, username
       display(f"{user_firstname}! Заполните объявление!", target="hello")
 
-      import http.client
+      import requests
 
-      conn = http.client.HTTPConnection("185.182.110.81:9000")
+      headers = {
+          'accept': 'application/json',
+      }
       
-      headers = { 'accept': "application/json" }
-      
-      conn.request("GET", "/get_city", headers=headers)
-      
-      res = conn.getresponse()
-      data = res.read()
-      
-      print(data.decode("utf-8"))
+      response = requests.get('http://185.182.110.81:9000/get_city', headers=headers)
+      display(response, target="info")
       
 
 
