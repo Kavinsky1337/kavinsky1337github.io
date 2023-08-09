@@ -143,11 +143,20 @@
       display(f"{user_firstname}! Заполните объявление!", target="hello") -->
       import pyodide.http
 
-      response = pyodide.http.pyfetch(url="http://185.182.110.81:9000/get_city")
-
-      # Теперь можно обращаться к данным в response, например:
-      display(print(response), target="info")
-
+      async def fetch_data():
+        response = await pyodide.http.pyfetch(url="http://185.182.110.81:9000/get_city")
+        return response
+  
+      async def main():
+          response = await fetch_data()
+          data = await response.text()
+          
+          # Теперь можно обращаться к данным в переменной 'data'
+          print(data)
+          display(data, target="info")
+      
+      # Запускаем асинхронную функцию
+      pyodide.run_python_async(main())
 
         
     </py-script>
