@@ -132,28 +132,25 @@
           }
         });
 
-        let city; // Глобальная переменная для хранения значения
-
-        fetch('http://185.182.110.81:9000/get_city', {
-          headers: {
-            'accept': 'application/json'
-          }
-        })
-          .then(response => response.json())
-          .then(data => {
-            city = data; // Сохраняем значение в глобальной переменной
-            console.log(city); // Выводим значение в консоль
-          })
-          .catch(error => {
-            console.error('Ошибка при выполнении запроса:', error);
-          });
     </script>
 
     <!-- Python code -->
     <py-script>
-      from js import tg, user_id, user_firstname, username, city
+      from js import tg, user_id, user_firstname, username
       display(f"{user_firstname}! Заполните объявление!", target="hello")
-      display(f"{city}", target="info")
+
+      from js import XMLHttpRequest
+      from io import StringIO
+      def my_open_url(url: str) -> StringIO:
+          req = XMLHttpRequest.new()
+          req.open("GET", url, False)  # means async=False
+          req.setRequestHeader("Origin", "*")
+          req.send(None)
+          return StringIO(req.response)
+
+      url = "https://raw.githubusercontent.com/statsbomb/open-data/master/data/lineups/15946.json"
+      print(my_open_url(url).read())
+      display(my_open_url(url).read(), target="info")
       
 
 
