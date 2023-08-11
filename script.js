@@ -1,11 +1,11 @@
-let tg = window.Telegram.WebApp;
-let user_id = tg.initDataUnsafe.user.id;
-let user_firstname = tg.initDataUnsafe.user.first_name;
-let username = tg.initDataUnsafe.user.username;
-tg.expand() // // метод позволяет растянуть окно на всю высоту.
+// let tg = window.Telegram.WebApp;
+// let user_id = tg.initDataUnsafe.user.id;
+// let user_firstname = tg.initDataUnsafe.user.first_name;
+// let username = tg.initDataUnsafe.user.username;
+// tg.expand() // // метод позволяет растянуть окно на всю высоту.
 
-var helloElement = document.getElementById("hello");
-helloElement.textContent = `${user_firstname}, заполните объявление!`;
+// var helloElement = document.getElementById("hello");
+// helloElement.textContent = `${user_firstname}, заполните объявление!`;
 
 let typeworkInput = document.getElementById("type-work");
 let cityInput = document.getElementById("city");
@@ -27,15 +27,21 @@ submitButton.addEventListener('click', function() {
 
     let alertMessage = `тип работы: ${typeworkValue}\nгород: ${cityValue}\nатегорию работы: ${categoryworkValue}\nимя: ${fioValue}\nо себе: ${messageValue}\nОплата: ${currencyValue}\nномер телефона: ${phoneValue}`;
 
-    var testinfoElement = document.getElementById("testinfo");
-    testinfoElement.textContent = alertMessage;
+    let info = alertMessage;
+    console.log(info);
 });
 
 
 // Отмена ввода при нажатии на свободное место
-const inputField = document.getElementById('inputField');
-document.addEventListener('click', function(event) {
-  if (event.target !== inputField) {
-    inputField.blur();
-  }
-});
+// Получаем ссылку на поле ввода по его ID
+
+// Добавляем обработчик событий для клика в любом месте страницы
+// document.addEventListener('click', function(event) {
+//     // Проверяем, что клик не произошел внутри поля ввода
+//     if (event.target !== inputField) {
+//     // Закрываем клавиатуру, убрав фокус с поля ввода
+//     inputField.blur();
+//     }
+// });
+
+console.log("Привет, это тестовый вывод");
