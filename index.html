@@ -6,8 +6,6 @@
 
     <title>Usefulwork.ru - поиск полезной работы</title>
 
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
@@ -106,56 +104,28 @@
         </div>
       </form>
     </div>
-    <h1 id="info">d</h1>
-    <py-config>
-      packages = ["pyodide.http"]
-    </py-config>
-
-
-
 
     <!-- Javascript code -->
     <script>
-        // tg = window.Telegram.WebApp;
-        // user_id = tg.initDataUnsafe.user.id;
-        // user_firstname = tg.initDataUnsafe.user.first_name;
-        // username = tg.initDataUnsafe.user.username;
-        // tg.expand() // // метод позволяет растянуть окно на всю высоту.
+        let tg = window.Telegram.WebApp;
+        let user_id = tg.initDataUnsafe.user.id;
+        let user_firstname = tg.initDataUnsafe.user.first_name;
+        let username = tg.initDataUnsafe.user.username;
+        tg.expand() // // метод позволяет растянуть окно на всю высоту.
+
+        var helloElement = document.getElementById("hello");
+        helloElement.textContent = `${user_firstname}, заполните объявление!`;
 
 
-        // Получаем ссылку на поле ввода по его ID
+        // Отмена ввода при нажатии на свободное место
         const inputField = document.getElementById('inputField');
-
-        // Добавляем обработчик событий для клика в любом месте страницы
         document.addEventListener('click', function(event) {
-          // Проверяем, что клик не произошел внутри поля ввода
           if (event.target !== inputField) {
-            // Закрываем клавиатуру, убрав фокус с поля ввода
             inputField.blur();
           }
         });
 
     </script>
-
-    <!-- Python code -->
-    <py-script>
-      <!-- from js import tg, user_id, user_firstname, username
-      display(f"{user_firstname}! Заполните объявление!", target="hello") -->
-      import pyodide.http
-
-
-  
-      async def get_data():
-        response = await pyodide.http.pyfetch('http://185.182.110.81:9000/get_city')
-        data = await response.json()
-        print(data)
-        return data
-    
-      res = get_data()
-      display(res, target="info")
-
-        
-    </py-script>
 
   </body>
 </html>
