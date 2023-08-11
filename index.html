@@ -38,6 +38,9 @@
             <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Выберите город:</label>
             <div class="mt-2">
               <select id="city" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <option>Балашиха</option>
+                <option>Митино</option>
+                <option>Люберцы</option>
               </select>
             </div>
           </div>
@@ -105,27 +108,7 @@
       </form>
     </div>
 
-    <!-- Javascript code -->
-    <script>
-        let tg = window.Telegram.WebApp;
-        let user_id = tg.initDataUnsafe.user.id;
-        let user_firstname = tg.initDataUnsafe.user.first_name;
-        let username = tg.initDataUnsafe.user.username;
-        tg.expand() // // метод позволяет растянуть окно на всю высоту.
 
-        var helloElement = document.getElementById("hello");
-        helloElement.textContent = `${user_firstname}, заполните объявление!`;
-
-
-        // Отмена ввода при нажатии на свободное место
-        const inputField = document.getElementById('inputField');
-        document.addEventListener('click', function(event) {
-          if (event.target !== inputField) {
-            inputField.blur();
-          }
-        });
-
-    </script>
-
+    <script src="script.js"></script>
   </body>
 </html>
