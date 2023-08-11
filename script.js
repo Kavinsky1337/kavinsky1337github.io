@@ -27,7 +27,8 @@ submitButton.addEventListener('click', function() {
 
     let alertMessage = `тип работы: ${typeworkValue}\nгород: ${cityValue}\nатегорию работы: ${categoryworkValue}\nимя: ${fioValue}\nо себе: ${messageValue}\nОплата: ${currencyValue}\nномер телефона: ${phoneValue}`;
 
-    alert(alertMessage);
+    var testinfoElement = document.getElementById("testinfo");
+    testinfoElement.textContent = alertMessage;
 });
 
 
@@ -36,7 +37,5 @@ const inputField = document.getElementById('inputField');
 document.addEventListener('click', function(event) {
   if (event.target !== inputField) {
     inputField.blur();
-  }
-});
   }
 });
