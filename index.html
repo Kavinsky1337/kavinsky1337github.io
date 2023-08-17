@@ -17,7 +17,7 @@
       <div class="px-10 py-5 mx-auto max-w-7xl">
           <div class="w-full mx-auto text-left md:text-center">
               <h1 class="mb-6 text-center text-5xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-gray-900 sm:text-6xl md:text-6xl lg:text-7xl md:tracking-tight"><span class="w-full  bg-clip-text text-green-700 "> Ильнар </span><br class="lg:block hidden"></h1>
-              <p class="px-0 mb-0 text-2xl font-bold text-center text-gray-900 md:text-xl lg:px-24"> Добро пожаловать!<br>Бот поможет вам с легокостью найти работу или сотрудника.</p>
+              <p class="px-0 mb-0 text-2xl font-bold text-center text-gray-900 md:text-xl lg:px-24"> Добро пожаловать!<br>Бот поможет вам с легкостью найти работу или сотрудника.</p>
           </div>
       </div>
 
@@ -25,7 +25,7 @@
         <div class="">
           <div class="mt-4 grid max-w-3xl gap-x-4 gap-y-3 sm:grid-cols-2 md:grid-cols-3">
 
-            <div class="relative" id="createresume">
+            <div class="relative" id="createresume" onclick="openCreateResume()">
               <input class="peer hidden" id="radio_1" type="radio" name="radio" checked />
               <img src="images/create.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
               <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_1">
@@ -33,15 +33,15 @@
               </label>
             </div>
 
-            <div class="relative" id="checkvac">
+            <div class="relative" id="checkvac" onclick="openCheckVac()">
               <input class="peer hidden" id="radio_2" type="radio" name="radio" />
               <img src="images/watch.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
-              <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_2">
+              <label class=" flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_2">
                 <span class="mt-2 font-medium">Смотреть вакансии</span>
               </label>
             </div>
 
-            <div class="relative" id="pesonal">
+            <div class="relative" id="pesonal" onclick="openLC()">
               <input class="peer hidden" id="radio_3" type="radio" name="radio" />
               <img src="images/me2.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
               <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_3">
@@ -79,17 +79,17 @@
         });
 
 
-        document.getElementById("createresume").addEventListener("click", function() {
+        function openCreateResume() {
           window.location.href = "https://vk.com/feed";
-        });
+        }
 
-        document.getElementById("checkvac").addEventListener("click", function() {
+        function openCheckVac() {
           window.location.href = "https://www.twitch.tv/";
-        });
+        }
 
-        document.getElementById("personal").addEventListener("click", function() {
+        function openLC() {
           window.location.href = "https://www.youtube.com/";
-        });
+        }
 
     </script>
   </body>
