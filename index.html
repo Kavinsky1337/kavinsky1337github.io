@@ -10,34 +10,21 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-
+<!-- 
     <style>
       .custom-bg {
         background-color: var(--tg-theme-bg-color);
       }
-      .custom-text {
-        color: var(--tg-theme-text-color);
-      }
-      .custom-hint {
-        color: var(--tg-theme-hint-color);
-      }
-      .custom-link {
-        color: var(--tg-theme-link-color);
-      }
-      .custom-button {
-        background-color: var(--tg-theme-button-color);
-        color: var(--tg-theme-button-text-color);
-      }
-    </style>
+    </style> -->
   </head>
 
   <body>
 
-    <section class="h-auto custom-bg">
+    <section class="h-auto bg-white">
       <div class="px-10 py-5 mx-auto max-w-7xl">
           <div class="w-full mx-auto text-left md:text-center">
-              <h1 class="mb-6 text-center text-5xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal custom-text sm:text-6xl md:text-6xl lg:text-7xl md:tracking-tight"><span class="w-full  bg-clip-text custom-button "> Ильнар </span><br class="lg:block hidden"></h1>
-              <p class="px-0 mb-0 text-1xl font-bold text-center custom-text md:text-xl lg:px-24"> <span class="px-0 mb-0 text-2xl font-bold text-center custom-text md:text-xl lg:px-24">Добро пожаловать!</span><br>Бот поможет вам с легкостью найти работу или сотрудника.</p>
+              <h1 class="mb-6 text-center text-5xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-gray-900 sm:text-6xl md:text-6xl lg:text-7xl md:tracking-tight"><span class="w-full  bg-clip-text text-green-700 "> Ильнар </span><br class="lg:block hidden"></h1>
+              <p class="px-0 mb-0 text-1xl font-bold text-center text-gray-900 md:text-xl lg:px-24"> <span class="px-0 mb-0 text-2xl font-bold text-center text-gray-900 md:text-xl lg:px-24">Добро пожаловать!</span><br>Бот поможет вам с легкостью найти работу или сотрудника.</p>
           </div>
       </div>
 
@@ -47,24 +34,24 @@
 
             <div class="relative" id="createresume" onclick="openCreateResume()">
               <input class="peer hidden" id="radio_1" type="radio" name="radio" checked />
-              <img src="images/create.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:custom-button" alt="">
-              <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:custom-button peer-checked:custom-button" for="radio_1">
+              <img src="images/create.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
+              <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_1">
                 <span class="mt-2- font-medium">Создать резюме</span>
               </label>
             </div>
 
             <div class="relative" id="checkvac" onclick="openCheckVac()">
               <input class="peer hidden" id="radio_2" type="radio" name="radio" />
-              <img src="images/watch.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:custom-button" alt="">
-              <label class=" flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:custom-button peer-checked:custom-button" for="radio_2">
+              <img src="images/watch.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
+              <label class=" flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_2">
                 <span class="mt-2 font-medium">Смотреть вакансии</span>
               </label>
             </div>
 
             <div class="relative" id="pesonal" onclick="openLC()">
               <input class="peer hidden" id="radio_3" type="radio" name="radio" />
-              <img src="images/me2.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:custom-button" alt="">
-              <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:custom-button peer-checked:custom-button" for="radio_3">
+              <img src="images/me2.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
+              <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_3">
                 <span class="mt-2 font-medium">Личный кабинет</span>
               </label>
             </div>
