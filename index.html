@@ -75,7 +75,7 @@
           <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button> -->
           <!-- <a href="tel:+79083430745" class="w-full text-center rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Скопировать номер</a> -->
           <input type="hidden" value="89083430745" id="myInput">
-          <button  id="callButton" class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Показать номер!</button>
+          <button onclick="copyText()" id="callButton" class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Показать номер</button>
           <a href="https://t.me/dminnullin" class="w-full rounded-lg border-2 border-transparent text-center text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</a>
         </div>
       </div>
@@ -137,27 +137,12 @@
           window.location.href = "https://www.youtube.com/";
         }
 
-        const textToCopyElement = document.getElementById("myInput");
-        const copyButton = document.getElementById("callButton");
-
-        // Добавляем обработчик события для кнопки
-        copyButton.addEventListener("click", function() {
-            // Создаем временный элемент для копирования текста
-            const tempElement = document.createElement("textarea");
-            tempElement.value = textToCopyElement.textContent; // Устанавливаем текст для копирования
-            document.body.appendChild(tempElement); // Добавляем временный элемент на страницу
-            tempElement.select(); // Выделяем текст внутри элемента
-            document.execCommand("copy"); // Копируем выделенный текст
-            document.body.removeChild(tempElement); // Удаляем временный элемент
-
-            // Изменяем текст на кнопке после копирования
-            copyButton.textContent = "Текст скопирован!";
-            
-            // Через некоторое время возвращаем исходный текст кнопки
-            setTimeout(function() {
-                copyButton.textContent = "Копировать текст";
-            }, 2000);
-        });
+        function copyText() {
+          var copyText = document.getElementById("myInput");
+          copyText.select();
+          document.execCommand("copy");
+          alert(copyText.value);
+        }
         
     </script>
   </body>
