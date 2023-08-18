@@ -11,107 +11,72 @@
   </head>
 
   <body>
-    <!-- <section class="bg-white dark:bg-gray-900">
-      {% for ad in data %}
-      <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-        <h2 class="mb-2 text-xl font-semibold leading-none text-gray-900 md:text-2xl dark:text-white">{{ ad.category }}</h2>
-        <p class="mb-4 text-xl font-extrabold leading-none text-gray-900 md:text-2xl dark:text-white">₽{{ ad.price }}</p>
-        <dl>
-            <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">{{ ad.city }}</dt>
-            <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">{{ ad.about }}</dd>
-        </dl>
-        <dl class="flex items-center space-x-6">
-            <div>
-                <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Пользователь</dt>
-                <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">{{ ad.name }}</dd>
-            </div>
-            <div>
-                <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Контакты</dt>
-                <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">{{ ad.phone }}</dd>
-            </div>
-        </dl>
-      </div>
-      {% endfor %}
-    </section> -->
-
-    <div class="mx-auto  grid max-w-screen-lg px-6 py-0 pb-20 place-items-center">
-      <div class="place-items-center">
-        <div class="mt-4 grid max-w-3xl gap-x-4 gap-y-3 sm:grid-cols-2 md:grid-cols-3">
-
-          <div class="relative " id="createresume" onclick="openCreateResume()">
-            <input class="peer hidden" id="radio_1" type="radio" name="radio" checked />
-            <img src="images/create.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
-            <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_1">
-              <span class="mt-2- font-medium">Создать резюме</span>
-            </label>
-          </div>
 
 
-          <div class="relative" id="pesonal" onclick="openLC()">
-            <input class="peer hidden" id="radio_3" type="radio" name="radio" />
-            <img src="images/me2.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
-            <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_3">
-              <span class="mt-2 font-medium">Личный кабинет</span>
-            </label>
-          </div>
-        </div>
-    
-    <div class="mx-auto my-1 flex max-w-screen-sm rounded-xl border border-gray-100 p-4 text-left text-gray-600 shadow-lg sm:p-8">
-      <div class="w-full text-left">
-        <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row">
-          <h3 class="font-medium text-2xl font-extrabold">Гарипов Ильнар</h3>
-          <p class="text-ls font-medium" >Временная работа</>
-        </div>
-        <p class="text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
-        <div class="flex flex-col text-gray-700 sm:flex-row my-3">
-          <div class="flex h-fit space-x-2 text-sm font-medium">
-            <div class="rounded-full bg-green-100 px-2 py-0.5 text-green-700">Копирайтер</div>
-            <div class="rounded-full bg-blue-100 px-2 py-0.5 text-blue-700">Балашиха</div>
-            <div class="rounded-full bg-red-100 px-2 py-0.5 text-red-700">55000₽</div>
-          </div>
-        </div>
-        <div class="flex space-x-2">
-          <!-- <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
-          <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button> -->
-          <!-- <a href="tel:+79083430745" class="w-full text-center rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Скопировать номер</a> -->
-          <input type="hidden" value="89083430745" id="myInput">
-          <button onclick="copyText()" id="callButton" class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Показать номер</button>
-          <a href="https://t.me/dminnullin" class="w-full rounded-lg border-2 border-transparent text-center text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</a>
+    <div class="mx-auto my-6 flex max-w-sm flex-col items-center gap-3 text-gray-900 ">
+        <img class="block h-12 w-12 max-w-full rounded-full align-middle" src="https://www.uifaces.co/wp-content/themes/uifaces-theme/src/img/home-animation/avatar-2.svg" alt="Profile picture" />
+        <div class="flex flex-col items-center text-center ">
+            <h4 class="text-xl font-bold sm:m-0">Махараджик</h4>
+          <p class="font-sans text-sm tracking-normal text-gray-500">Работник</p>
+        </div>     
         </div>
       </div>
-    </div>
 
-    <div>
-      <!-- Success -->
-      <!-- <div class="relative m-2 my-8 max-w-sm rounded-lg border border-gray-100 bg-white px-12 py-6 shadow-md">
-        <button class="absolute top-0 right-0 p-4 text-gray-400">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-4">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-        <p class="relative mb-1 text-sm font-medium">
-          <span class="absolute -left-7 flex h-5 w-5 items-center justify-center rounded-xl bg-green-400 text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-3 w-3">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-          </span>
-          <span class="text-gray-700">Номер скопирован!</span>
-        </p>
-      </div> -->
+      <div class="mx-auto grid max-w-screen-lg px-6 py-0 pb-20 ">
+        <div class="">
+          <div class="mt-4 grid max-w-3xl gap-x-4 gap-y-3 sm:grid-cols-2 md:grid-cols-3">
+            
+            <div class="relative" id="createresume" onclick="openCreateResume()">
+              <input class="peer hidden" id="radio_1" type="radio" name="radio" checked />
+              <img src="images/create.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
+              <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_1">
+                <span class="mt-2- font-medium">Создать резюме</span>
+              </label>
+            </div>
 
+            <div class="relative" id="checkvac" onclick="openCheckVac()">
+              <input class="peer hidden" id="radio_2" type="radio" name="radio" />
+              <img src="images/watch.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
+              <label class=" flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_2">
+                <span class="mt-2 font-medium">Смотреть вакансии</span>
+              </label>
+            </div>
+
+          </div>
+
+          <div class="mx-auto my-1 flex max-w-screen-sm rounded-xl border border-gray-100 p-4 text-left text-gray-600 shadow-lg sm:p-8">
+            <div class="w-full text-left">
+              <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row">
+                <h3 class="font-medium text-2xl font-extrabold">Гарипов Ильнар</h3>
+                <p class="text-ls font-medium" >Временная работа</>
+              </div>
+              <p class="text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
+              <div class="flex flex-col text-gray-700 sm:flex-row my-3">
+                <div class="flex h-fit space-x-2 text-sm font-medium">
+                  <div class="rounded-full bg-green-100 px-2 py-0.5 text-green-700">Копирайтер</div>
+                  <div class="rounded-full bg-blue-100 px-2 py-0.5 text-blue-700">Балашиха</div>
+                  <div class="rounded-full bg-red-100 px-2 py-0.5 text-red-700">55000₽</div>
+                </div>
+              </div>
+              <div class="flex space-x-2">
+                <!-- <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
+                <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button> -->
+                <!-- <a href="tel:+79083430745" class="w-full text-center rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Скопировать номер</a> -->
+                <input type="hidden" value="89083430745" id="myInput">
+                <button onclick="copyText()" id="callButton" class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Редактировать</button>
+                <a href="https://t.me/dminnullin" class="w-full rounded-lg border-2 border-transparent text-center text-sm bg-red-600 px-3 py-1 font-medium text-white">Удалить</a>
+              </div>
+            </div>
+          </div>
+      
         
-    
-
- 
- 
-    
-
-
-        
+      
+      
 
 
 
-    
+
+
 
     <script>
         let tg = window.Telegram.WebApp;
