@@ -14,7 +14,7 @@
 
 
     <div class="mx-auto my-6 flex max-w-sm flex-col items-center gap-3 text-gray-900 ">
-        <img class="block h-12 w-12 max-w-full rounded-full align-middle" src="https://www.uifaces.co/wp-content/themes/uifaces-theme/src/img/home-animation/avatar-2.svg" alt="Profile picture" />
+        <img class="block h-28 w-28 max-w-full rounded-full align-middle" src="https://www.uifaces.co/wp-content/themes/uifaces-theme/src/img/home-animation/avatar-2.svg" alt="Profile picture" />
         <div class="flex flex-col items-center text-center ">
             <h4 class="text-xl font-bold sm:m-0">Махараджик</h4>
           <p class="font-sans text-sm tracking-normal text-gray-500">Работник</p>
@@ -91,23 +91,22 @@
           // Закрываем клавиатуру, убрав фокус с поля ввода
           inputField.blur();
           }
-      });
+        });
 
 
-      function openCreateResume() {
-          window.location.href = "https://vk.com/feed";
+        function openCreateResume() {
+            window.location.href = "https://vk.com/feed";
+            }
+
+        function openCheckVac() {
+          window.location.href = "https://www.twitch.tv/";
         }
 
         function openLC() {
           window.location.href = "https://www.youtube.com/";
         }
 
-        function copyText() {
-          var copyText = document.getElementById("myInput");
-          copyText.select();
-          document.execCommand("copy");
-          alert(copyText.value);
-        }
+
         
     </script>
   </body>
