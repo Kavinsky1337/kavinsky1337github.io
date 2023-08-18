@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,57 +7,181 @@
     <title>Usefulwork.ru - поиск полезной работы</title>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
     <script src="https://cdn.tailwindcss.com"></script>
-
-<!-- 
-    <style>
-      .custom-bg {
-        background-color: var(--tg-theme-bg-color);
-      }
-    </style> -->
   </head>
 
   <body>
-
-    <section class="h-auto bg-white">
-      <div class="px-10 py-5 mx-auto max-w-7xl">
-          <div class="w-full mx-auto text-left md:text-center">
-              <h1 class="mb-6 text-center text-5xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal text-gray-900 sm:text-6xl md:text-6xl lg:text-7xl md:tracking-tight"><span id="username" class="w-full  bg-clip-text text-green-700 "></span><br class="lg:block hidden"></h1>
-              <p class="px-0 mb-0 text-1xl font-bold text-center text-gray-900 md:text-xl lg:px-24"> <span class="px-0 mb-0 text-2xl font-bold text-center text-gray-900 md:text-xl lg:px-24">Добро пожаловать!</span><br>Бот поможет вам с легкостью найти работу или сотрудника.</p>
-          </div>
+    <!-- <section class="bg-white dark:bg-gray-900">
+      {% for ad in data %}
+      <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+        <h2 class="mb-2 text-xl font-semibold leading-none text-gray-900 md:text-2xl dark:text-white">{{ ad.category }}</h2>
+        <p class="mb-4 text-xl font-extrabold leading-none text-gray-900 md:text-2xl dark:text-white">₽{{ ad.price }}</p>
+        <dl>
+            <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">{{ ad.city }}</dt>
+            <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">{{ ad.about }}</dd>
+        </dl>
+        <dl class="flex items-center space-x-6">
+            <div>
+                <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Пользователь</dt>
+                <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">{{ ad.name }}</dd>
+            </div>
+            <div>
+                <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Контакты</dt>
+                <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">{{ ad.phone }}</dd>
+            </div>
+        </dl>
       </div>
+      {% endfor %}
+    </section> -->
 
-      <div class="mx-auto  grid max-w-screen-lg px-6 py-0 pb-20">
-        <div class="">
-          <div class="mt-4 grid max-w-3xl gap-x-4 gap-y-3 sm:grid-cols-2 md:grid-cols-3">
+    <div class="m-0 ">
+      <div class="group mx-1 mt-1 grid max-w-screen-md grid-cols-12 space-x-3 overflow-hidden rounded-lg border py-2 pr-0 text-gray-700 shadow transition hover:shadow-lg sm:mx-auto">
+        <a href="#" class="order-2 col-span-1 mt-4 -ml-14 text-left text-gray-600 hover:text-gray-700 sm:-order-1 sm:ml-4">
 
-            <div class="relative" id="createresume" onclick="openCreateResume()">
-              <input class="peer hidden" id="radio_1" type="radio" name="radio" checked />
-              <img src="images/create.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
-              <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_1">
-                <span class="mt-2- font-medium">Создать резюме</span>
-              </label>
-            </div>
-
-            <div class="relative" id="checkvac" onclick="openCheckVac()">
-              <input class="peer hidden" id="radio_2" type="radio" name="radio" />
-              <img src="images/watch.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
-              <label class=" flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_2">
-                <span class="mt-2 font-medium">Смотреть вакансии</span>
-              </label>
-            </div>
-
-            <div class="relative" id="pesonal" onclick="openLC()">
-              <input class="peer hidden" id="radio_3" type="radio" name="radio" />
-              <img src="images/me2.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
-              <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_3">
-                <span class="mt-2 font-medium">Личный кабинет</span>
-              </label>
-            </div>
+        </a>
+        <div class="col-span-11 w-full  flex flex-col pr-8 text-left sm:pl-4">
+          <h3 class="text-sm text-gray-600">Временная работа</h3>
+          <a href="#" class="mb-1 overflow-hidden pr-7 text-lg font-semibold sm:text-xl"> Гарипов Ильнар </a>
+          <p class="overflow-hidden w-full pr-4 text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
+    
+          <div class="mt-5 flex flex-col space-y-3 text-sm font-medium text-gray-500 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-2">
+            <div class="">Категория<span class="ml-2 mr-3 rounded-full bg-green-100 px-2 py-0.5 text-green-900"> Любая </span></div>
+            <div class="">Город:<span class="ml-2 mr-3 rounded-full bg-blue-100 px-2 py-0.5 text-blue-900">Балашиха</span></div>
+            <div class="">Оплата:<span class="ml-2 mr-3 rounded-full bg-red-100 px-2 py-0.5 text-red-900">25000 ₽</span></div>
           </div>
-    </section>
-  
+          <div class="my-0 flex justify-center">
+            <button class="relative  mt-4 rounded-lg border-2 border-blue-700 bg-blue-700 px-6 py-2 font-medium text-white transition hover:translate-y-1">
+              Позвонить
+            </button>
+            <button class="mt-4  rounded-lg border-2 border-blue-700 px-6 py-2 font-medium text-blue-700 transition hover:translate-y-1">Написать в лс</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="m-0 ">
+      <div class="group mx-1 mt-1 grid max-w-screen-md grid-cols-12 space-x-3 overflow-hidden rounded-lg border py-2 pr-0 text-gray-700 shadow transition hover:shadow-lg sm:mx-auto">
+        <a href="#" class="order-2 col-span-1 mt-4 -ml-14 text-left text-gray-600 hover:text-gray-700 sm:-order-1 sm:ml-4">
+
+        </a>
+        <div class="col-span-11 w-full  flex flex-col pr-8 text-left sm:pl-4">
+          <h3 class="text-sm text-gray-600">Временная работа</h3>
+          <a href="#" class="mb-1 overflow-hidden pr-7 text-lg font-semibold sm:text-xl"> Гарипов Ильнар </a>
+          <p class="overflow-hidden w-full pr-4 text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
+    
+          <div class="mt-5 flex flex-col space-y-3 text-sm font-medium text-gray-500 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-2">
+            <div class="">Категория<span class="ml-2 mr-3 rounded-full bg-green-100 px-2 py-0.5 text-green-900"> Любая </span></div>
+            <div class="">Город:<span class="ml-2 mr-3 rounded-full bg-blue-100 px-2 py-0.5 text-blue-900">Балашиха</span></div>
+            <div class="">Оплата:<span class="ml-2 mr-3 rounded-full bg-red-100 px-2 py-0.5 text-red-900">25000 ₽</span></div>
+          </div>
+          <div class="my-0 flex justify-center">
+            <button class="relative  mt-4 rounded-lg border-2 border-blue-700 bg-blue-700 px-6 py-2 font-medium text-white transition hover:translate-y-1">
+              Позвонить
+            </button>
+            <button class="mt-4  rounded-lg border-2 border-blue-700 px-6 py-2 font-medium text-blue-700 transition hover:translate-y-1">Написать в лс</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="m-0 ">
+      <div class="group mx-1 mt-1 grid max-w-screen-md grid-cols-12 space-x-3 overflow-hidden rounded-lg border py-2 pr-0 text-gray-700 shadow transition hover:shadow-lg sm:mx-auto">
+        <a href="#" class="order-2 col-span-1 mt-4 -ml-14 text-left text-gray-600 hover:text-gray-700 sm:-order-1 sm:ml-4">
+
+        </a>
+        <div class="col-span-11 w-full  flex flex-col pr-8 text-left sm:pl-4">
+          <h3 class="text-sm text-gray-600">Временная работа</h3>
+          <a href="#" class="mb-1 overflow-hidden pr-7 text-lg font-semibold sm:text-xl"> Гарипов Ильнар </a>
+          <p class="overflow-hidden w-full pr-4 text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
+    
+          <div class="mt-5 flex flex-col space-y-3 text-sm font-medium text-gray-500 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-2">
+            <div class="">Категория<span class="ml-2 mr-3 rounded-full bg-green-100 px-2 py-0.5 text-green-900"> Любая </span></div>
+            <div class="">Город:<span class="ml-2 mr-3 rounded-full bg-blue-100 px-2 py-0.5 text-blue-900">Балашиха</span></div>
+            <div class="">Оплата:<span class="ml-2 mr-3 rounded-full bg-red-100 px-2 py-0.5 text-red-900">25000 ₽</span></div>
+          </div>
+          <div class="my-0 flex justify-center">
+            <button class="relative  mt-4 rounded-lg border-2 border-blue-700 bg-blue-700 px-6 py-2 font-medium text-white transition hover:translate-y-1">
+              Позвонить
+            </button>
+            <button class="mt-4  rounded-lg border-2 border-blue-700 px-6 py-2 font-medium text-blue-700 transition hover:translate-y-1">Написать в лс</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="m-0 ">
+      <div class="group mx-1 mt-1 grid max-w-screen-md grid-cols-12 space-x-3 overflow-hidden rounded-lg border py-2 pr-0 text-gray-700 shadow transition hover:shadow-lg sm:mx-auto">
+        <a href="#" class="order-2 col-span-1 mt-4 -ml-14 text-left text-gray-600 hover:text-gray-700 sm:-order-1 sm:ml-4">
+
+        </a>
+        <div class="col-span-11 w-full  flex flex-col pr-8 text-left sm:pl-4">
+          <h3 class="text-sm text-gray-600">Временная работа</h3>
+          <a href="#" class="mb-1 overflow-hidden pr-7 text-lg font-semibold sm:text-xl"> Гарипов Ильнар </a>
+          <p class="overflow-hidden w-full pr-4 text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
+    
+          <div class="mt-5 flex flex-col space-y-3 text-sm font-medium text-gray-500 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-2">
+            <div class="">Категория<span class="ml-2 mr-3 rounded-full bg-green-100 px-2 py-0.5 text-green-900"> Любая </span></div>
+            <div class="">Город:<span class="ml-2 mr-3 rounded-full bg-blue-100 px-2 py-0.5 text-blue-900">Балашиха</span></div>
+            <div class="">Оплата:<span class="ml-2 mr-3 rounded-full bg-red-100 px-2 py-0.5 text-red-900">25000 ₽</span></div>
+          </div>
+          <div class="my-0 flex justify-center">
+            <button class="relative  mt-4 rounded-lg border-2 border-blue-700 bg-blue-700 px-6 py-2 font-medium text-white transition hover:translate-y-1">
+              Позвонить
+            </button>
+            <button class="mt-4  rounded-lg border-2 border-blue-700 px-6 py-2 font-medium text-blue-700 transition hover:translate-y-1">Написать в лс</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="m-0 ">
+      <div class="group mx-1 mt-1 grid max-w-screen-md grid-cols-12 space-x-3 overflow-hidden rounded-lg border py-2 pr-0 text-gray-700 shadow transition hover:shadow-lg sm:mx-auto">
+        <a href="#" class="order-2 col-span-1 mt-4 -ml-14 text-left text-gray-600 hover:text-gray-700 sm:-order-1 sm:ml-4">
+
+        </a>
+        <div class="col-span-11 w-full  flex flex-col pr-8 text-left sm:pl-4">
+          <h3 class="text-sm text-gray-600">Временная работа</h3>
+          <a href="#" class="mb-1 overflow-hidden pr-7 text-lg font-semibold sm:text-xl"> Гарипов Ильнар </a>
+          <p class="overflow-hidden w-full pr-4 text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
+    
+          <div class="mt-5 flex flex-col space-y-3 text-sm font-medium text-gray-500 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-2">
+            <div class="">Категория<span class="ml-2 mr-3 rounded-full bg-green-100 px-2 py-0.5 text-green-900"> Любая </span></div>
+            <div class="">Город:<span class="ml-2 mr-3 rounded-full bg-blue-100 px-2 py-0.5 text-blue-900">Балашиха</span></div>
+            <div class="">Оплата:<span class="ml-2 mr-3 rounded-full bg-red-100 px-2 py-0.5 text-red-900">25000 ₽</span></div>
+          </div>
+          <div class="my-0 flex justify-center">
+            <button class="relative  mt-4 rounded-lg border-2 border-blue-700 bg-blue-700 px-6 py-2 font-medium text-white transition hover:translate-y-1">
+              Позвонить
+            </button>
+            <button class="mt-4  rounded-lg border-2 border-blue-700 px-6 py-2 font-medium text-blue-700 transition hover:translate-y-1">Написать в лс</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="m-0 ">
+      <div class="group mx-1 mt-1 grid max-w-screen-md grid-cols-12 space-x-3 overflow-hidden rounded-lg border py-2 pr-0 text-gray-700 shadow transition hover:shadow-lg sm:mx-auto">
+        <a href="#" class="order-2 col-span-1 mt-4 -ml-14 text-left text-gray-600 hover:text-gray-700 sm:-order-1 sm:ml-4">
+
+        </a>
+        <div class="col-span-11 w-full  flex flex-col pr-8 text-left sm:pl-4">
+          <h3 class="text-sm text-gray-600">Временная работа</h3>
+          <a href="#" class="mb-1 overflow-hidden pr-7 text-lg font-semibold sm:text-xl"> Гарипов Ильнар </a>
+          <p class="overflow-hidden w-full pr-4 text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
+    
+          <div class="mt-5 flex flex-col space-y-3 text-sm font-medium text-gray-500 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-2">
+            <div class="">Категория<span class="ml-2 mr-3 rounded-full bg-green-100 px-2 py-0.5 text-green-900"> Любая </span></div>
+            <div class="">Город:<span class="ml-2 mr-3 rounded-full bg-blue-100 px-2 py-0.5 text-blue-900">Балашиха</span></div>
+            <div class="">Оплата:<span class="ml-2 mr-3 rounded-full bg-red-100 px-2 py-0.5 text-red-900">25000 ₽</span></div>
+          </div>
+          <div class="my-0 flex justify-center">
+            <button class="relative  mt-4 rounded-lg border-2 border-blue-700 bg-blue-700 px-6 py-2 font-medium text-white transition hover:translate-y-1">
+              Позвонить
+            </button>
+            <button class="mt-4  rounded-lg border-2 border-blue-700 px-6 py-2 font-medium text-blue-700 transition hover:translate-y-1">Написать в лс</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+        
 
 
 
@@ -70,34 +194,13 @@
         let username = tg.initDataUnsafe.user.username;
         let photo = tg.initDataUnsafe.user.photo_url;
 
-        // Вывод имено в приветствии
-        var helloElement = document.getElementById("username");
-        helloElement.textContent = `${user_firstname}`;
-
-
-        // // Установка ID в скрытый элемент
-        // document.getElementById("userid").value = user_id;
-
-        // Скрыть элемент при нажатии на пустую область
         document.addEventListener('click', function(event) {
+          // Проверяем, что клик не произошел внутри поля ввода
           if (event.target !== inputField) {
+          // Закрываем клавиатуру, убрав фокус с поля ввода
           inputField.blur();
           }
-        });
-
-
-        function openCreateResume() {
-          window.location.href = "https://vk.com/feed";
-        }
-
-        function openCheckVac() {
-          window.location.href = "https://www.twitch.tv/";
-        }
-
-        function openLC() {
-          window.location.href = "https://www.youtube.com/";
-        }
-
+      });
     </script>
   </body>
 </html>
