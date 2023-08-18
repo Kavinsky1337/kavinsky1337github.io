@@ -34,6 +34,27 @@
       {% endfor %}
     </section> -->
 
+    <div class="mx-auto  grid max-w-screen-lg px-6 py-0 pb-20">
+      <div class="">
+        <div class="mt-4 grid max-w-3xl gap-x-4 gap-y-3 sm:grid-cols-2 md:grid-cols-3">
+
+          <div class="relative" id="createresume" onclick="openCreateResume()">
+            <input class="peer hidden" id="radio_1" type="radio" name="radio" checked />
+            <img src="images/create.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
+            <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_1">
+              <span class="mt-2- font-medium">Создать резюме</span>
+            </label>
+          </div>
+
+
+          <div class="relative" id="pesonal" onclick="openLC()">
+            <input class="peer hidden" id="radio_3" type="radio" name="radio" />
+            <img src="images/me2.png" class="absolute right-4 top-1/2 box-content block h-9 w-9 -translate-y-1/2 rounded-full peer-checked:border-emerald-400"" alt="">
+            <label class="flex h-full cursor-pointer flex-col rounded-lg p-4 shadow-lg shadow-slate-100 peer-checked:bg-emerald-600 peer-checked:text-white" for="radio_3">
+              <span class="mt-2 font-medium">Личный кабинет</span>
+            </label>
+          </div>
+        </div>
     
     <div class="mx-auto my-1 flex max-w-screen-sm rounded-xl border border-gray-100 p-4 text-left text-gray-600 shadow-lg sm:p-8">
       <div class="w-full text-left">
@@ -50,8 +71,10 @@
           </div>
         </div>
         <div class="flex space-x-2">
-          <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
-          <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button>
+          <!-- <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
+          <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button> -->
+          <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500" onclick="window.location.href = 'tel:89083430745';">Позвонить</button>
+          <a href="https://www.example.com" class="w-full rounded-lg border-2 border-transparent text-center text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</a>
         </div>
       </div>
     </div>
@@ -70,87 +93,102 @@
           </div>
         </div>
         <div class="flex space-x-2">
-          <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
-          <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button>
-        </div>
-      </div>
-    </div>    <div class="mx-auto my-1 flex max-w-screen-sm rounded-xl border border-gray-100 p-4 text-left text-gray-600 shadow-lg sm:p-8">
-      <div class="w-full text-left">
-        <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row">
-          <h3 class="font-medium text-2xl font-extrabold">Гарипов Ильнар</h3>
-          <p class="text-ls font-medium" >Временная работа</>
-        </div>
-        <p class="text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
-        <div class="flex flex-col text-gray-700 sm:flex-row my-3">
-          <div class="flex h-fit space-x-2 text-sm font-medium">
-            <div class="rounded-full bg-green-100 px-2 py-0.5 text-green-700">Копирайтер</div>
-            <div class="rounded-full bg-blue-100 px-2 py-0.5 text-blue-700">Балашиха</div>
-            <div class="rounded-full bg-red-100 px-2 py-0.5 text-red-700">55000₽</div>
-          </div>
-        </div>
-        <div class="flex space-x-2">
-          <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
-          <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button>
-        </div>
-      </div>
-    </div>    <div class="mx-auto my-1 flex max-w-screen-sm rounded-xl border border-gray-100 p-4 text-left text-gray-600 shadow-lg sm:p-8">
-      <div class="w-full text-left">
-        <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row">
-          <h3 class="font-medium text-2xl font-extrabold">Гарипов Ильнар</h3>
-          <p class="text-ls font-medium" >Временная работа</>
-        </div>
-        <p class="text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
-        <div class="flex flex-col text-gray-700 sm:flex-row my-3">
-          <div class="flex h-fit space-x-2 text-sm font-medium">
-            <div class="rounded-full bg-green-100 px-2 py-0.5 text-green-700">Копирайтер</div>
-            <div class="rounded-full bg-blue-100 px-2 py-0.5 text-blue-700">Балашиха</div>
-            <div class="rounded-full bg-red-100 px-2 py-0.5 text-red-700">55000₽</div>
-          </div>
-        </div>
-        <div class="flex space-x-2">
-          <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
-          <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button>
-        </div>
-      </div>
-    </div>    <div class="mx-auto my-1 flex max-w-screen-sm rounded-xl border border-gray-100 p-4 text-left text-gray-600 shadow-lg sm:p-8">
-      <div class="w-full text-left">
-        <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row">
-          <h3 class="font-medium text-2xl font-extrabold">Гарипов Ильнар</h3>
-          <p class="text-ls font-medium" >Временная работа</>
-        </div>
-        <p class="text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
-        <div class="flex flex-col text-gray-700 sm:flex-row my-3">
-          <div class="flex h-fit space-x-2 text-sm font-medium">
-            <div class="rounded-full bg-green-100 px-2 py-0.5 text-green-700">Копирайтер</div>
-            <div class="rounded-full bg-blue-100 px-2 py-0.5 text-blue-700">Балашиха</div>
-            <div class="rounded-full bg-red-100 px-2 py-0.5 text-red-700">55000₽</div>
-          </div>
-        </div>
-        <div class="flex space-x-2">
-          <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
-          <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button>
-        </div>
-      </div>
-    </div>    <div class="mx-auto my-1 flex max-w-screen-sm rounded-xl border border-gray-100 p-4 text-left text-gray-600 shadow-lg sm:p-8">
-      <div class="w-full text-left">
-        <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row">
-          <h3 class="font-medium text-2xl font-extrabold">Гарипов Ильнар</h3>
-          <p class="text-ls font-medium" >Временная работа</>
-        </div>
-        <p class="text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
-        <div class="flex flex-col text-gray-700 sm:flex-row my-3">
-          <div class="flex h-fit space-x-2 text-sm font-medium">
-            <div class="rounded-full bg-green-100 px-2 py-0.5 text-green-700">Копирайтер</div>
-            <div class="rounded-full bg-blue-100 px-2 py-0.5 text-blue-700">Балашиха</div>
-            <div class="rounded-full bg-red-100 px-2 py-0.5 text-red-700">55000₽</div>
-          </div>
-        </div>
-        <div class="flex space-x-2">
-          <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
-          <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button>
+          <!-- <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
+          <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button> -->
+          <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500" onclick="window.location.href = 'tel:89083430745';">Позвонить</button>
+          <a href="https://www.example.com" class="w-full rounded-lg border-2 border-transparent text-center text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</a>
         </div>
       </div>
     </div>
+    <div class="mx-auto my-1 flex max-w-screen-sm rounded-xl border border-gray-100 p-4 text-left text-gray-600 shadow-lg sm:p-8">
+      <div class="w-full text-left">
+        <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row">
+          <h3 class="font-medium text-2xl font-extrabold">Гарипов Ильнар</h3>
+          <p class="text-ls font-medium" >Временная работа</>
+        </div>
+        <p class="text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
+        <div class="flex flex-col text-gray-700 sm:flex-row my-3">
+          <div class="flex h-fit space-x-2 text-sm font-medium">
+            <div class="rounded-full bg-green-100 px-2 py-0.5 text-green-700">Копирайтер</div>
+            <div class="rounded-full bg-blue-100 px-2 py-0.5 text-blue-700">Балашиха</div>
+            <div class="rounded-full bg-red-100 px-2 py-0.5 text-red-700">55000₽</div>
+          </div>
+        </div>
+        <div class="flex space-x-2">
+          <!-- <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
+          <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button> -->
+          <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500" onclick="window.location.href = 'tel:89083430745';">Позвонить</button>
+          <a href="https://www.example.com" class="w-full rounded-lg border-2 border-transparent text-center text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</a>
+        </div>
+      </div>
+    </div>
+    <div class="mx-auto my-1 flex max-w-screen-sm rounded-xl border border-gray-100 p-4 text-left text-gray-600 shadow-lg sm:p-8">
+      <div class="w-full text-left">
+        <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row">
+          <h3 class="font-medium text-2xl font-extrabold">Гарипов Ильнар</h3>
+          <p class="text-ls font-medium" >Временная работа</>
+        </div>
+        <p class="text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
+        <div class="flex flex-col text-gray-700 sm:flex-row my-3">
+          <div class="flex h-fit space-x-2 text-sm font-medium">
+            <div class="rounded-full bg-green-100 px-2 py-0.5 text-green-700">Копирайтер</div>
+            <div class="rounded-full bg-blue-100 px-2 py-0.5 text-blue-700">Балашиха</div>
+            <div class="rounded-full bg-red-100 px-2 py-0.5 text-red-700">55000₽</div>
+          </div>
+        </div>
+        <div class="flex space-x-2">
+          <!-- <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
+          <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button> -->
+          <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500" onclick="window.location.href = 'tel:89083430745';">Позвонить</button>
+          <a href="https://www.example.com" class="w-full rounded-lg border-2 border-transparent text-center text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</a>
+        </div>
+      </div>
+    </div>
+    <div class="mx-auto my-1 flex max-w-screen-sm rounded-xl border border-gray-100 p-4 text-left text-gray-600 shadow-lg sm:p-8">
+      <div class="w-full text-left">
+        <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row">
+          <h3 class="font-medium text-2xl font-extrabold">Гарипов Ильнар</h3>
+          <p class="text-ls font-medium" >Временная работа</>
+        </div>
+        <p class="text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
+        <div class="flex flex-col text-gray-700 sm:flex-row my-3">
+          <div class="flex h-fit space-x-2 text-sm font-medium">
+            <div class="rounded-full bg-green-100 px-2 py-0.5 text-green-700">Копирайтер</div>
+            <div class="rounded-full bg-blue-100 px-2 py-0.5 text-blue-700">Балашиха</div>
+            <div class="rounded-full bg-red-100 px-2 py-0.5 text-red-700">55000₽</div>
+          </div>
+        </div>
+        <div class="flex space-x-2">
+          <!-- <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
+          <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button> -->
+          <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500" onclick="window.location.href = 'tel:89083430745';">Позвонить</button>
+          <a href="https://www.example.com" class="w-full rounded-lg border-2 border-transparent text-center text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</a>
+        </div>
+      </div>
+    </div>
+    <div class="mx-auto my-1 flex max-w-screen-sm rounded-xl border border-gray-100 p-4 text-left text-gray-600 shadow-lg sm:p-8">
+      <div class="w-full text-left">
+        <div class="mb-2 flex flex-col justify-between text-gray-600 sm:flex-row">
+          <h3 class="font-medium text-2xl font-extrabold">Гарипов Ильнар</h3>
+          <p class="text-ls font-medium" >Временная работа</>
+        </div>
+        <p class="text-sm">Ищу временную работу под любые задачи. умею многое, варить, жить. Дрюжелюбный и работоспособный</p>
+        <div class="flex flex-col text-gray-700 sm:flex-row my-3">
+          <div class="flex h-fit space-x-2 text-sm font-medium">
+            <div class="rounded-full bg-green-100 px-2 py-0.5 text-green-700">Копирайтер</div>
+            <div class="rounded-full bg-blue-100 px-2 py-0.5 text-blue-700">Балашиха</div>
+            <div class="rounded-full bg-red-100 px-2 py-0.5 text-red-700">55000₽</div>
+          </div>
+        </div>
+        <div class="flex space-x-2">
+          <!-- <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
+          <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button> -->
+          <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500" onclick="window.location.href = 'tel:89083430745';">Позвонить</button>
+          <a href="https://www.example.com" class="w-full rounded-lg border-2 border-transparent text-center text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</a>
+        </div>
+      </div>
+    </div>
+
 
  
     
@@ -176,6 +214,15 @@
           inputField.blur();
           }
       });
+
+
+      function openCreateResume() {
+          window.location.href = "https://vk.com/feed";
+        }
+
+        function openLC() {
+          window.location.href = "https://www.youtube.com/";
+        }
     </script>
   </body>
 </html>
