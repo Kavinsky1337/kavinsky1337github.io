@@ -74,11 +74,30 @@
           <!-- <button class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить</button>
           <button class="w-full rounded-lg border-2 border-transparent text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</button> -->
           <!-- <a href="tel:+79083430745" class="w-full text-center rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Скопировать номер</a> -->
-          <button id="callButton" class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Позвонить!!!</button>
+          <input type="hidden" value="89083430745" id="myInput">
+          <button id="callButton" class="w-full rounded-lg border-2 bg-white px-3 py-1 text-sm font-medium text-gray-500">Скопировать номер</button>
           <a href="https://t.me/dminnullin" class="w-full rounded-lg border-2 border-transparent text-center text-sm bg-blue-600 px-3 py-1 font-medium text-white">Написать в лс</a>
         </div>
       </div>
     </div>
+
+    <div>
+      <!-- Success -->
+      <!-- <div class="relative m-2 my-8 max-w-sm rounded-lg border border-gray-100 bg-white px-12 py-6 shadow-md">
+        <button class="absolute top-0 right-0 p-4 text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <p class="relative mb-1 text-sm font-medium">
+          <span class="absolute -left-7 flex h-5 w-5 items-center justify-center rounded-xl bg-green-400 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-3 w-3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </span>
+          <span class="text-gray-700">Номер скопирован!</span>
+        </p>
+      </div> -->
 
         
     
@@ -118,19 +137,13 @@
           window.location.href = "https://www.youtube.com/";
         }
 
-        // Находим кнопку по её ID
-          const callButton = document.getElementById('callButton');
-
-          // Задаем номер, на который нужно позвонить
-          const phoneNumber = '89083430745';
-
-          // Функция для набора номера
-          function makeCall() {
-            window.location.href = `tel:${phoneNumber}`;
-          }
-
-          // Привязываем функцию к событию нажатия на кнопку
-          callButton.addEventListener('click', makeCall);
+        function copyText() {
+          var copyText = document.getElementById("myInput");
+          copyText.select();
+          document.execCommand("copy");
+          alert("Текст скопирован: " + copyText.value);
+        }
+        
     </script>
   </body>
 </html>
