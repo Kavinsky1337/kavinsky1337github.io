@@ -1,119 +1,167 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <title>Usefulwork.ru - поиск полезной работы</title>
-
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
 
-  <body>
-    <div class="lg:m-10">
-        <form class="relative border border-gray-100 space-y-3 max-w-screen-md mx-auto rounded-md bg-white p-6 shadow-xl lg:p-10">
-        <h1 class="mb-6 text-xl font-semibold lg:text-2xl">Заполните все данные резюме</h1>
+
+
+
+<body class="h-auto mb-10">
+
+    <!-- header -->
+    <header class="text-slate-700 container relative mx-auto flex flex-col overflow-hidden px-4 py-4 lg:flex-row lg:items-center">
+        <a href="#" id="headerName" class="flex items-center whitespace-nowrap text-2xl font-black">
+          <span class="mr-2 w-8">
+            <img class="rounded-full" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="" />
+          </span>
+          🌖Махараджик
+        </a>
+        <input type="checkbox" class="peer hidden" id="navbar-open" />
+        <label class="absolute top-5 right-5 cursor-pointer lg:hidden" for="navbar-open">
+          <svg class="h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </label>
+        <nav aria-label="Header Navigation" class=" peer-checked:pt-8 peer-checked:max-h-80 flex  max-h-0 w-full flex-col items-center overflow-hidden transition-all lg:ml-24 lg:max-h-full lg:flex-row">
+          <ul class="flex w-full flex-col items-center space-y-2 lg:flex-row lg:justify-center lg:space-y-0 lg:w-full ">
+            <!-- <li class="lg:mr-12"><a href="#" title="" class="whitespace-nowrap rounded-xl bg-emerald-600 px-5 py-1 font-medium text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 hover:bg-emerald-500">Ищу работу</a></li>
+            <li class="lg:mr-12"><a href="#" title="" class="whitespace-nowrap rounded-xl bg-emerald-600 px-10 py-1 font-medium text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 hover:bg-emerald-500">Создать объявление о посике работы</a></li>
+            <li class="lg:mr-12"><a href="#" title="" class="whitespace-nowrap rounded-xl bg-emerald-600 px-5 py-1 font-medium text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 hover:bg-emerald-500">Get free trial</a></li>
+            <li class="lg:mr-12"><a href="#" title="" class="whitespace-nowrap rounded-xl bg-emerald-600 px-5 py-1 font-medium text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 hover:bg-emerald-500">Get free trial</a></li>
+            <li class="lg:mr-12"><a href="#" title="" class="whitespace-nowrap rounded-xl bg-emerald-600 px-5 py-1 font-medium text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 hover:bg-emerald-500">Get free trial</a></li> -->
+            <li class="lg:mr-12"><button type="button" class="w-full py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-emerald-600 text-white hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg> 
+                Смотреть резюме
+              </button></li>
+
+              <li class="lg:mr-12"><button type="button" class="w-full py-2 px-3  inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-emerald-600 text-white hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg> 
+                Смотреть вакансии
+              </button></li>
+
+              <li class="lg:mr-12"><button type="button" class="w-full py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-emerald-600 text-white hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                Создать резюме
+              </button></li>
+
+            <li class="lg:mr-12"><button type="button" class="w-full py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-emerald-600 text-white hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                Создать вакансию
+              </button></li>
+
+            <li class="lg:mr-12"><button type="button" class="w-full py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-emerald-600 text-white hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg> 
+                Личный кабинет
+              </button></li>
+
+          </ul>
+          <hr class="mt-4 w-full lg:hidden" />
+        </nav>
+      </header>
       
-        <!-- Выбор типа работ -->
-        <div>
-            <label class="font-medium"> Выберите тип работы </label>
-            <div class="relative w-56 mt-2 bg-gray-100 rounded-lg w-full">
-              <input class="peer hidden" type="checkbox" name="select-1" id="select-1" />
-              <label for="select-1" class="flex w-full cursor-pointer rounded-lg select-none border p-2 px-3 text-sm text-gray-700 ring-blue-400 peer-checked:ring">Тип работы </label>
-              <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute right-5 top-3 h-4 text-gray-600 transition peer-checked:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-              <ul class="max-h-0  select-none flex-col overflow-hidden rounded-b-lg shadow-md transition-all duration-300 peer-checked:max-h-56 peer-checked:py-3">
-                <li class="cursor-pointer px-3 py-2 text-sm text-gray-500 hover:bg-blue-500 hover:text-white">Постоянная работа</li>
-                <li class="cursor-pointer px-3 py-2 text-sm text-gray-500 hover:bg-blue-500 hover:text-white">Временная подработка</li>
-              </ul>
-            </div>
-        </div>
+    <!-- main menu  -->
+    <div class="mt-1 w-full flex-col space-y-3 rounded-xl px-4 lg:flex">
 
-        <!-- Выбор Категории работ -->
-        <div>
-            <label class="font-medium"> Выберите категорию работы </label>
-            <div class="relative w-56 mt-2 bg-gray-100 rounded-lg w-full">
-                <input class="peer hidden" type="checkbox" name="select-2" id="select-2" />
-                <label for="select-2" class="flex w-full cursor-pointer rounded-lg select-none border p-2 px-3 text-sm text-gray-700 ring-blue-400 peer-checked:ring">Категория работы </label>
-                <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute right-5 top-3 h-4 text-gray-600 transition peer-checked:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-                <ul class="max-h-0  select-none flex-col overflow-hidden rounded-b-lg shadow-md transition-all duration-300 peer-checked:max-h-56 peer-checked:py-3">
-                    <li class="cursor-pointer px-3 py-2 text-sm text-gray-500 hover:bg-blue-500 hover:text-white">Сварщик</li>
-                    <li class="cursor-pointer px-3 py-2 text-sm text-gray-500 hover:bg-blue-500 hover:text-white">Водитель</li>
-                    <li class="cursor-pointer px-3 py-2 text-sm text-gray-500 hover:bg-blue-500 hover:text-white">Уборщик</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Выбор Города -->
-        <div>
-            <label class="font-medium"> Выберите категорию работы </label>
-            <div class="relative w-56 mt-2 bg-gray-100 rounded-lg w-full">
-                <input class="peer hidden" type="checkbox" name="select-3" id="select-3" />
-                <label for="select-3" class="flex w-full cursor-pointer rounded-lg select-none border p-2 px-3 text-sm text-gray-700 ring-blue-400 peer-checked:ring">Категория работы </label>
-                <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute right-5 top-3 h-4 text-gray-600 transition peer-checked:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-                <ul class="max-h-0  select-none flex-col overflow-hidden rounded-b-lg shadow-md transition-all duration-300 peer-checked:max-h-56 peer-checked:py-3">
-                    <li class="cursor-pointer px-3 py-2 text-sm text-gray-500 hover:bg-blue-500 hover:text-white">Сварщик</li>
-                    <li class="cursor-pointer px-3 py-2 text-sm text-gray-500 hover:bg-blue-500 hover:text-white">Водитель</li>
-                    <li class="cursor-pointer px-3 py-2 text-sm text-gray-500 hover:bg-blue-500 hover:text-white">Уборщик</li>
-                </ul>
-            </div>
-        </div>
-
-        <div>
-          <label class=""> Username </label>
-          <input type="text" placeholder="Username" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-        </div>
-        <div>
-          <label class=""> Email Address </label>
-          <input type="email" placeholder="Info@example.com" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-        </div>
-        <div>
-          <label class=""> Password </label>
-          <input type="password" placeholder="******" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-        </div>
-        <div class="grid gap-3 lg:grid-cols-2">
-
-          <div>
-            <label class=""> Phone: <span class="text-sm text-gray-400">(optional)</span> </label>
-            <input type="text" placeholder="+543 5445 0543" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
+        <div class="flex rounded-xl bg-emerald-600 py-2 px-2 text-white shadow-lg shadow-emerald-200">
+          <div class="my-auto mr-4 p-3 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>              
+          </div>
+          <div class="">
+            <p class="text-2xl font-bold">Резюме</p>
+            <p class="text-sm">Смотреть объявление с вакансиями о поиске работы</p>
           </div>
         </div>
-        <div>
-          <button type="button" class="mt-5 w-full rounded-md bg-green-600 p-2 text-center font-semibold text-white">Добавить резюме</button>
+
+        <div class="flex rounded-xl bg-emerald-600 py-2 px-2 text-white shadow-lg shadow-emerald-200">
+          <div class="my-auto mr-4 p-3 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>              
+          </div>
+          <div class="">
+            <p class="text-2xl font-bold">Вакансии</p>
+            <p class="text-sm ">Смотреть объявление с вакансиями о поиске работников</p>
+          </div>
         </div>
-      </form>
+
+        <div class="flex rounded-xl bg-white py-2 px-2 text-vlack shadow-lg shadow-emerald-200 border-dashed border-2 border-emerald-600">
+            <div class="my-auto mr-4 p-3 text-slate-700">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+            </div>
+            <div class="">
+              <p class="text-2xl font-bold text-slate-700">Резюме</p>
+              <p class="text-sm text-slate-700 font-bold">Создать объявление о поиске работы</p>
+            </div>
+        </div>
+
+        <div class="flex rounded-xl bg-white py-2 px-2 text-vlack shadow-lg shadow-emerald-200 border-dashed border-2 border-emerald-600">
+            <div class="my-auto mr-4 p-3 text-slate-700">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+            </div>
+            <div class="">
+              <p class="text-2xl font-bold text-slate-700">Вакансия</p>
+              <p class="text-sm text-slate-700 font-bold">Создать объявление о поиске работника</p>
+            </div>
+        </div>
+
+        <div class="flex justify-center items-center rounded-xl bg-emerald-600 py-2 px-2 text-white shadow-lg shadow-emerald-200">
+            <div class="my-auto mr-4 p-3 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                  </svg>                  
+            </div>
+            <div class="">
+              <p class="text-xl font-bold">Личный кабинет</p>
+            </div>
+        </div>
+
+    </div>
+
+
       
-      </div>
 
-    
 
+<!--js script-->
     <script>
-        let tg = window.Telegram.WebApp;
-        let user_id = tg.initDataUnsafe.user.id;
-        let user_firstname = tg.initDataUnsafe.user.first_name;
-        let username = tg.initDataUnsafe.user.username;
-        let photo = tg.initDataUnsafe.user.photo_url;
+      let tg = window.Telegram.WebApp;
+      let user_id = tg.initDataUnsafe.user.id;
+      let user_name = tg.initDataUnsafe.user.user_name;
+      let user_firstname = tg.initDataUnsafe.user.first_name;
+      let user_lastname = tg.initDataUnsafe.user.last_name;
 
-        // Вывод имено в приветствии
-        var helloElement = document.getElementById("hello");
-        helloElement.textContent = `${user_firstname}, заполните объявление!`;
+      function setUserInfo(user_name) {
+        let headerName = document.getElementById("headerName");
 
-        // Установка ID в скрытый элемент
-        document.getElementById("userid").value = user_id;
+        headerName.innerHTML = user_name;
+      }
 
-        // Скрыть элемент при нажатии на пустую область
-        document.addEventListener('click', function(event) {
-          if (event.target !== inputField) {
-          inputField.blur();
-          }
-        });
+      setUserInfo(user_name);
 
     </script>
-  </body>
+
+</body>
 </html>
